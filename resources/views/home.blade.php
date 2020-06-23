@@ -13,8 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <a href="/home/userList"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a> 
                 </div>
             </div>
         </div>
