@@ -19,10 +19,11 @@ class UsersActive
         If ($request->user()->estado == 1) { return $next($request) ;
 
         } else {
-        
-            //return route('logout') ;
-        //Return redirect()->route('/login') ;
-        dd('usted ha sido inhabilitado');
+            Auth::logout() ;
+            return redirect('login');
+
+        //Return route('/login') ;
+        //dd('usted ha sido inhabilitado');
         }
 
     }
