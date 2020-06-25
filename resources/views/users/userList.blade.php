@@ -24,15 +24,17 @@
         <td>{{$users->phone}}</td>
         <td>{{$users->created_at}}</td>
         <td>
-        <a href="{{route('usuarios.edit', $users->id)}}"><button type="button" class="btn btn-primary">Editar</button></a>
         
         
         <form method="POST" action="{{route('usuarios.destroy',$users->id)}}">
+          
+          <a href="{{route('usuarios.edit', $users->id)}}"><button type="button" 
+            class="btn btn-primary">Editar</button></a>
+
           @csrf
           @method('DELETE')
           <button type="submit" class="btn btn-danger">Eliminar</button>
-        </form>  
-      
+        </form> 
         </td>
       </tr>
       @endforeach

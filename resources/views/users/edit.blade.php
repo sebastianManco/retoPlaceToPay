@@ -69,6 +69,21 @@
                             </div>
                         </div>
 
+                        <!--deshabilitar usuario-->
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+
+                             <div class="custom-control custom-checkbox">
+                             <input type="checkbox" class="custom-control-input" 
+                             value="{{$usuario->estado == 1 ?  1 : 0}}" 
+                              {{ $usuario->estado == 1  ?  'checked' :" "}}  id="customCheck" name="estado">
+
+
+                                <label class="custom-control-label" for="customCheck">¿inhabilitar usuario?</label>
+                            </div>
+                            
+                            </div>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -77,7 +77,12 @@ class UserController extends Controller
         $user->last_name =$request->last_name;
         $user->email =$request->email;
         $user->phone =$request->phone;
+        $user->estado = (!request()->has('estado') == '1' ? '0' : '1'); 
         $user->save();
+
+
+
+
         //flash::warning('El usurio '. $user->name. ' '. $user->last_name. ' ha sido Actualizado.');
         return redirect('home/userList') ;
     }
@@ -94,6 +99,8 @@ class UserController extends Controller
 
         $users->delete();
 
-        return redirect('home/userList') ;
+        return redirect('home') ;
     }
-}
+    
+
+ }
