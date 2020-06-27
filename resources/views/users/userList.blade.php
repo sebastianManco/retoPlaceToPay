@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="/home"><button type="button" class="btn btn-outline-secondary">Devolver</button></a>
+<div class="card-body">
+<div class="form-group row">
+<a href=" {{route('usuarios.create')}} "><button type="button" class="btn btn-outline-success">Nuevo usuario</button></a>
+</div>
+
 <table class="table table-borderless">
     <thead>
       <tr>
@@ -27,18 +31,20 @@
         
         
         <form method="POST" action="{{route('usuarios.destroy',$users->id)}}">
+
           
           <a href="{{route('usuarios.edit', $users->id)}}"><button type="button" 
-            class="btn btn-primary">Editar</button></a>
+            class="btn btn-outline-secondary">Editar</button></a>
 
           @csrf
           @method('DELETE')
-          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <button type="submit" class="btn btn-outline-danger">Eliminar</button>
         </form> 
         </td>
       </tr>
       @endforeach
     </tbody>
   </table>
+</div>
     
 @endsection
