@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Editar Usuario:{{$usuario->name }}</div>
+                <div class="card-header"><h2>{{ __('Editar Usuario') }}</h2></div>
 
                 <div class="card-body">
                 <form method="POST" action="{{route('usuarios.update',$usuario->id)}}">
@@ -75,18 +75,23 @@
 
                              <div class="custom-control custom-checkbox">
                              <input type="checkbox" class="custom-control-input" 
-                             value="{{$usuario->estado == 1 ?  0 : 1}}" 
-                              {{ $usuario->estado == 1  ?  'checked' :" "}}  id="customCheck" name="estado">
-                                <label class="custom-control-label" for="customCheck">¿inhabilitar usuario?</label>
+                             value="{{$usuario->estado == 1 ? 1  : 0}}" 
+                              {{ $usuario->estado ==  1 ? 'checked' :""}}  id="customCheck" name="estado">
+                                <label class="custom-control-label" for="customCheck">{{ __('Usuario habilitado') }}</label>
                             </div>
                             
                             </div>
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Actualizar') }}
+                                <button type="submit" class="btn btn-outline-primary">
+                                    {{ __('Actualizar') }} 
                                 </button>
+                                <a href="{{route('usuarios.index')}}">
+                                    <button type="button" class="btn btn-outline-danger">
+                                        {{ __('Canacelar') }}</button>
+                                </a>
+
                             </div>
                         </div>
                     </form>

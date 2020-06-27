@@ -94,8 +94,11 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">Crear </button>
+                                <button type="submit" class="btn btn-outline-primary">Crear </button>
+                                <a href="{{route('usuarios.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button>
+                                </a>
                             </div>
+
                         </div>
                     </form>
                 </div>

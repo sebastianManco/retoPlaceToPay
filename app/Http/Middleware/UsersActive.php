@@ -16,14 +16,14 @@ class UsersActive
      */
     public function handle($request, Closure $next)
     {
-        If ($request->user()->estado == 1) { return $next($request) ;
+        If ($request->user()->estado == 1) { 
+            
+            return $next($request) ;
 
         } else {
             Auth::logout() ;
             return redirect('login');
 
-        //Return route('/login') ;
-        //dd('usted ha sido inhabilitado');
         }
 
     }

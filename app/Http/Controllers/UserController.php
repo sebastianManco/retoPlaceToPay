@@ -36,10 +36,16 @@ class UserController extends Controller
 
     }
 
-    
+    /*he empleado dos formas de traer los usuarios de la BD para mostrarlos en la interfaz
+    en la funcion show y en la funcion edit estan empleados ¿Cual es válido para usar?*/
+
     public function show($id)
     {
       
+        $user=User::find($id);
+        return view('users.details', compact('user'));
+
+
     }
 
 
@@ -56,28 +62,19 @@ class UserController extends Controller
         $user->last_name =$request->last_name;
         $user->email =$request->email;
         $user->phone =$request->phone;
-        $user->estado = (!request()->has('estado') == '1' ? '0' : '1'); 
+        $user->estado = (!request()->has('estado') == '1' ? '0' : '1');
         $user->save();
-
-
-
-
         return redirect('home/userList') ;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $users=User::findOrFail($id);
 
         $users->delete();
 
-        return redirect('home') ;
+        return redirect('home/userList') ;
     }
     
 
