@@ -8,7 +8,7 @@
         <div class="card-header"><h2>Usuarios</h2></div>
           <div class="card-body">
             <div class="form-group row">
-              <a href=" {{route('usuarios.create')}} ">
+              <a href=" {{route('users.create')}} ">
                 <button type="button" class="btn btn-outline-success">Nuevo usuario</button>
               </a>
             </div>
@@ -28,16 +28,16 @@
                       <td>{{$users->name}}</td>
                       <td>{{$users->last_name}}</td>
                       <td>
-                        <form method="POST" action="{{route('usuarios.destroy',$users->id)}}">
-                          <a href="{{route('usuarios.show',$users->id)}}">
-                            <button type="button" class="btn btn-outline-info">Ver</button>
+                        <form method="POST" action="{{route('users.destroy',$users->id)}}">
+                          <a href="{{route('users.show',$users->id)}}">
+                            <button type="button" class="btn btn-outline-info">Detalles</button>
                           </a>          
-                          <a href="{{route('usuarios.edit', $users->id)}}">
+                          <a href="{{route('users.edit', $users->id)}}">
                             <button type="button" class="btn btn-outline-secondary">Editar</button>
                           </a>
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                          <!--<button type="submit" class="btn btn-outline-danger">Eliminar</button>-->
                         </form> 
                       </td>
                     </tr>

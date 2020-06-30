@@ -23,7 +23,6 @@ class UsersActive
         } else {
             Auth::logout() ;
             return redirect('login');
-
         }
 
     }

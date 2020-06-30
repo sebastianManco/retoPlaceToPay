@@ -12,7 +12,7 @@
                     <p>Correo electrónico: {{$user->email}}</p>
                     <p>teléfono: {{$user->phone}}</p>
                     <p>Estado: {{ $user->estado == 1  ? "habilitado" :"deshabilitado"}}</p>
-                    <a href="{{route('usuarios.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button>
+                    <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button>
                     </a>
                 </div>
                 </div>
