@@ -36,5 +36,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
 
+//Relacion de muchos a muchos con la tabla roles
+    public function roles(){
+        return $this->belongsToMany('App\Role')->withTimesTamps();
+    }
 }
