@@ -13,7 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                   
+                    <div>Lista de productos</div>
+                    
                     <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a> 
+                        <div>lsta de productos</div>
+              
                 </div>
             </div>
         </div>
