@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use App\Http\Controllers\flash;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,15 +38,18 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $user= new User();
-        $user->name =request('name');
-        $user->last_name =request('last_name');
-        $user->email =request('email');
-        $user->phone =request('phone');
-        $user->password = Hash::make($request['password']);
-        $user->save();
+            $user= new User();
+            $user->name =request('name');
+            $user->last_name =request('last_name');
+            $user->email =request('email');
+            $user->phone =request('phone');
+            $user->password = Hash::make($request['password']);
+            $user->save();
+            $user->roles()->sync(Role::where('name', 'user')->first());
         return redirect('home/userList') ;
 
+
+    
     }
 
 

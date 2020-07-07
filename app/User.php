@@ -38,14 +38,15 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     
 
-//Relacion de muchos a muchos con la tabla roles
-    public function roles(){
+    //Relacion de muchos a muchos con la tabla roles
+    public function roles()
+    {
         return $this->belongsToMany('App\Role')->withTimesTamps();
     }
 
-    //validacion de los roles 
+    //validacion de los roles
 
-       /* public function authorizeRoles($roles)
+    public function authorizeRoles($roles)
     {
         if ($this->hasAnyRole($roles)) {
             return true;
@@ -73,5 +74,5 @@ class User extends Authenticatable implements MustVerifyEmail
             return true;
         }
         return false;
-    }*/
+    }
 }

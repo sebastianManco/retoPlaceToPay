@@ -74,9 +74,7 @@ class RegisterController extends Controller
             'phone'=>$data['phone'],
             'password' => Hash::make($data['password']),
         ]);
-        $user
-        ->roles()
-        ->attach(Role::where('name', 'user')->first());
+        $user->roles()->sync(Role::where('name', 'user')->first());
         return $user;
     }
 
