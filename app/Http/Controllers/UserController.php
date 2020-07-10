@@ -52,7 +52,7 @@ class UserController extends Controller
     /*he empleado dos formas de traer los usuarios de la BD para mostrarlos en la interfaz.
     en la funcion show y en la funcion edit estan empleados ¿Cual es válido para usar?*/
 
-    public function show($id)
+    public function show(int $id): \Illuminate\View\View
     {   
         $user=User::find($id);
         return view('users.details', compact('user'));
@@ -62,7 +62,7 @@ class UserController extends Controller
     //se extraen los datos de un usuario específico
     // para mostrarlos en un formalario para ser actualizados
 
-    public function edit(USer $user)
+    public function edit(User $user)
     {
         return view('users.edit', compact('user'));
     }
