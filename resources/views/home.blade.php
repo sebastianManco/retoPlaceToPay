@@ -17,6 +17,8 @@
                         <div>lista de productos </div>
                     @else   
                         <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a>                                                
+                        <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-primary">lista de productos</button></a>                                                
+
                     @endif
                 
                 </div>

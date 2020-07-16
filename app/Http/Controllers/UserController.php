@@ -88,5 +88,4 @@ class UserController extends Controller
         return redirect('/home/userList') ;
     }
 
-
  }
