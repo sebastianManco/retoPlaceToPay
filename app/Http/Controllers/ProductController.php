@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
+use App\Stock;
 
 class ProductController extends Controller
 {
@@ -15,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index',['products'=>$products]);
+        return view('products.index', ['products'=>$products]);
     }
 
     /**
@@ -25,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $category = Category::all();
+        return view('products.create', compact('category'));
     }
 
     /**
@@ -34,9 +37,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Stock $stock, Category $category, Request $request)
     {
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
@@ -45,7 +48,9 @@ class ProductController extends Controller
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->image = $name;
+        $products->category_id = $request->input('category_id');
         $products->save();
+        
         return redirect('/') ;
     }
 
@@ -67,9 +72,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $category = Category::all();
+        return view('products.edit', compact('product'), compact('category'));
     }
 
     /**
@@ -81,7 +87,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
+        
+        $products = Product::find($id);
+        $products->description = $request->input('description');
+        $products->price = $request->input('price');
+        $products->image = $name;
+        $products->category_id = $request->input('category_id');
+        $products->save();
+        return redirect('/') ;
     }
 
     /**

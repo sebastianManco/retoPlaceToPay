@@ -7,7 +7,7 @@
                 <div class="card-header"><h2>Editar Usuario</h2></div>
 
                 <div class="card-body">
-                <form method="POST" action="{{route('users.update',$user->id)}}">
+                <form method="POST" action="{{route('users.update', $user->id)}}">
                         @method('PUT')
                         @csrf
                                 <!---campo de nombre---->

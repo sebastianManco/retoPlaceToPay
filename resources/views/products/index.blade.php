@@ -25,6 +25,11 @@
                               <td>{{$products->description}}</td>
                               <td>{{$products->price}}</td>
                               <td>
+                             <a href="{{route('products.edit', $products->id)}}"> 
+                              <button type="button" class="btn btn-outline-secondary">Editar</button>
+
+                            </a>
+                              
                                 <a href="{{route('products.show', $products->id)}}">
                                     <button type="button" class="btn btn-outline-primary">detalles</button>
                                 </a>                                                

@@ -10,6 +10,7 @@
                     <div class="card-body">
                     <p>Nombre: {{$product->description}}</p>
                     <p>Precio: {{$product->price}}</p>
+                    <p>categoria: {{$product->Category_id}}</p>
                      {{-- $user->estado == 1  ? "habilitado" :"deshabilitado"--}}
                      <p>
                          <img src="../../../images/{{$product->image}}" alt="">

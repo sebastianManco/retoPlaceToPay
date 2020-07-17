@@ -3,30 +3,32 @@
 @section('content')
 @section('content')
 
-    <form class="form-group" method="POST" action="/products"  enctype="multipart/form-data">
+    <form class="form-group" method="POST" action="{{route('products.update', $product->id)}}"  enctype="multipart/form-data">
+    @method('PUT')
     @csrf
+
     <div class="form-group">
         <label for="" >Nombre</label>
-        <input type="text" name="description" class="form-control">
+        <input type="text" name="description" class="form-control" value="{{$product->description}}">
     </div>
 
     <div class="form-group">
         <select name="category_id" id="inputCategoria:id" class=·form-control>
-            <option value="">--escoja la categoria--</option>></option>
-            @foreach($category as $category )
+            <option value="">{{$product->category_id}}</option>></option>
+            @foreach($category as $category)
             <option value="{{$category->id}}"> {{$category->name}} </option>
-        @endforeach
+            @endforeach
         </select>
     </div>
 
 
     <div class="form-group">
-        <label for="" >Precio</label>
-        <input type="text" name="price" class="form-control">
+        <label for="" >precio</label>
+        <input type="text" name="price" class="form-control" value="{{$product->price}}">
     </div>
     <div class="form-group">
         <label for="" >Imagen</label>
-        <input type="file" name="image" class="form-control">
+        <input type="file" name="image" class="form-control" value="{{$product->image}}">
     </div>
     <div class="form-group">
         <label for="" >Cantidad del prodcuto</label>
