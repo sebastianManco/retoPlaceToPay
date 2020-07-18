@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -10,6 +11,8 @@ class Product extends Model
     protected $fillable = [
         'description', 'image','price'
     ];
+
+  
 
     //relacion con categorias
     
@@ -24,4 +27,18 @@ class Product extends Model
    {
     return $this->hasOne('App\Stock');
    }
+
+  /**
+     * @param Builder $query
+     * @param string|null $description
+     * @return Builder
+     */
+    public static function scopeDescription(Builder $query, ? string $description):Builder
+    {
+        if (null !== $description) {
+            return $query->where('description', 'like', "%$description%");
+        }
+        return $query;
+    }
+
 }

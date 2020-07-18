@@ -3,21 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
 use App\Stock;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('usersActive');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
-        return view('products.index', ['products'=>$products]);
+        $products = Product::description($request->input('filter.description'))
+        ->paginate(5);
+
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -39,15 +48,15 @@ class ProductController extends Controller
      */
     public function store(Stock $stock, Category $category, Request $request)
     {
+        $products = new Product();
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
+            $products->image = $name;
         }
-        $products = new Product();
         $products->description = $request->input('description');
         $products->price = $request->input('price');
-        $products->image = $name;
         $products->category_id = $request->input('category_id');
         $products->save();
         
@@ -87,16 +96,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $products = Product::find($id);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
+            $products->image = $name;
         }
-        
-        $products = Product::find($id);
+
         $products->description = $request->input('description');
         $products->price = $request->input('price');
-        $products->image = $name;
         $products->category_id = $request->input('category_id');
         $products->save();
         return redirect('/') ;

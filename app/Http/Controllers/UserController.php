@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Role;
 use App\Http\Controllers\flash;
@@ -21,7 +22,7 @@ class UserController extends Controller
     /*hace visible la informacíon principal de los usuarios registrados en BD*/
     public function index()
     {
-        $users=User::all();
+        $users=DB::table('users')->paginate(15); 
         return view('users.userList', ['users'=>$users]);
     }
 
