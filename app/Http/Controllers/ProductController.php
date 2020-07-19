@@ -23,10 +23,16 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::description($request->input('filter.description'))
-        ->paginate(5);
+         $products = Product::description($request->input('filter.description'))->paginate();
+       return view('products.index', compact('products'));
+    }
 
-        return view('products.index', compact('products'));
+
+    public function userView()
+    {
+       $products = Product::active()->get();
+         //$products = DB::table('products')->paginate(1);
+        return view('products.indexClient', compact('products'));
     }
 
     /**
@@ -57,9 +63,11 @@ class ProductController extends Controller
         }
         $products->description = $request->input('description');
         $products->price = $request->input('price');
+
         $products->category_id = $request->input('category_id');
+
         $products->save();
-        
+
         return redirect('/') ;
     }
 
@@ -107,8 +115,9 @@ class ProductController extends Controller
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
+        $products->active = (!request()->has('active') == '1' ? '0' : '1');
         $products->save();
-        return redirect('/') ;
+        return redirect(route('products.index')) ;
     }
 
     /**
