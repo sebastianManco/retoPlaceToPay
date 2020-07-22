@@ -19,7 +19,6 @@
         </select>
     </div>
 
-
     <div class="form-group">
         <label for="" >Precio</label>
         <input type="text" name="price" class="form-control">

@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     @if(Auth::guest() || Auth::user()->hasRole('user'))
-                        <div>lista de productos </div>
+                    <a href="{{route('products/indexClient')}}"><button type="button" class="btn btn-outline-primary">lista de productos</button></a>                                                
                     @else   
                         <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a>                                                
                         <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-primary">lista de productos</button></a>                                                

@@ -12,12 +12,17 @@
     </div>
 
     <div class="form-group">
+
+
         <select name="category_id" id="inputCategoria:id" class=·form-control>
-        <option value="">{{$product->category_id}}</option>></option>
-            @foreach($category as $category)
-            <option value="{{$category->id}}"> {{$category->name}} </option>
+        <option value="{{$product->category_id}}"> {{ $product->category->name }}</option>
+            @foreach($category as $categories)
+            <option value="{{ $categories->id }}"> {{$categories->name}} </option>
             @endforeach
         </select>
+    
+    
+    
     </div>
     <div class="form-group">
         <label for="" >precio</label>

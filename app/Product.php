@@ -8,19 +8,15 @@ use Illuminate\Database\Eloquent\Builder;
 class Product extends Model
 {
     protected $fillable = [
-        'description', 'image','price', 'active'
+        'description', 'image','price', 'active', 'stock'
     ];
 
-    //relacion con categorias
+     /**
+    * 
+    */
     public function category()
     {
-        return $this->hasMany('App\Category');
-   }
-
-   //relacion con stock
-   public function stock()
-   {
-    return $this->hasOne('App\Stock');
+        return $this->belongsTo('App\Category');
    }
 
   /**

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\cache;
 use App\Product;
 use App\Category;
+use App\Http\Requests\ProductCreateRequest;
 use App\Stock;
+
 
 class ProductController extends Controller
 {
@@ -23,16 +26,9 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-         $products = Product::description($request->input('filter.description'))->paginate();
-       return view('products.index', compact('products'));
-    }
-
-
-    public function userView()
-    {
-       $products = Product::active()->get();
-         //$products = DB::table('products')->paginate(1);
-        return view('products.indexClient', compact('products'));
+     $products = Product::description($request->input('filter.description'))->paginate(4);
+     
+     return view('products.index', compact('products'));
     }
 
     /**
@@ -42,18 +38,22 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $category = Category::all();
+        //Cache::forget('categories');
+        $category = Cache::rememberForever('categories', function () {
+            return Category::all();
+        });
         return view('products.create', compact('category'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\ProductCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Stock $stock, Category $category, Request $request)
+    public function store( Category $category, Request $request)
     {
+
         $products = new Product();
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -63,12 +63,10 @@ class ProductController extends Controller
         }
         $products->description = $request->input('description');
         $products->price = $request->input('price');
-
         $products->category_id = $request->input('category_id');
-
+        $products->stock = $request->input('stock');
         $products->save();
-
-        return redirect('/') ;
+        return redirect('/products') ;
     }
 
     /**
@@ -79,8 +77,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        app()->setLocale('en');
         $product=Product::find($id);
-        return view('products.details', compact('product'));
+        $category = Category::all();
+        return view('products.details', compact('product'), compact('category') );
     }
 
     /**
@@ -90,7 +90,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
-    {
+    {      
         $category = Category::all();
         return view('products.edit', compact('product'), compact('category'));
     }
