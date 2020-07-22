@@ -53,6 +53,8 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         abort(401, 'Esta acción no está autorizada.');
     }
+
+    
     public function hasAnyRole($roles)
     {
         if (is_array($roles)) {
@@ -68,6 +70,8 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         return false;
     }
+
+
     public function hasRole($role)
     {
         if ($this->roles()->where('name', $role)->first()) {

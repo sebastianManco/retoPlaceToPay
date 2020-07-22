@@ -12,13 +12,8 @@ class Role extends Model
 
 
     //Relacion de muchos a muchos con la tabla Users
-    public function users(){
+    public function users()
+    {
         return $this->belongsToMany('App\User')->withTimesTamps();
     }
-
-    public function permissions(){
-        return $this->belongsToMany('App\Permission')->withTimesTamps();
-    }
 }
-
-
