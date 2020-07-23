@@ -26,6 +26,10 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        cache::put('prueba', 'esto es un dato en cache');
+        dd(cache::get('prueba'));
+        
+
      $products = Product::description($request->input('filter.description'))->paginate(4);
      
      return view('products.index', compact('products'));
