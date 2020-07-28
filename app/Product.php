@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Product extends Model
 {
     protected $fillable = [
-        'description', 'image','price', 'active', 'stock'
+        'name', 'description', 'price', 'active', 'stock'
     ];
 
      /**
@@ -19,17 +19,28 @@ class Product extends Model
         return $this->belongsTo('App\Category');
    }
 
+
+   public function image()
+   {
+       return $this->hasMany('App\Image'); 
+   }
+
   /**
      * @param Builder $query
-     * @param string|null $description
+     * @param string|null $name
      * @return Builder
      */
-    public static function scopeDescription(Builder $query, ? string $description):Builder
+    public static function scopeName(Builder $query, ? string $name):Builder
     {
-        if (null !== $description) {
-            return $query->where('description', 'like', "%$description%");
+        if (null !== $name) {
+            return $query->where('name', 'like', "%$name%");
         }
         return $query;
+    }
+    public function scopeBuscarpor($query, $tipo, $buscar) {
+        if (($tipo) && ($buscar)) {
+            return $query->where($tipo, 'LIKE', "%$buscar%");
+        }
     }
 
     public function scopeActive($query) {

@@ -14,13 +14,17 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table-> engine = 'InnoDB' ;
             $table->id();
+            $table->bigInteger('category_id')->unsigned();
+            $table->string('name', 50);
             $table->string('description', 100);
-            $table->string('image', 50);
             $table->string('price', 8);
             $table->string('stock', 5);
+            $table->boolean('active')->default(1)->nullable();
             $table->timestamps();
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories');
 
         });
     }

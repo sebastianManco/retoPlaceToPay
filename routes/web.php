@@ -26,3 +26,4 @@ Route::get('/home/userList', 'UserController@index')->middleware('AuthAdmin');
 Route::resource('users', 'UserController');
 Route::get('products/indexClient', 'ClientController@index')->name('products/indexClient');
 Route::resource('products', 'ProductController');
+Route::resource('categories', 'categoryController');

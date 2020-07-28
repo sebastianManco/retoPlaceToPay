@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\Category;
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\cache;
-use App\Product;
-use App\Category;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductCreateRequest;
-use App\Stock;
-
 
 class ProductController extends Controller
 {
@@ -26,13 +26,25 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        cache::put('prueba', 'esto es un dato en cache');
-        dd(cache::get('prueba'));
-        
 
-     $products = Product::description($request->input('filter.description'))->paginate(4);
-     
-     return view('products.index', compact('products'));
+        $image = \App\Product::with('images')->where('products.id', '=', 'images.product_id')->get();
+        dd($image);
+        $buscar = $request->get('buscarpor');
+        $tipo = $request->get('tipo');
+        $products = DB::table('products')
+        ->join('images', 'products.id','=','images.product_id')
+        ->select('products.name', 'images.name')
+        ->get();
+        
+       
+
+    //$image = Image::with('product')->whereId(10)->first();
+   // ->buscarpor($tipo, $buscar)
+    //->paginate(3);
+    //$products = Product::buscarpor($tipo, $buscar)->paginate(3);
+    //$products = Product::name($request->input('filter.name'))->paginate();
+
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -43,10 +55,12 @@ class ProductController extends Controller
     public function create()
     {
         //Cache::forget('categories');
-        $category = Cache::rememberForever('categories', function () {
+    $categories = Cache::rememberForever(
+        'categories', function() {
             return Category::all();
-        });
-        return view('products.create', compact('category'));
+        }
+    );
+        return view('products.create', compact('categories'));   
     }
 
     /**
@@ -55,22 +69,24 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\ProductCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( Category $category, Request $request)
+    public function store(  Request $request, Product $products )
     {
-
-        $products = new Product();
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
-            $products->image = $name;
-        }
+    
+        $images = new Image();
+        $products->name = $request->input('name');
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
         $products->save();
-        return redirect('/products') ;
+        if($request->hasFile('image')) {
+            $image = $request->file('image')->store('public');
+            $images->name = $image;
+            $images->product_id = $products->id;
+            $images->save();
+        }
+
+        return redirect('/products')->with('message', 'Guardado con éxito') ;
     }
 
     /**
@@ -82,9 +98,9 @@ class ProductController extends Controller
     public function show($id)
     {
         app()->setLocale('en');
-        $product=Product::find($id);
-        $category = Category::all();
-        return view('products.details', compact('product'), compact('category') );
+        $product = Product::find($id);
+        $image = Image::find($id);
+        return view('products.details', compact('product'), compact('image'));
     }
 
     /**
@@ -94,7 +110,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
-    {      
+    {
         $category = Category::all();
         return view('products.edit', compact('product'), compact('category'));
     }
@@ -109,18 +125,22 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $products = Product::find($id);
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
-            $products->image = $name;
-        }
-
+        $images = Image::find($id);
+        $products->name = $request->input('name');
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
+        $products->stock = $request->input('stock');
         $products->active = (!request()->has('active') == '1' ? '0' : '1');
         $products->save();
+
+        if($request->file('image')) {
+            $image = $request->file('image')->store('public');
+            $images->fill(['name'=>asset($image)]);
+            $images->product_id = $products->id;
+            $images->save();
+        }
+
         return redirect(route('products.index')) ;
     }
 

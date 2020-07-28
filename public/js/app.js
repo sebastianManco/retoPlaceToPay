@@ -49704,6 +49704,19 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+var confirmareliminar = new Vue({
+  el: '#confirmareliminar',
+  data: {
+    urlaeliminar: ''
+  },
+  methods: {
+    deseas_eliminar: function deseas_eliminar() {
+      //alert(id);
+      this.urlaeliminar = document.getElementById('urlbase').innerHTML + '/' + id;
+      $('#modal_eliminar').modal(show);
+    }
+  }
+});
 
 /***/ }),
 
