@@ -17,8 +17,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Product'); 
     }
+    
 
-    public function getCachedCategories(): colletion
+    public function getCachedCategories()
     {
         return Cache::remember(
             'categories', now()->addDay(), function() {

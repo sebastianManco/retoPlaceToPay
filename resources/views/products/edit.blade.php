@@ -42,8 +42,8 @@
         <div class="col-md-6"> 
         <select name="category_id" id="inputCategory_id" class="form-control">
         <option value="{{$product->category_id}}"> {{ $product->category->name }}</option>
-            @foreach($category as $categories)
-            <option value="{{ $categories->id }}"> {{$categories->name}} </option>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}"> {{$category->name}} </option>
             @endforeach
         </select>
     </div>

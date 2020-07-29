@@ -16,7 +16,7 @@
                     <select name="tipo" class="form-control mr-sm-2" id="tipo">
                       <option>Buscar por</option>
                       <option value="name">nombre</option>
-                      <option value="">categoría</option>
+                      <option value="category">categoría</option>
                     </select>
                   <i class="fas fa-search" aria-hidden="true"></i>
                   <input  name="buscarpor" class="form-control mr-sm-2 float-right"  type="search" id="name" placeholder="Buscar" 
@@ -35,10 +35,10 @@
                         <div class="card disabled"  aria-disabled="true"  style="width:200px">
                             <div class="card-body">
                         
-                            <img class=""  src=""  width="100" alt="Card image" style="width:100%">
+                            <img class=""  src="{{ asset('public/'.$product->image) }}"   width="100" alt="Card image" style="width:100%">
                       
                             <div class="card body">
-                              <h4 class="card-title">{{$product->name }}</h4>
+                              <h4 class="card-title">{{$product->name }} </h4>
                               <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary ">detalles</a>
                               <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary ">Editar</a>
                             </div>
@@ -52,7 +52,7 @@
             </div>
             </section>
               <div class="">
-                {{$products->links() }}
+                {{ $products->links() }}
               </div>
           </div>
         

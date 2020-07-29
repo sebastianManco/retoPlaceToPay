@@ -30,13 +30,13 @@ class Product extends Model
      * @param string|null $name
      * @return Builder
      */
-    public static function scopeName(Builder $query, ? string $name):Builder
+    /*public static function scopeName(Builder $query, ? string $name):Builder
     {
         if (null !== $name) {
             return $query->where('name', 'like', "%$name%");
         }
         return $query;
-    }
+    }*/
     public function scopeBuscarpor($query, $tipo, $buscar) {
         if (($tipo) && ($buscar)) {
             return $query->where($tipo, 'LIKE', "%$buscar%");

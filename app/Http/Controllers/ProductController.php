@@ -26,22 +26,16 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-
-        $image = \App\Product::with('images')->where('products.id', '=', 'images.product_id')->get();
-        dd($image);
-        $buscar = $request->get('buscarpor');
+        /*$buscar = $request->get('buscarpor');
         $tipo = $request->get('tipo');
-        $products = DB::table('products')
-        ->join('images', 'products.id','=','images.product_id')
-        ->select('products.name', 'images.name')
-        ->get();
+        $products = Product::buscarpor($tipo, $buscar)->paginate(3);*/
         
-       
 
-    //$image = Image::with('product')->whereId(10)->first();
+
+
    // ->buscarpor($tipo, $buscar)
     //->paginate(3);
-    //$products = Product::buscarpor($tipo, $buscar)->paginate(3);
+   
     //$products = Product::name($request->input('filter.name'))->paginate();
 
         return view('products.index', compact('products'));
@@ -54,13 +48,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //Cache::forget('categories');
-    $categories = Cache::rememberForever(
-        'categories', function() {
-            return Category::all();
-        }
-    );
-        return view('products.create', compact('categories'));   
+        return view('products.create');   
     }
 
     /**
@@ -69,16 +57,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\ProductCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(  Request $request, Product $products )
+    public function store(  ProductCreateRequest $request, Product $products )
     {
     
-        $images = new Image();
+        
         $products->name = $request->input('name');
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
         $products->save();
+        $images = new Image();
         if($request->hasFile('image')) {
             $image = $request->file('image')->store('public');
             $images->name = $image;
@@ -111,8 +100,12 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $category = Category::all();
-        return view('products.edit', compact('product'), compact('category'));
+        $categories = Cache::remember(
+            'categories', now()->addDay(), function() {
+                return Category::all();
+            }
+    );
+        return view('products.edit', compact('product'), compact('categories'));
     }
 
     /**
