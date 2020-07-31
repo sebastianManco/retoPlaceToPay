@@ -38,13 +38,17 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     
 
-    //Relacion de muchos a muchos con la tabla roles
+    /**
+     * 
+     */
     public function roles()
     {
         return $this->belongsToMany('App\Role')->withTimesTamps();
     }
 
-    //validacion de los roles
+    /**
+     * 
+     */
 
     public function authorizeRoles($roles)
     {
@@ -54,7 +58,9 @@ class User extends Authenticatable implements MustVerifyEmail
         abort(401, 'Esta acción no está autorizada.');
     }
 
-    
+    /**
+     * 
+     */
     public function hasAnyRole($roles)
     {
         if (is_array($roles)) {
@@ -71,7 +77,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return false;
     }
 
-
+/**
+ * 
+ */
     public function hasRole($role)
     {
         if ($this->roles()->where('name', $role)->first()) {

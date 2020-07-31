@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
@@ -10,9 +11,10 @@ class Role extends Model
         'name', 'slug','description', 'full-access',
     ];
 
-
-    //Relacion de muchos a muchos con la tabla Users
-    public function users()
+    /**
+     * @return belongsToMany
+     */
+    public function users(): belongsToMany
     {
         return $this->belongsToMany('App\User')->withTimesTamps();
     }

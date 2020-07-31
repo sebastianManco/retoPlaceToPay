@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Image extends Model
 {
@@ -11,7 +12,13 @@ class Image extends Model
         'name', 'product_id'
     ];
 
-    public function product()
+   
+    /**
+     * Undocumented function
+     *
+     * @return belongsTo
+     */
+    public function product(): belongsTo
     {
         return $this->belongsTo('App\Product');
    }

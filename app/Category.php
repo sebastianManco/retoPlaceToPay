@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
@@ -13,12 +14,20 @@ class Category extends Model
         'id', 'name'
     ];
 
-    public function product()
+    /**
+     * Undocumented function
+     *
+     * @return hasMany
+     */
+    public function product(): hasMany
     {
         return $this->hasMany('App\Product'); 
     }
-    
 
+    /**
+     * Undocumented function
+     * @return 
+     */
     public function getCachedCategories()
     {
         return Cache::remember(

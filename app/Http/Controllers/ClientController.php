@@ -15,14 +15,43 @@ class ClientController extends Controller
     }
 
     /**
-     * 
-     *
+     * @param string $search
+     * @param string $type
+     * @param string $query
+     * @param Product $products
+     * @param Request $request
      * @return \Illuminate\View\View
      */
     public function index(Request $request):\Illuminate\View\View
-    {
-       $products = Product::active()->name($request->input('filter.name'))->paginate(4);
+    { 
+        $search= $request->get('search');
+        $type = $request->get('type');
+        switch($type){
+            case 'name':
+                $products = Product::with(
+                    ['image'=> function($query){
+                            $query->select('id','name','product_id');
+                        },
+                        'category'=>function($query){
+                            $query->select('id','name');
+                        }
+                    ])
+                    ->name($search)
+                    ->paginate(3, ['id','name']);
+            break;
+            default:
+            $products = Product::with(
+                ['image'=> function($query){
+                        $query->select('id','name','product_id');
+                    },
+                    'category'=>function($query){
+                        $query->select('id','name');
+                    }
+                ])
+                ->category($search)
+                ->paginate(3, ['id','name']);
+            break;
+        }
         return view('clients.index', compact('products'));
-
-    }
+    } 
 }

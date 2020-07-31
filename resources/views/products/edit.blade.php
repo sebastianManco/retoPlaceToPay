@@ -61,9 +61,9 @@
         </div>
         </div>
         <div class="form-group row">
-            <label for="" class="col-md-4 col-form-label text-md-right">Imagen</label>
+            <label for="file" class="col-md-4 col-form-label text-md-right">Imagen</label>
             <div class="col-md-6">
-            <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror" value="{{$product->image}}">
+            <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
             
             @error('image')
             <span class="invalid-feedback" role="alert">

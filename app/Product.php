@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -11,39 +13,65 @@ class Product extends Model
         'name', 'description', 'price', 'active', 'stock'
     ];
 
-     /**
-    * 
+    /**
+     * Undocumented function
+    *
+    * @return belongsTo
     */
-    public function category()
+    public function category(): belongsTo
     {
         return $this->belongsTo('App\Category');
    }
 
-
-   public function image()
+    /**
+     * Undocumented function
+     *
+     * @return hasMany
+     */
+   public function image(): hasMany
    {
        return $this->hasMany('App\Image'); 
    }
 
-  /**
-     * @param Builder $query
-     * @param string|null $name
-     * @return Builder
+    /**
+     * Undocumented function
+     *
+     * @param string $query
+     * @param string $search
+     * @return 
      */
-    /*public static function scopeName(Builder $query, ? string $name):Builder
+    public function scopeName($query, $search)
     {
-        if (null !== $name) {
-            return $query->where('name', 'like', "%$name%");
-        }
-        return $query;
-    }*/
-    public function scopeBuscarpor($query, $tipo, $buscar) {
-        if (($tipo) && ($buscar)) {
-            return $query->where($tipo, 'LIKE', "%$buscar%");
+        if($search) {
+            return $query->where('name', 'LIKE', "%$search%");
         }
     }
+    
+    /**
+     * Undocumented function
+     *
+     * @param string $query
+     * @param string $search
+     * @return 
+     */
+    public function scopeCategory($query, $search)
+    {
+        if (empty($search)) {
+            return;
+        }
+        return $query->whereHas('category', function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%$search%");
+        });
+    }
 
-    public function scopeActive($query) {
+    /**
+     * Undocumented function
+     *
+     * @param string $query
+     * @return 
+     */
+    public function scopeActive($query)
+     {
         return $query->where('active', 1);
     }
 

@@ -17,8 +17,10 @@
                     <p>Cantidad: {{$product->stock}}</p>
                     @endif 
             
-                    <img class="card-img-top img-responsive"  src=""  width="100" alt="Card image" style="width:100%">
-                    <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
+                        @foreach($product->image as $images)
+                            <img class=""  src="{{ asset($images->name) }}"   width="100" alt="Card image" style="width:100%">
+                          @endforeach                    
+                           <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
                     </div>
                 </div>
             </div>

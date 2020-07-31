@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Product;
@@ -7,12 +6,13 @@ use App\Category;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\cache;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductCreateRequest;
 
 class ProductController extends Controller
 {
+   
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,47 +20,65 @@ class ProductController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param string $search
+     * @param string $type
+     * @param string $query
+     * @param Product $products
+     * @param Request $request
+     * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\View\View
     {
-        /*$buscar = $request->get('buscarpor');
-        $tipo = $request->get('tipo');
-        $products = Product::buscarpor($tipo, $buscar)->paginate(3);*/
-        
-
-
-
-   // ->buscarpor($tipo, $buscar)
-    //->paginate(3);
-   
-    //$products = Product::name($request->input('filter.name'))->paginate();
-
+        $search= $request->get('search');
+        $category = $request->get('type');
+        switch($category){
+            case 'name':
+                $products = Product::with(
+                    ['image'=> function($query){
+                        $query->select('id','name','product_id');
+                    },
+                    'category'=>function($query){
+                            $query->select('id','name');
+                    }
+                ])
+                ->name($search)
+                ->paginate(3, ['id','name']);
+            break;
+            default:
+            $products = Product::with(
+                ['image'=> function($query){
+                        $query->select('id','name','product_id');
+                    },
+                    'category'=>function($query){
+                        $query->select('id','name');
+                    }
+                ])
+                ->category($search)
+                ->paginate(3, ['id','name']);
+            break;
+        }
         return view('products.index', compact('products'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    * Undocumented function
+    * @return \Illuminate\View\View
+    */
+    public function create() : \Illuminate\View\View
     {
         return view('products.create');   
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\ProductCreateRequest  $request
-     * @return \Illuminate\Http\Response
+     * Undocumented function
+     * @param ProductCreateRequest $request
+     * @param Product $products
+     * @param Image $Images
+     * @param string $image
+     * @return void \Illuminate\Routing\Redirector
      */
-    public function store(  ProductCreateRequest $request, Product $products )
+    public function store(  ProductCreateRequest $request, Product $products ) 
     {
-    
-        
         $products->name = $request->input('name');
         $products->description = $request->input('description');
         $products->price = $request->input('price');
@@ -72,78 +90,82 @@ class ProductController extends Controller
             $image = $request->file('image')->store('public');
             $images->name = $image;
             $images->product_id = $products->id;
-            $images->save();
         }
-
+        $products->image()->save($images);
         return redirect('/products')->with('message', 'Guardado con éxito') ;
     }
 
     /**
      * Display the specified resource.
-     *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @param string $query
+     * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show(int $id): \Illuminate\View\View
     {
         app()->setLocale('en');
-        $product = Product::find($id);
-        $image = Image::find($id);
-        return view('products.details', compact('product'), compact('image'));
+        $product = Product::with(
+            ['image'=> function($query){
+                    $query->select('id','name','product_id');
+                }
+            ])
+            ->find($id);
+        return view('products.details', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @param Image $images
+     * @param Cache $categories
+     * @return  \Illuminate\View\View
      */
-    public function edit(Product $product)
+    public function edit(int $id): \Illuminate\View\View
     {
+        $product = Product::find($id);
+        $images = Image::find($id);
         $categories = Cache::remember(
-            'categories', now()->addDay(), function() {
+            'categories', now()->addDay(), 
+            function() {
                 return Category::all();
-            }
-    );
+            });
         return view('products.edit', compact('product'), compact('categories'));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Undocumented function
+     * @param int $id
+     * @param Product $products
+     * @param ProductCreateRequest $request
+     * @return \Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(ProductCreateRequest $request, int $id)
     {
         $products = Product::find($id);
-        $images = Image::find($id);
         $products->name = $request->input('name');
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
-        $products->active = (!request()->has('active') == '1' ? '0' : '1');
+        $products->active = (!request()->has('active') == '1' ? '0' : '1');  
         $products->save();
-
-        if($request->file('image')) {
-            $image = $request->file('image')->store('public');
-            $images->fill(['name'=>asset($image)]);
-            $images->product_id = $products->id;
-            $images->save();
+        foreach ($products->image as $images) {
+            if ($request->hasFile('image')) {
+                $image = $request->file('image')->store('public');
+                $images->name = $image;
+                $images->save();
+            }
         }
-
         return redirect(route('products.index')) ;
     }
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         //
     }
