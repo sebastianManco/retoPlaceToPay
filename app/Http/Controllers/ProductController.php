@@ -31,31 +31,33 @@ class ProductController extends Controller
     {
         $search= $request->get('search');
         $category = $request->get('type');
-        switch($category){
+        switch ($category) {
             case 'name':
                 $products = Product::with(
-                    ['image'=> function($query){
-                        $query->select('id','name','product_id');
+                    ['image' => function ($query) {
+                        $query->select('id', 'name', 'product_id');
                     },
-                    'category'=>function($query){
-                            $query->select('id','name');
+                    'category' => function ($query) {
+                        $query->select('id', 'name');
                     }
-                ])
+                    ]
+                )
                 ->name($search)
                 ->paginate(3, ['id','name']);
-            break;
+                break;
             default:
-            $products = Product::with(
-                ['image'=> function($query){
-                        $query->select('id','name','product_id');
+                $products = Product::with(
+                    ['image' => function ($query) {
+                        $query->select('id', 'name', 'product_id');
                     },
-                    'category'=>function($query){
-                        $query->select('id','name');
+                    'category' => function ($query) {
+                        $query->select('id', 'name');
                     }
-                ])
+                    ]
+                )
                 ->category($search)
                 ->paginate(3, ['id','name']);
-            break;
+                break;
         }
         return view('products.index', compact('products'));
     }
@@ -66,7 +68,7 @@ class ProductController extends Controller
     */
     public function create() : \Illuminate\View\View
     {
-        return view('products.create');   
+        return view('products.create');
     }
 
     /**
@@ -75,9 +77,9 @@ class ProductController extends Controller
      * @param Product $products
      * @param Image $Images
      * @param string $image
-     * @return void \Illuminate\Routing\Redirector
+     * @return \Illuminate\Routing\Redirector
      */
-    public function store(  ProductCreateRequest $request, Product $products ) 
+    public function store(ProductCreateRequest $request, Product $products)
     {
         $products->name = $request->input('name');
         $products->description = $request->input('description');
@@ -86,7 +88,7 @@ class ProductController extends Controller
         $products->stock = $request->input('stock');
         $products->save();
         $images = new Image();
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $image = $request->file('image')->store('public');
             $images->name = $image;
             $images->product_id = $products->id;
@@ -106,10 +108,11 @@ class ProductController extends Controller
     {
         app()->setLocale('en');
         $product = Product::with(
-            ['image'=> function($query){
-                    $query->select('id','name','product_id');
-                }
-            ])
+            ['image'=> function ($query) {
+                $query->select('id', 'name', 'product_id');
+            }
+            ]
+        )
             ->find($id);
         return view('products.details', compact('product'));
     }
@@ -127,10 +130,13 @@ class ProductController extends Controller
         $product = Product::find($id);
         $images = Image::find($id);
         $categories = Cache::remember(
-            'categories', now()->addDay(), 
-            function() {
+            'categories',
+            now()
+            ->addDay(),
+            function () {
                 return Category::all();
-            });
+            }
+        );
         return view('products.edit', compact('product'), compact('categories'));
     }
 
@@ -149,7 +155,7 @@ class ProductController extends Controller
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
-        $products->active = (!request()->has('active') == '1' ? '0' : '1');  
+        $products->active = (!request()->has('active') == '1' ? '0' : '1');
         $products->save();
         foreach ($products->image as $images) {
             if ($request->hasFile('image')) {

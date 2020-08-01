@@ -21,28 +21,28 @@ class Product extends Model
     public function category(): belongsTo
     {
         return $this->belongsTo('App\Category');
-   }
+    }
 
     /**
      * Undocumented function
      *
      * @return hasMany
      */
-   public function image(): hasMany
-   {
-       return $this->hasMany('App\Image'); 
-   }
+    public function image(): hasMany
+    {
+        return $this->hasMany('App\Image');
+    }
 
     /**
      * Undocumented function
      *
      * @param string $query
      * @param string $search
-     * @return 
+     * @return
      */
     public function scopeName($query, $search)
     {
-        if($search) {
+        if ($search) {
             return $query->where('name', 'LIKE', "%$search%");
         }
     }
@@ -52,7 +52,7 @@ class Product extends Model
      *
      * @param string $query
      * @param string $search
-     * @return 
+     * @return
      */
     public function scopeCategory($query, $search)
     {
@@ -68,11 +68,10 @@ class Product extends Model
      * Undocumented function
      *
      * @param string $query
-     * @return 
+     * @return
      */
     public function scopeActive($query)
-     {
+    {
         return $query->where('active', 1);
     }
-
 }

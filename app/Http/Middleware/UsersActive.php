@@ -18,7 +18,7 @@ class UsersActive
     {
         If ($request->user()->estado == 1) { 
             
-            return $next($request) ;
+            return $next($request);
 
         } else {
             Auth::logout() ;

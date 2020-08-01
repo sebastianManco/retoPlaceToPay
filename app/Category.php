@@ -21,18 +21,22 @@ class Category extends Model
      */
     public function product(): hasMany
     {
-        return $this->hasMany('App\Product'); 
+        return $this->hasMany('App\Product');
     }
 
     /**
      * Undocumented function
-     * @return 
+     * @return
      */
     public function getCachedCategories()
     {
         return Cache::remember(
-            'categories', now()->addDay(), function() {
-            return $this->all();
-        });
+            'categories',
+            now()
+            ->addDay(),
+            function () {
+                return $this->all();
+            }
+        );
     }
 }

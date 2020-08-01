@@ -70,6 +70,9 @@
                         </div>
 
                         <!--deshabilitar usuario-->
+                            @if(Auth::user()->id == $user->id)
+                    
+                        @else
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
 
@@ -79,7 +82,7 @@
                               {{ $user->estado ==  1 ? "checked" :"" }}  id="customCheck" name="estado">
                                 <label class="custom-control-label" for="customCheck">Usuario habilitado</label>
                             </div>
-                            
+                            @endif
                             </div>
                         </div>
                         <div class="form-group row mb-0">

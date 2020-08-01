@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\View\Composers;
 
 use App\Category;

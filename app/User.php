@@ -39,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
     
 
     /**
-     * 
+     * @return
      */
     public function roles()
     {
@@ -47,9 +47,8 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * 
+     * @return
      */
-
     public function authorizeRoles($roles)
     {
         if ($this->hasAnyRole($roles)) {
@@ -59,7 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * 
+     *
      */
     public function hasAnyRole($roles)
     {
@@ -78,7 +77,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 /**
- * 
+ *
  */
     public function hasRole($role)
     {
