@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserCreateRequest;
+
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Role;
@@ -39,9 +41,10 @@ class UserController extends Controller
 
     /**
      * @param User $user
+     * @param UserCreateRequest $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         $user= new User();
         $user->name =request('name');

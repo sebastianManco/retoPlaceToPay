@@ -89,7 +89,7 @@ class ProductController extends Controller
         $products->save();
         $images = new Image();
         if ($request->hasFile('image')) {
-            $image = $request->file('image')->store('public');
+            $image = $request->file('image')->store('Images');
             $images->name = $image;
             $images->product_id = $products->id;
         }

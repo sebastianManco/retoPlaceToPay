@@ -71,7 +71,6 @@
 
                         <!--deshabilitar usuario-->
                             @if(Auth::user()->id == $user->id)
-                    
                         @else
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

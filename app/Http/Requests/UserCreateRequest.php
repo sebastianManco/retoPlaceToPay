@@ -27,8 +27,8 @@ class UserCreateRequest extends FormRequest
             'name' => 'required|alpha|stringmax:40',
             'last_name'=> 'required|alpha|string|max:40',
             'email' => 'required|string|email|max:100|unique:users',
-            'phone'=>'required|string|max:20',
-            'password' => 'required|string|min:8|confirmed',
+            'phone'=>'required|alpha_num|max:20',
+            'password' => 'required|string|min:8|confirmed', 
         ];
     }
 }

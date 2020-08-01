@@ -38,8 +38,8 @@
         <div class="form-group row">
             <label for="category_id" class="col-md-4 col-form-label text-md-right">Categorias </label>
             <div class="col-md-6">
-                <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
-                    <option>--Elija la categoria--</option>>
+                <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror" >
+                    <option value="">--Elija la categoria--</option>
                     @foreach($categories as $category )
                         <option value="{{$category->id}}"> {{$category->name}} </option>
                     @endforeach
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right" >Precio </label>
+            <label for="price" class="col-md-4 col-form-label text-md-right" >Precio </label>
             <div class="col-md-6">
             <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{old('price')}}">
                 

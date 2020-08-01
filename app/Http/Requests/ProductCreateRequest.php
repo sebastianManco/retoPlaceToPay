@@ -28,6 +28,7 @@ class ProductCreateRequest extends FormRequest
             'description'=> 'required',
             'category_id'=>'required',
             'price' => 'required',
+            'image' => 'required',
             'stock' => 'required'
         ];
     }
