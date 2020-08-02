@@ -36,7 +36,7 @@ class UserController extends Controller
 
     public function create(): \Illuminate\View\View
     {
-        return view('users.create');
+        return view('users.create', ['user' => new User()]);
     }
 
     /**

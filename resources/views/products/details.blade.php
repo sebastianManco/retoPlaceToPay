@@ -19,8 +19,13 @@
             
                         @foreach($product->image as $images)
                             <img class=""  src="{{ asset($images->name) }}"   width="100" alt="Card image" style="width:100%">
-                          @endforeach                    
-                           <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
+                          @endforeach
+                  @if(Auth::guest() || Auth::user()->hasRole('user'))
+                        <a href="{{route('products/indexClient')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
+                  @else 
+                    <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
+
+                  @endif
                     </div>
                 </div>
             </div>

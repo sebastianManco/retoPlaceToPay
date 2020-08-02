@@ -59,7 +59,8 @@ class ProductController extends Controller
                 ->paginate(3, ['id','name']);
                 break;
         }
-        return view('products.index', compact('products'));
+    
+        return view('products.index', ['products' => $products, 'search' => $products]);
     }
 
     /**
@@ -68,7 +69,7 @@ class ProductController extends Controller
     */
     public function create() : \Illuminate\View\View
     {
-        return view('products.create');
+        return view('products.create', ['product' => new Product()]);
     }
 
     /**
@@ -144,10 +145,10 @@ class ProductController extends Controller
      * Undocumented function
      * @param int $id
      * @param Product $products
-     * @param ProductCreateRequest $request
+     * @param Request $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function update(ProductCreateRequest $request, int $id)
+    public function update(Request $request, int $id)
     {
         $products = Product::find($id);
         $products->name = $request->input('name');
