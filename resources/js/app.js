@@ -30,3 +30,19 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+const confirmareliminar = new Vue({
+    el: '#confirmareliminar',
+    data:{
+        urlaeliminar: ''
+    },
+    methods:{
+        deseas_eliminar(){
+            //alert(id);
+            this.urlaeliminar = document.getElementById('urlbase').innerHTML+'/'+id;
+            $('#modal_eliminar').modal(show);
+        }
+    },
+});
+
+

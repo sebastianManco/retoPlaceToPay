@@ -1,0 +1,42 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Category extends Model
+{
+
+    protected $fillable = [
+        'id', 'name'
+    ];
+
+    /**
+     * Undocumented function
+     *
+     * @return hasMany
+     */
+    public function product(): hasMany
+    {
+        return $this->hasMany('App\Product');
+    }
+
+    /**
+     * Undocumented function
+     * @return
+     */
+    public function getCachedCategories()
+    {
+        return Cache::remember(
+            'categories',
+            now()
+            ->addDay(),
+            function () {
+                return $this->all();
+            }
+        );
+    }
+}

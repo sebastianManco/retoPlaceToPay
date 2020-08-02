@@ -13,7 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a> 
+                    @if(Auth::guest() || Auth::user()->hasRole('user'))
+                        <a href="{{route('products/indexClient')}}"><button type="button" class="btn btn-outline-primary">lista de productos </button></a>                                                
+                    @else   
+                        <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a>                                                
+                        <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-primary">lista de productos</button></a>                                                
+                        <a href="{{route('categories.index')}}"><button type="button" class="btn btn-outline-primary">lista de categorias</button></a>
+                    @endif         
                 </div>
             </div>
         </div>

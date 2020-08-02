@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -36,5 +37,54 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
 
+    /**
+     * @return belongsToMany
+     */
+    public function roles(): belongsToMany
+    {
+        return $this->belongsToMany('App\Role')->withTimesTamps();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function authorizeRoles($roles)
+    {
+        if ($this->hasAnyRole($roles)) {
+            return true;
+        }
+        abort(401, 'Esta acción no está autorizada.');
+    }
+
+    /**
+     *@return boolean
+     */
+    public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            foreach ($roles as $role) {
+                if ($this->hasRole($role)) {
+                    return true;
+                }
+            }
+        } else {
+            if ($this->hasRole($roles)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+/**
+ *@return boolean
+ */
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
+            return true;
+        }
+        return false;
+    }
 }
