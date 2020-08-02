@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
+       /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name', 'description', 'price', 'active', 'stock'
     ];

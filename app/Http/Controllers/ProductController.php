@@ -87,6 +87,7 @@ class ProductController extends Controller
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
+    
         $products->save();
         $images = new Image();
         if ($request->hasFile('image')) {

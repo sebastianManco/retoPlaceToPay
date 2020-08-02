@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -39,15 +40,15 @@ class User extends Authenticatable implements MustVerifyEmail
     
 
     /**
-     * @return
+     * @return belongsToMany
      */
-    public function roles()
+    public function roles(): belongsToMany
     {
         return $this->belongsToMany('App\Role')->withTimesTamps();
     }
 
     /**
-     * @return
+     * @return boolean
      */
     public function authorizeRoles($roles)
     {
@@ -58,7 +59,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     *
+     *@return boolean
      */
     public function hasAnyRole($roles)
     {
@@ -77,7 +78,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 /**
- *
+ *@return boolean
  */
     public function hasRole($role)
     {

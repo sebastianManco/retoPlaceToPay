@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
+       /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name', 'slug','description', 'full-access',
     ];
