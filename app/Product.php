@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
        /**
-     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -19,7 +18,6 @@ class Product extends Model
     ];
 
     /**
-     * Undocumented function
     *
     * @return belongsTo
     */
@@ -29,7 +27,6 @@ class Product extends Model
     }
 
     /**
-     * Undocumented function
      *
      * @return hasMany
      */
@@ -39,7 +36,6 @@ class Product extends Model
     }
 
     /**
-     * Undocumented function
      *
      * @param string $query
      * @param string $search

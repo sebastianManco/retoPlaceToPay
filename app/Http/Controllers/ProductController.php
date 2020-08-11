@@ -31,35 +31,25 @@ class ProductController extends Controller
     {
         $search= $request->get('search');
         $category = $request->get('type');
+        $query = Product::with(
+            ['image' => function ($query) {
+                $query->select('id', 'name', 'product_id');
+            },
+            'category' => function ($query) {
+                $query->select('id', 'name');
+            }
+            ]
+        );
         switch ($category) {
             case 'name':
-                $products = Product::with(
-                    ['image' => function ($query) {
-                        $query->select('id', 'name', 'product_id');
-                    },
-                    'category' => function ($query) {
-                        $query->select('id', 'name');
-                    }
-                    ]
-                )
-                ->name($search)
-                ->paginate(3, ['id','name']);
+                $query->name($search);
                 break;
             default:
-                $products = Product::with(
-                    ['image' => function ($query) {
-                        $query->select('id', 'name', 'product_id');
-                    },
-                    'category' => function ($query) {
-                        $query->select('id', 'name');
-                    }
-                    ]
-                )
-                ->category($search)
-                ->paginate(3, ['id','name']);
+                $query->category($search);
                 break;
         }
-    
+        $products = $query->paginate(3, ['id','name']);
+
         return view('products.index', ['products' => $products, 'search' => $products]);
     }
 
@@ -73,14 +63,11 @@ class ProductController extends Controller
     }
 
     /**
-     * Undocumented function
      * @param ProductCreateRequest $request
      * @param Product $products
-     * @param Image $Images
-     * @param string $image
-     * @return \Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ProductCreateRequest $request, Product $products)
+    public function store(ProductCreateRequest $request, Product $products): \Illuminate\Http\RedirectResponse
     {
         $products->name = $request->input('name');
         $products->description = $request->input('description');
@@ -89,13 +76,13 @@ class ProductController extends Controller
         $products->stock = $request->input('stock');
     
         $products->save();
-        $images = new Image();
         if ($request->hasFile('image')) {
+            $images = new Image();
             $image = $request->file('image')->store('Images');
             $images->name = $image;
             $images->product_id = $products->id;
+            $products->image()->save($images);
         }
-        $products->image()->save($images);
         return redirect('/products')->with('message', 'Guardado con éxito') ;
     }
 

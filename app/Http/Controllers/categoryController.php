@@ -12,7 +12,7 @@ class categoryController extends Controller
      *
      * @return \Illuminate\Http\Response\Illuminate\View\Vi
      */
-    public function index():\Illuminate\View\Vi
+    public function index():\Illuminate\View\View
     {
          $category = Category::all();
         return view('categories.index', ['category'=>$category]); 
@@ -21,9 +21,9 @@ class categoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\Vi
+     * @return \Illuminate\View\View
      */
-    public function create(): \Illuminate\View\Vi
+    public function create(): \Illuminate\View\View
     {
 
         return view('categories.create');
@@ -51,7 +51,7 @@ class categoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(in $id)
+    public function show(int $id)
     {
         //
     }
