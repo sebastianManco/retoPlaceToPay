@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
 {
@@ -133,10 +134,10 @@ class ProductController extends Controller
      * Undocumented function
      * @param int $id
      * @param Product $products
-     * @param Request $request
+     * @param ProductEditRequest $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function update(Request $request, int $id)
+    public function update(ProductEditRequest $request, int $id)
     {
         $products = Product::find($id);
         $products->name = $request->input('name');

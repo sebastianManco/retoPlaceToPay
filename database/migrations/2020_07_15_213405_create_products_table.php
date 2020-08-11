@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->string('name', 50);
             $table->string('description', 100);
-            $table->string('price', 8);//float
-            $table->string('stock', 5);
+            $table->integer('price', 10);
+            $table->integer('stock', 5);
             $table->boolean('active')->default(1)->nullable();
             $table->timestamps();
             $table->foreign('category_id')
