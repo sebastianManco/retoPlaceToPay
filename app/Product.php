@@ -69,10 +69,11 @@ class Product extends Model
      * Undocumented function
      *
      * @param string $query
+     * @param string $search
      * @return
      */
-    public function scopeActive($query)
+    public function scopeActive($query, $search)
     {
-        return $query->where('active', 1);
+        return $query->where('active', 1)->where('name', 'LIKE', "%$search%");
     }
 }

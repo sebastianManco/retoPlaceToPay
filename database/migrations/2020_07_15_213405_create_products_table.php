@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 50);
             $table->string('description', 100);
             $table->integer('price', 10);
-            $table->string('stock', 5);
+            $table->integer('stock', 5);
             $table->boolean('active')->default(1)->nullable();
             $table->timestamps();
             $table->foreign('category_id')
