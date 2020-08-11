@@ -9,12 +9,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
+       /**
+     *
+     * @var array
+     */
     protected $fillable = [
         'name', 'description', 'price', 'active', 'stock'
     ];
 
     /**
-     * Undocumented function
     *
     * @return belongsTo
     */
@@ -24,7 +27,6 @@ class Product extends Model
     }
 
     /**
-     * Undocumented function
      *
      * @return hasMany
      */
@@ -34,7 +36,6 @@ class Product extends Model
     }
 
     /**
-     * Undocumented function
      *
      * @param string $query
      * @param string $search
@@ -68,10 +69,11 @@ class Product extends Model
      * Undocumented function
      *
      * @param string $query
+     * @param string $search
      * @return
      */
-    public function scopeActive($query)
+    public function scopeActive($query, $search)
     {
-        return $query->where('active', 1);
+        return $query->where('active', 1)->where('name', 'LIKE', "%$search%");
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
 {
@@ -31,35 +32,25 @@ class ProductController extends Controller
     {
         $search= $request->get('search');
         $category = $request->get('type');
+        $query = Product::with(
+            ['image' => function ($query) {
+                $query->select('id', 'name', 'product_id');
+            },
+            'category' => function ($query) {
+                $query->select('id', 'name');
+            }
+            ]
+        );
         switch ($category) {
             case 'name':
-                $products = Product::with(
-                    ['image' => function ($query) {
-                        $query->select('id', 'name', 'product_id');
-                    },
-                    'category' => function ($query) {
-                        $query->select('id', 'name');
-                    }
-                    ]
-                )
-                ->name($search)
-                ->paginate(3, ['id','name']);
+                $query->name($search);
                 break;
             default:
-                $products = Product::with(
-                    ['image' => function ($query) {
-                        $query->select('id', 'name', 'product_id');
-                    },
-                    'category' => function ($query) {
-                        $query->select('id', 'name');
-                    }
-                    ]
-                )
-                ->category($search)
-                ->paginate(3, ['id','name']);
+                $query->category($search);
                 break;
         }
-    
+        $products = $query->paginate(3, ['id','name']);
+
         return view('products.index', ['products' => $products, 'search' => $products]);
     }
 
@@ -73,28 +64,26 @@ class ProductController extends Controller
     }
 
     /**
-     * Undocumented function
      * @param ProductCreateRequest $request
      * @param Product $products
-     * @param Image $Images
-     * @param string $image
-     * @return \Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ProductCreateRequest $request, Product $products)
+    public function store(ProductCreateRequest $request, Product $products): \Illuminate\Http\RedirectResponse
     {
         $products->name = $request->input('name');
         $products->description = $request->input('description');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
+    
         $products->save();
-        $images = new Image();
         if ($request->hasFile('image')) {
+            $images = new Image();
             $image = $request->file('image')->store('Images');
             $images->name = $image;
             $images->product_id = $products->id;
+            $products->image()->save($images);
         }
-        $products->image()->save($images);
         return redirect('/products')->with('message', 'Guardado con éxito') ;
     }
 
@@ -145,10 +134,10 @@ class ProductController extends Controller
      * Undocumented function
      * @param int $id
      * @param Product $products
-     * @param Request $request
+     * @param ProductEditRequest $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function update(Request $request, int $id)
+    public function update(ProductEditRequest $request, int $id)
     {
         $products = Product::find($id);
         $products->name = $request->input('name');

@@ -37,7 +37,7 @@ class ClientController extends Controller
                         }
                     ]
                 )
-                    ->name($search)
+                    ->active($search)
                     ->paginate(3, ['id', 'name']);
                 break;
             default:

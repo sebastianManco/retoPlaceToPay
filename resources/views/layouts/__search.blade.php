@@ -1,5 +1,6 @@
+
 <nav class="navbar navbar-light bg-light ">
-    <form class="form-inline" action="{{route('products.index')}}" metohd="GET">
+    <form class="form-inline" @if(Auth::guest() || Auth::user()->hasRole('user')) action="{{route('products/indexClient')}}"@else {{route('products.index')}} @endif metohd="GET">
         <select name="type" class="form-control mr-sm-2" id="tipo">
             <option>Buscar por </option>
             <option value="name">nombre</option>

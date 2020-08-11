@@ -57,7 +57,6 @@ class UserController extends Controller
         return redirect('home/userList') ;
     }
 
-
     /**
      * @param User $user
      * @return \Illuminate\View\View
@@ -67,7 +66,6 @@ class UserController extends Controller
         $user=User::find($id);
         return view('users.details', compact('user'));
     }
-
 
     /**
      * @param User $user
