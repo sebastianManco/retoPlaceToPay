@@ -63,7 +63,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "phpStan": "vendor\\bin\\phpstan analyse app"
+        "phpStan": "vendor\\bin\\phpstan analyse app",
+        "testing": "vendor\\bin\\phpunit --testdox"
 
     }
 }

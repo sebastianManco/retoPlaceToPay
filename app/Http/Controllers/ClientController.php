@@ -12,6 +12,7 @@ class ClientController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('usersActive');
+        $this->middleware('verified');
     }
 
     /**

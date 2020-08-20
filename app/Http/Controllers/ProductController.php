@@ -13,18 +13,15 @@ use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
 {
-   
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('usersActive');
+        $this->middleware('verified');
     }
 
     /**
-     * @param string $search
-     * @param string $type
-     * @param string $query
-     * @param Product $products
      * @param Request $request
      * @return \Illuminate\View\View
      */
@@ -75,7 +72,7 @@ class ProductController extends Controller
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
-    
+
         $products->save();
         if ($request->hasFile('image')) {
             $images = new Image();
@@ -90,8 +87,6 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      * @param  int  $id
-     * @param Product $product
-     * @param string $query
      * @return \Illuminate\View\View
      */
     public function show(int $id): \Illuminate\View\View
@@ -110,9 +105,6 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
-     * @param Product $product
-     * @param Image $images
-     * @param Cache $categories
      * @return  \Illuminate\View\View
      */
     public function edit(int $id): \Illuminate\View\View
@@ -133,7 +125,6 @@ class ProductController extends Controller
     /**
      * Undocumented function
      * @param int $id
-     * @param Product $products
      * @param ProductEditRequest $request
      * @return \Illuminate\Routing\Redirector
      */

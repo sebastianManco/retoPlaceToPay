@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get(
     '/', function () {
         return view('home');
-    } 
+    }
 );
 
 Auth::routes(['verify' => true]);
-
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('/home/userList', 'UserController@index')->middleware('AuthAdmin');
+Route::get('/home/userList', 'UserController@index')->name('userList')->middleware('AuthAdmin');
 Route::resource('users', 'UserController');
-Route::get('products/indexClient', 'ClientController@index')->name('products/indexClient');
+Route::get('products/indexClient', 'ClientController@index')->name('products/indexClient')->middleware('verified');
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'categoryController');

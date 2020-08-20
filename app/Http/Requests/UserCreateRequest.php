@@ -24,11 +24,27 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|alpha|stringmax:40',
-            'last_name'=> 'required|alpha|string|max:40',
+            'name' => 'required|string|max:40',
+            'last_name' => 'required|string|max:40',
             'email' => 'required|string|email|max:100|unique:users',
-            'phone'=>'required|alpha_num|max:20',
-            'password' => 'required|string|min:8|confirmed', 
+            'phone' => 'required|string|max:20',
+            'password' => 'required|string|min:8|confirmed',
+        ];
+    }
+
+        public function messages()
+    {
+        return [
+            'name.required' => 'Ell :attribute es obligatorio.',
+
+        ];
+
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'nombre del usuario',
         ];
     }
 }
