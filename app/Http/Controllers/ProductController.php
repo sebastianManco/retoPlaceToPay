@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchRequest;
 use App\Product;
 use App\Category;
 use App\Image;
@@ -22,13 +23,13 @@ class ProductController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param SearchRequest $request
      * @return \Illuminate\View\View
      */
-    public function index(Request $request): \Illuminate\View\View
+    public function index(SearchRequest $request): \Illuminate\View\View
     {
-        $search= $request->get('search');
         $category = $request->get('type');
+        $search= $request->get('search');
         $query = Product::with(
             ['image' => function ($query) {
                 $query->select('id', 'name', 'product_id');
@@ -81,7 +82,7 @@ class ProductController extends Controller
             $images->product_id = $products->id;
             $products->image()->save($images);
         }
-        return redirect('/products')->with('message', 'Guardado con éxito') ;
+        return redirect('/products');
     }
 
     /**
@@ -148,12 +149,4 @@ class ProductController extends Controller
         return redirect(route('products.index')) ;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param  int  $id
-     */
-    public function destroy(int $id)
-    {
-        //
-    }
 }

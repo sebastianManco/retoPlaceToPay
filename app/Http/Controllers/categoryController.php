@@ -18,7 +18,7 @@ class categoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response\Illuminate\View\Vi
+     * @return \Illuminate\Http\Response\Illuminate\View\View
      */
     public function index():\Illuminate\View\View
     {

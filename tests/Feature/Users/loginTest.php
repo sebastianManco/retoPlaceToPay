@@ -4,6 +4,7 @@ namespace Tests\Feature\Users;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 use App\User;
 use App\Role;
@@ -11,58 +12,79 @@ use App\Role;
 class loginTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
-     * Iniciar sesión muestra el formulario de inicio de sesión
-     * 200 = ok, solicitud ha tenido exito.
      *@test
      */
-    public function login_displays_the_login_form()
+    public function loginDisplaysTheLoginForm()
     {
         $response = $this->get(route('login'));
+
         $response->assertStatus(200);
         $response->assertViewIs('auth.login');
     }
 
     /**
-     *  El inicio de sesión muestra errores de validación
-     *  302 = URI solicitada ha sido cambiado temporalmente
      * @test
      */
-    public function login_displays_validation_errors()
+    public function anRegisteredUserCanLogIn()
     {
-        $response = $this->post(route('login'), []);
-        $response->assertStatus(302);
-        $response->assertSessionHasErrors('email');
-    }
-
-    /**
-     * El inicio de sesión autenticada y redirige al usuario
-     * @test
-     */
-    public function login_authenticates_and_redirects_user()
-    {
-        $user = factory(User::class)->create();
+        factory(User::class)->create([
+            'email' => 'sebastian@example.com'
+        ]);
 
         $response = $this->post(route('login'),[
             'email' => 'sebastian@example.com',
             'password' =>  'password'
-        ]
-        );
-        $this->assertAuthenticated($guard = null);
+        ]);
+
         $response->assertSessionHasNoErrors();
         $response->assertRedirect(route('home'));
     }
 
-    /** @test */
-    public function it_visit_page_of_login()
+    /**
+     * @test
+     */
+    public function AnUnregisteredUserCannotLogIn()
     {
-        $this->get('/login')
-            ->assertStatus(200);
+        factory(User::class)->create([
+            'email' => 'sebastian@example.com'
+        ]);
+
+        $response = $this->post(route('login'),[
+            'email' => 'cristian@example.com',
+            'password' =>  'password'
+        ]);
+
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors('email');
     }
 
-    /** @test */
+    /**
+     * @test
+     */
+    public function thePasswordDoesNotMatchWithTheEmailCannotLonIn()
+    {
+        factory(User::class)->create([
+            'email' => 'sebastian@example.com'
+        ]);
+
+        $response = $this->post(route('login'),[
+            'email' => 'sebastian@example.com',
+            'password' =>  'incorrect password'
+        ]);
+
+        $response->assertRedirect('/');
+        $response->assertSessionHasErrors('email');
+    }
+
+
+    /**
+     * @test
+     */
     public function authenticated_to_a_user()
     {
+
         factory(User::class)->create([
             "email" => "user@mail.com"
         ]);

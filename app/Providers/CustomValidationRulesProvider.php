@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Providers;
-use App\Http\View\Composers\CategoryComposer;
-use Illuminate\Support\Facades\View;
+
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
-class ViewServiceProvider extends ServiceProvider
+class CustomValidationRulesProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -24,8 +24,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       view::composer(
-        'products.create', CategoryComposer::class
-    );
+        Validator::extend('alpha_spaces', function($attribute, $value)
+        {
+            return preg_match('/^[\pL\s]+$/u', $value);
+        });
     }
 }
