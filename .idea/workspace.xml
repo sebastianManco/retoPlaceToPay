@@ -36,32 +36,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Events/UserCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Users/IndexTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Users/UpdateTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/DBStorage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Cart/IndexCart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/categoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/categoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CategoryCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CategoryCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/userList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/userList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Users/UserTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Users/loginTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Users/loginTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +167,7 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/laravel/dusk" />
       <path value="$PROJECT_DIR$/vendor/php-webdriver/webdriver" />
+      <path value="$PROJECT_DIR$/vendor/darryldecode/cart" />
     </include_path>
   </component>
   <component name="ProjectId" id="1fHC7mDlxQxdI5FgQAG8dCCOFx6" />
@@ -267,7 +252,7 @@
       <workItem from="1598607046119" duration="28460000" />
       <workItem from="1598711863960" duration="8480000" />
       <workItem from="1599043882914" duration="1363000" />
-      <workItem from="1599129196757" duration="2217000" />
+      <workItem from="1599129196757" duration="6145000" />
     </task>
     <servers />
   </component>
@@ -333,26 +318,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="367" y="0" width="645" height="728" key="#phpunit.xml_(1)/0.0.1366.728@0.0.1366.728" timestamp="1597314927268" />
-    <state width="1323" height="321" key="GridCell.Tab.0.bottom" timestamp="1599133356489">
+    <state width="1323" height="9" key="GridCell.Tab.0.bottom" timestamp="1599134746238">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="321" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599133356489" />
-    <state width="1323" height="321" key="GridCell.Tab.0.center" timestamp="1599133356489">
+    <state width="1323" height="9" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
+    <state width="1323" height="9" key="GridCell.Tab.0.center" timestamp="1599134746238">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="321" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599133356489" />
-    <state width="1323" height="321" key="GridCell.Tab.0.left" timestamp="1599133356489">
+    <state width="1323" height="9" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
+    <state width="1323" height="9" key="GridCell.Tab.0.left" timestamp="1599134746238">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="321" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599133356489" />
-    <state width="1323" height="321" key="GridCell.Tab.0.right" timestamp="1599133356489">
+    <state width="1323" height="9" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
+    <state width="1323" height="9" key="GridCell.Tab.0.right" timestamp="1599134746238">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="321" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599133356489" />
+    <state width="1323" height="9" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
     <state width="1323" height="145" key="GridCell.Tab.1.bottom" timestamp="1598735083669">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -373,11 +358,11 @@
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
     <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1598735083669" />
-    <state x="444" y="87" key="NewPhpClassDialog" timestamp="1598731713140">
+    <state x="444" y="87" key="NewPhpClassDialog" timestamp="1599176824600">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598098563557" />
-    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598731713140" />
+    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599176824600" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1598641203166">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

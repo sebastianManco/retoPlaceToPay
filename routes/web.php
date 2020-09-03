@@ -26,3 +26,9 @@ Route::resource('users', 'UserController');
 Route::get('products/indexClient', 'ClientController@index')->name('products/indexClient')->middleware('verified');
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'categoryController');
+
+Route::get('add-to-cart/{product}', 'CartController@add')->name('cart.add');
+Route::get('/cart','CartController@index')->name('cart.index');
+Route::get('/cart/update/{product}','CartController@update')->name('cart.update');
+Route::get('/cart/destroy/{product}','CartController@destroy')->name('cart.destroy');
+
