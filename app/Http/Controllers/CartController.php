@@ -22,26 +22,6 @@ class CartController extends Controller
     }
 
     /**
-     * Add a product to the Customer Cart
-     * @param Product $product
-     * @throws \Exception
-     */
-    public function add(Product $product)
-    {
-        \Cart::session(auth()->id())->add(array(
-            'id' => $product->id,
-            'name' => $product->name,
-            'price' => $product->price,
-            'quantity' => request('quantity'),
-            'attributes' => array(),
-            'associatedModel' => Product::class
-        ));
-
-        return redirect()->route('products/indexClient')
-            ->with('status', 'Tu producto ha sido agregado');
-    }
-
-    /**
      * Show the cart products
      */
     public function index()
@@ -50,6 +30,51 @@ class CartController extends Controller
         $cartProducts = \Cart::session(auth()->id())->getContent();
 
         return view('Cart.indexCart', compact('cartProducts'));
+    }
+
+    /**
+     * Add a product to the Customer Cart
+     * @param Product $product
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function add(Product $product, Request $request)
+    {
+        if($product->stock - $request->input('quantity') < 0 ) {
+            return('cantidad no encontrada');
+        }
+        else {
+            \Cart::session(auth()->id())->add(array(
+                'id' => $product->id,
+                'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => request('quantity'),
+                'attributes' => array(),
+                'associatedModel' => Product::class
+            ));
+
+            $product->stock = $product->stock - $request->input('quantity');
+            $product->save();
+
+            return redirect()->route('products/indexClient')
+                ->with('status', 'Tu producto ha sido agregado');
+        }
+    }
+
+
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(int $id)
+    {
+        \Cart::session(auth()->id())->update($id, array(
+            'quantity' => array(
+                'relative' => false,
+                'value' => request('quantity'),
+            ),
+        ));
+        return back();
     }
 
     /**
@@ -65,20 +90,5 @@ class CartController extends Controller
         return back()->with('status', 'Tu producto ha sido eliminado');
     }
 
-    /**
-     * @param $productId
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update($productId)
-    {
 
-        \Cart::session(auth()->id())->update($productId, array(
-            'quantity' => array(
-                'relative' => false,
-                'value' => request('quantity')
-            ),
-        ));
-
-        return back();
-    }
 }

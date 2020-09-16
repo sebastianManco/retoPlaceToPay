@@ -28,6 +28,7 @@ class ProductController extends Controller
      */
     public function index(SearchRequest $request): \Illuminate\View\View
     {
+
         $category = $request->get('type');
         $search= $request->get('search');
         $query = Product::with(
@@ -73,8 +74,8 @@ class ProductController extends Controller
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
-
         $products->save();
+
         if ($request->hasFile('image')) {
             $images = new Image();
             $image = $request->file('image')->store('Images');

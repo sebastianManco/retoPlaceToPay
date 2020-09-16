@@ -31,4 +31,6 @@ Route::get('add-to-cart/{product}', 'CartController@add')->name('cart.add');
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::get('/cart/update/{product}','CartController@update')->name('cart.update');
 Route::get('/cart/destroy/{product}','CartController@destroy')->name('cart.destroy');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout/index');
+Route::resource('orders', 'OrderController');
 

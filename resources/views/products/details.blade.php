@@ -12,9 +12,9 @@
                     <p>categoria: {{ $product->category->name }} </p>
                     <p>Descripcion: {{$product->description}}</p>
                     <p>Precio: {{$product->price}}</p>
+                        <p>Cantidad: {{$product->stock}}</p>
                     @if(Auth::guest() || Auth::user()->hasRole('admin'))
                     <p> Estado: {{ $product->active == 1  ? "habilitado" :"deshabilitado" }}</p>
-                    <p>Cantidad: {{$product->stock}}</p>
                     @endif
 
                         @foreach($product->image as $images)
@@ -23,15 +23,15 @@
                   @if(Auth::guest() || Auth::user()->hasRole('user'))
                         <a href="{{route('products/indexClient')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
 
-                        @else
-                    <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
                             <form action="{{ route('cart.add', $product->id) }}">
                                 <div>
                                     <h3>units:</h3>
-                                    <input name="quantity" type="text" class="input-small" value="1">
-                                    <button type="submit"class="add-to-cart-btn">agregar al carrito</button>
+                                        <input name="quantity" type="text" class="input-small" value="1">
+                                        <button type="submit"class="add-to-cart-btn">agregar al carrito</button>
                                 </div>
 
+                        @else
+                    <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-danger">cancelar</button></a>
                   @endif
                     </div>
                 </div>

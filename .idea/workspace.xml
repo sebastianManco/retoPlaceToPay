@@ -36,14 +36,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/DBStorage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Cart/IndexCart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Orders/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cart/IndexCart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cart/IndexCart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/__indexProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/__indexProducts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/products/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -196,7 +197,12 @@
       <recent name="C:\laragon\www\retoPlaceToPay\tests\Feature\Users" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.IndexTest.aAuthenticatedUserCanSeeTheIndexOfProducts">
+  <component name="RunManager" selected="Composer Script.phpStan">
+    <configuration name="phpStan" type="ComposerRunConfigurationType" factoryName="Composer Script" temporary="true">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
+      <option name="script" value="phpStan" />
+      <method v="2" />
+    </configuration>
     <configuration name="CreateTest.anAuthenticatedUserCanAccessToCreateViewOfProducts" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Products\CreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/CreateTest.php" method="anAuthenticatedUserCanAccessToCreateViewOfProducts" scope="Method" />
       <method v="2" />
@@ -209,10 +215,6 @@
       <TestRunner class="Tests\Feature\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/IndexTest.php" method="aNotAuthenticatedUserCannotSeeTheIndexOfProducts" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="StoreTest.aNotAuthenticatedCannotStoreAProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Products\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/StoreTest.php" method="aNotAuthenticatedCannotStoreAProduct" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -223,11 +225,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Composer Script.phpStan" />
         <item itemvalue="PHPUnit.IndexTest.aAuthenticatedUserCanSeeTheIndexOfProducts" />
         <item itemvalue="PHPUnit.IndexTest.aNotAuthenticatedUserCannotSeeTheIndexOfProducts" />
         <item itemvalue="PHPUnit.tests" />
         <item itemvalue="PHPUnit.CreateTest.anAuthenticatedUserCanAccessToCreateViewOfProducts" />
-        <item itemvalue="PHPUnit.StoreTest.aNotAuthenticatedCannotStoreAProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +254,12 @@
       <workItem from="1598607046119" duration="28460000" />
       <workItem from="1598711863960" duration="8480000" />
       <workItem from="1599043882914" duration="1363000" />
-      <workItem from="1599129196757" duration="6145000" />
+      <workItem from="1599129196757" duration="11232000" />
+      <workItem from="1599220148432" duration="21909000" />
+      <workItem from="1599487978537" duration="12185000" />
+      <workItem from="1599583100440" duration="1868000" />
+      <workItem from="1599737484823" duration="7757000" />
+      <workItem from="1599850516361" duration="44945000" />
     </task>
     <servers />
   </component>
@@ -297,19 +304,19 @@
     </state>
     <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641769138" />
     <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728@0.0.1366.728" timestamp="1597698845597" />
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1597315502491">
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1600263723788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597315502491" />
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1600263723788" />
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1597691613042">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1597691613042" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598731102557">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600170128354">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598731102557" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600170128354" />
     <state x="367" y="0" width="645" height="728" key="#loginTest.login_displays_the_login_form" timestamp="1597314843654">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -318,26 +325,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="367" y="0" width="645" height="728" key="#phpunit.xml_(1)/0.0.1366.728@0.0.1366.728" timestamp="1597314927268" />
-    <state width="1323" height="9" key="GridCell.Tab.0.bottom" timestamp="1599134746238">
+    <state x="459" y="276" key="ComposerInitDialogKey" timestamp="1599186124433">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1599186124433" />
+    <state width="1323" height="9" key="GridCell.Tab.0.bottom" timestamp="1599187557797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
-    <state width="1323" height="9" key="GridCell.Tab.0.center" timestamp="1599134746238">
+    <state width="1323" height="9" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
+    <state width="1323" height="9" key="GridCell.Tab.0.center" timestamp="1599187557797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
-    <state width="1323" height="9" key="GridCell.Tab.0.left" timestamp="1599134746238">
+    <state width="1323" height="9" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
+    <state width="1323" height="9" key="GridCell.Tab.0.left" timestamp="1599187557797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
-    <state width="1323" height="9" key="GridCell.Tab.0.right" timestamp="1599134746238">
+    <state width="1323" height="9" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
+    <state width="1323" height="9" key="GridCell.Tab.0.right" timestamp="1599187557797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599134746238" />
+    <state width="1323" height="9" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
     <state width="1323" height="145" key="GridCell.Tab.1.bottom" timestamp="1598735083669">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -358,11 +369,15 @@
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
     <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1598735083669" />
-    <state x="444" y="87" key="NewPhpClassDialog" timestamp="1599176824600">
+    <state x="444" y="87" key="NewPhpClassDialog" timestamp="1599957883660">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598098563557" />
-    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599176824600" />
+    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599957883660" />
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1600000623555">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1600000623555" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1598641203166">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -380,10 +395,10 @@
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598610518379" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598727855150" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597703236626">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599962548999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597703236626" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599962548999" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
