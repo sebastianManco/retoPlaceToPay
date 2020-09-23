@@ -22,7 +22,6 @@ class ClientController extends Controller
      */
     public function index(Request $request):\Illuminate\View\View
     {
-
         $category = $request->get('type');
         $search= $request->get('search');
         $query = Product::with(

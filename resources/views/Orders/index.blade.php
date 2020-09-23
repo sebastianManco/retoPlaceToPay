@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <form method="POST" action="{{ route('orders.store') }}">
-        @csrf
+     <form method="POST" action="{{route('checkout/index') }}">
+     @csrf
     <table class="table table-striped">
         <thead>
         <tr>
@@ -40,11 +40,13 @@
         <p class="cart-total float-right mr-5">
             <strong>Sub-Total</strong>:	$ {{ number_format(Cart::session(auth()->id())->getSubTotal()) }}<br>
             <strong>IVA (19%)</strong>: $ {{number_format( Cart::session(auth()->id())->getSubTotal()*0.19) }}<br>
-            <strong>Total</strong>:<input type="text" name="total" id="total" value="{{number_format((Cart::session(auth()->id())->getSubTotal()*0.19)+Cart::session(auth()->id())->getSubTotal())}}"><br>
+            <strong>Total</strong>:<input type="text" name="total" id="total" value="{{((Cart::session(auth()->id())->getSubTotal()*0.19)+Cart::session(auth()->id())->getSubTotal())}}"><br>
         <p class="buttons center">
         </p>
         <!--button type="submit" id="checkout"><a href="{{ route('checkout/index') }}">Checkout</a></button-->
-        <button type="submit">Checkout</button>
+
+
+     <button type="submit">Checkout</button>
     </form>
 
 @endsection

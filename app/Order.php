@@ -35,4 +35,10 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
+    public function paimen()
+    {
+        return $this->belongsTo('App\Paimen');
+    }
 }

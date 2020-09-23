@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Paimen;
 use App\Product;
 use App\User;
+use App\Order;
 use Darryldecode\Cart\Cart;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CheckoutController extends Controller
 {
@@ -55,9 +58,19 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Order $order )
     {
-        // pago por place to play
+        /*orden del cliente, y la vas a identificar con la referencia del pedido*/
+        //$cartProduct = \Cart::session(auth()->id())->getContent();
+
+        $user =  User::find(auth()->id());
+        $order->total =  $request->input('total');
+        $order->user_id = $user->id;
+        $order->save();
+        $user->orders()->save($order);
+
+        $reference = $order->id.Str::random(5);
+
 
         $seed = date('c');
         if (function_exists('random_bytes')) {
@@ -69,13 +82,12 @@ class CheckoutController extends Controller
         }
 
         $nonceBase64 = base64_encode($nonce);
-
         $login = '6dd490faf9cb87a9862245da41170ff2';
         $secretKey = '024h1IlD';
         $tranKey = base64_encode(sha1($nonce . $seed . $secretKey, true));
         $expiration = date('c', strtotime('+2 days'));
-        $cliente = new Client();
-        $res = $cliente->post('https://test.placetopay.com/redirection/api/session/',
+        $client = new Client();
+        $res = $client->post('https://test.placetopay.com/redirection/api/session/',
             [
                 'json' => [
                     'auth' => [
@@ -85,15 +97,16 @@ class CheckoutController extends Controller
                         'tranKey' => $tranKey
                     ],
                     'payment' => [
-                        'reference' => 7777,
+                        'reference' => $reference,/*Aqui va la orden o numero de referencia,*/
+
                         'description' => 'prueba pago',
                         'amount' => [
                             'currency' => 'COP',
-                            'total' => '999'
+                            'total' => $order->total,
                         ]
                     ],
                     'expiration' => $expiration,
-                    'returnUrl' => route('products/indexClient'),
+                    'returnUrl' => route('response.placeToPay', $reference),
                     'ipAddress' => request()->getClientIp(),
                     'userAgent' => request()->header('User-Agent')]
             ]);
@@ -101,18 +114,58 @@ class CheckoutController extends Controller
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
 
+
+        Paimen::Create([
+            'order_id' => $order->id,
+            'requestId' => $requestId,
+            'processUrl' => $processUrl,
+            'status' => 'ok',
+        ]);
+
         redirect()->away($processUrl)->send();
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param $reference
+     * @return void
      */
-    public function store(Request $request)
+
+
+    public function getRequestInformation(Request $request, $reference)
     {
-        //
+        dd($request);
+    }
+
+
+
+
+    /**
+     *
+     */
+    public function notApproved()
+    {
+
+    }
+
+    /**
+     *
+     */
+    public function approved()
+    {
+
+    }
+
+    /**
+     *
+     *
+     */
+    public function rejected()
+    {
+
     }
 
     /**

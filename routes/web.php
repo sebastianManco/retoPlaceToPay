@@ -23,7 +23,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/home/userList', 'UserController@index')->name('userList')->middleware('AuthAdmin');
 Route::resource('users', 'UserController');
-Route::get('products/indexClient', 'ClientController@index')->name('products/indexClient')->middleware('verified');
+Route::get('products/indexClient/', 'ClientController@index')->name('products/indexClient')->middleware('verified');
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'categoryController');
 
@@ -31,6 +31,10 @@ Route::get('add-to-cart/{product}', 'CartController@add')->name('cart.add');
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::get('/cart/update/{product}','CartController@update')->name('cart.update');
 Route::get('/cart/destroy/{product}','CartController@destroy')->name('cart.destroy');
-Route::get('/checkout', 'CheckoutController@index')->name('checkout/index');
+Route::post('/checkout/', 'CheckoutController@index')->name('checkout/index');
+Route::post('/checkout/approved', 'CheckoutController@approved')->name('checkout/approved');
+
+Route::get('response/placeToPay/{reference}', 'CheckoutController@response')->name('response.placeToPay');
+
 Route::resource('orders', 'OrderController');
 
