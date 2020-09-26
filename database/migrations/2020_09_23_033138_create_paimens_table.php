@@ -19,6 +19,7 @@ class CreatePaimensTable extends Migration
             $table->string('requestId');
             $table->string('processUrl');
             $table->string('status')->default('pendiente');
+            //aqui no se le olvide agregar el campo para la referencia
             $table->timestamps();
 
             $table->foreign('order_id')

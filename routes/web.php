@@ -32,9 +32,10 @@ Route::get('/cart','CartController@index')->name('cart.index');
 Route::get('/cart/update/{product}','CartController@update')->name('cart.update');
 Route::get('/cart/destroy/{product}','CartController@destroy')->name('cart.destroy');
 Route::post('/checkout/', 'CheckoutController@index')->name('checkout/index');
-Route::post('/checkout/approved', 'CheckoutController@approved')->name('checkout/approved');
 
-Route::get('response/placeToPay/{reference}', 'CheckoutController@response')->name('response.placeToPay');
+Route::get('/checkout/approved', 'CheckoutController@approved')->name('checkout/approved');//creo que esta ruta no la estoy urlizando
+
+Route::get('response/placeToPay/{reference}', 'CheckoutController@getRequestInformation')->name('response.placeToPay');
 
 Route::resource('orders', 'OrderController');
 

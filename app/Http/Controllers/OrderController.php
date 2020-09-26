@@ -26,6 +26,8 @@ class OrderController extends Controller
      */
     public function create()
     {
+        //de este controlador solo estoy utilizando este metodo no se preocupe por lo demas
+        //la vista donde muestro la orden fue un copie y pegue del carrito sin los botones
         $cartProducts = \Cart::session(auth()->id())->getContent();
 
         return view('Orders.index', compact('cartProducts'));
