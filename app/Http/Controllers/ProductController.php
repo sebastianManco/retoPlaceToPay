@@ -5,10 +5,7 @@ use App\Http\Requests\SearchRequest;
 use App\Product;
 use App\Category;
 use App\Image;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
 

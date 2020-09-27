@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Paimen extends Model
+class Payment extends Model
 {
     protected $fillable = [
         'order_id', 'requestId','processUrl', 'status'//aqui tambien nombre la referencia

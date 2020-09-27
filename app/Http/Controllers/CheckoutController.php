@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Paimen;
-use App\Product;
+use App\Payment;
 use App\User;
 use App\Order;
-use Darryldecode\Cart\Cart;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class CheckoutController extends Controller
@@ -23,15 +20,13 @@ class CheckoutController extends Controller
     {
         /*orden del cliente, y la vas a identificar con la referencia del pedido*/
         //$cartProduct = \Cart::session(auth()->id())->getContent();
-//aqui estoy creando la orden parce
         $user =  User::find(auth()->id());
         $order->total =  $request->input('total');
+        $order->reference = $user->id.Str::random(10);
         $order->user_id = $user->id;
         $order->save();
         $user->orders()->save($order);
 
-        // mueva esta linea para despues de la 69 y la organiza para guardar referencia
-        $reference = $order->id.Str::random(5);
 
 
         $seed = date('c');
@@ -59,7 +54,7 @@ class CheckoutController extends Controller
                         'tranKey' => $tranKey
                     ],
                     'payment' => [
-                        'reference' => $reference,/*Aqui va la orden o numero de referencia,*/
+                        'reference' => $order->reference,/*Aqui va la orden o numero de referencia,*/
 
                         'description' => 'prueba pago',
                         'amount' => [
@@ -68,7 +63,7 @@ class CheckoutController extends Controller
                         ]
                     ],
                     'expiration' => $expiration,
-                    'returnUrl' => route('response.placeToPay', $order->id),
+                    'returnUrl' => route('response.placeToPay', $order->reference),
                     'ipAddress' => request()->getClientIp(),
                     'userAgent' => request()->header('User-Agent')]
             ]);
@@ -76,9 +71,7 @@ class CheckoutController extends Controller
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
 
-        //aqui estoy guardando unos datos el paimen esta mal escrito para que no lo coloque asi
-        //esto es para el proceso de la compra
-        Paimen::Create([
+        Payment::Create([
             'order_id' => $order->id,
             'requestId' => $requestId,
             'processUrl' => $processUrl,
@@ -97,13 +90,10 @@ class CheckoutController extends Controller
      * @return void
      */
 
-//esta es la funcion que recibe la info de place topay
     public function getRequestInformation(Request $request, $reference)
     {
-     //pille ahi donde dice id cambielo a como nombro el campo referencia
-        $order = Order::where('id', $reference)->get()->first();
-        $requestId = Paimen::where('order_id', $order->id)->get()->first()->requestId;
-
+        $order = Order::where('reference', $reference)->get()->first();
+        $requestId = Payment::where('order_id', $order->id)->get()->first()->requestId;
 
         $seed = date('c');
         if (function_exists('random_bytes')) {
@@ -130,31 +120,15 @@ class CheckoutController extends Controller
                     ],
 
                     ],
-
             ]);
+
         $response = json_decode($res->getBody()->getContents());
-        dd($response); //con este dd es que estoy recibiendo la respues ta place to pay
 
-        redirect()->away($processUrl)->send();
+        $updatePayment = Payment::where('order_id', $order->id)->get()->first();
+        $updatePayment->status = $response->status->status;
+        $updatePayment->save();
+  
 
-    }
-
-
-
-    /**
-     *
-     */
-    public function approved(Request $request)
-    {
-        dd($request);
-    }
-
-    /**
-     *
-     *
-     */
-    public function rejected()
-    {
 
     }
 

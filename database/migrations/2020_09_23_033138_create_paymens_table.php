@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaimensTable extends Migration
+class CreatePaymensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePaimensTable extends Migration
      */
     public function up()
     {
-        Schema::create('paimens', function (Blueprint $table) {
+        Schema::create('paymens', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('order_id')->unsigned();
             $table->string('requestId');
@@ -35,6 +35,6 @@ class CreatePaimensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paimens');
+        Schema::dropIfExists('paymens');
     }
 }
