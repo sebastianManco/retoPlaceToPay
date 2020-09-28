@@ -27,8 +27,8 @@ Route::get('products/indexClient/', 'ClientController@index')->name('products/in
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'categoryController');
 
-Route::get('add-to-cart/{product}', 'CartController@add')->name('cart.add');
 Route::get('/cart','CartController@index')->name('cart.index');
+Route::get('add-to-cart/{product}', 'CartController@add')->name('cart.add');
 Route::get('/cart/update/{product}','CartController@update')->name('cart.update');
 Route::get('/cart/destroy/{product}','CartController@destroy')->name('cart.destroy');
 Route::post('/checkout/', 'CheckoutController@index')->name('checkout/index');

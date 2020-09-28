@@ -37,8 +37,17 @@ class Order extends Model
     }
 
 
-    public function paimen()
+    public function payment()
     {
-        return $this->belongsTo('App\Paimen');
+        return $this->hasOne('App\Payment');
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeUser($query)
+    {
+        return $query->where('user_id', '=', auth()->id());
     }
 }

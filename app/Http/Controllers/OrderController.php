@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Payment;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $order = Order::where('user_id', '=', auth()->id())->get();
 
+        return view('Payment.HistoryOrders',  ['orders' => $order]);
     }
 
     /**
@@ -39,15 +42,9 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Order $order)
+    public function store(Request $request)
     {
-        $user =  User::find(auth()->id());
-        $order->total = $request->input('total');
-        $order->user_id = $user->id;
-        $order->save();
-        $user->orders()->save($order);
-        //$order->products()->sync();
-        return($order);
+
     }
 
     /**
@@ -56,9 +53,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(in $id)
     {
-        //
+
     }
 
     /**

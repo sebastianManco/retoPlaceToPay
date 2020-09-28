@@ -127,7 +127,8 @@ class CheckoutController extends Controller
         $updatePayment = Payment::where('order_id', $order->id)->get()->first();
         $updatePayment->status = $response->status->status;
         $updatePayment->save();
-  
+
+        return view('Payment.ResponsePlaceToPay');
 
 
     }
