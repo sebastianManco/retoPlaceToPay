@@ -42,12 +42,4 @@ class Order extends Model
         return $this->hasOne('App\Payment');
     }
 
-    /**
-     * @param $query
-     * @return mixed
-     */
-    public function scopeUser($query)
-    {
-        return $query->where('user_id', '=', auth()->id());
-    }
 }

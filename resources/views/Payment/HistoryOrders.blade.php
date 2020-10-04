@@ -11,9 +11,11 @@
                         <table class="table table-borderless">
                             <thead>
                             <tr>
-                                <th scope="col">codigo de orden</th>
-                                <th scope="col">fecha de creacion</th>
-                                <th scope="col">estado</th>
+                                <th scope="col">Código de orden</th>
+                                <th scope="col">Fecha de creacion</th>
+                                <th scope="col">Total de la transaccion</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -21,16 +23,25 @@
                                 <tr>
                                     <th scope="row">{{$order->id}}</th>
                                     <td>{{$order->created_at}}</td>
+                                    <td>{{$order->total}}</td>
                                     <td>{{$order->payment->status}}</td>
                                     <td>
-                                        <a href="">
-                                            <button type="button" class="btn btn-outline-info">Detalles</button>
+                                        <a href="{{route('reintentar', $order->id)}}">
+                                            @if($order->payment->status =='PENDING' || $order->payment->status =='REJECTED')
+                                                <button type="button" class="btn btn-outline-info">Reintentar pago</button>
+                                                @endif
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+
+                        <a href="{{ url('/home') }}" class="btn-sm">
+                            <button type="button" class="btn btn-outline-danger">
+                                volver a la tienda
+                            </button>
+                        </a>
                     </div>
 
                 </div>

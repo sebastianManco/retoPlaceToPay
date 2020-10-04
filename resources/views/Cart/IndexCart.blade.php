@@ -1,73 +1,93 @@
 @extends('layouts.app')
 
 @section('content')
-@if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-@endif
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header"><h2>Mi carrito</h2></div>
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <section class="main-content">
+                            <div class="row">
+                                <div class="col-md-15  ">
 
-<section class="container text-center">
-    <h3 class="py-3"><span>Cart Shop</span></h3>
-</section>
-<section class="main-content">
-    <div class="row">
-        <div class="col-md-12  ">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th> quitar del carrito</th>
+                                                <th>Imagen</th>
+                                                <th>Nambre del producto</th>
+                                                <th>cantidad</th>
+                                                <th>Modificar cantidad</th>
+                                                <th>precio unitario </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @forelse($cartProducts as $product)
+                                                <tr>
+                                                    <td>
+                                                        <a href="{{ route('cart.destroy', $product->id) }}">
+                                                            <button type="button" class="btn btn-outline-danger">Borrar</button>
+                                                        </a>
+                                                    </td>
 
-            <div class="col-md-12">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th> </th>
-                        <th>Image</th>
-                        <th>Name Product</th>
-                        <th>quantity1</th>
-                        <th>quantity</th>
-                        <th>price unit</th>
-                        <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @forelse($cartProducts as $product)
-                        <tr>
-                            <td>
-                                <a href="{{ route('cart.destroy', $product->id) }}">Borrar</a>
-                            </td>
+                                                    <td><img src="images/{{ $product->image }}" style="width:25%"> </td>
+                                                    <td>{{ $product->name }}</td>
+                                                    <td> {{ $product->quantity }}</td>
+                                                    <td>
+                                                        <form class="form-inline" action="{{ route('cart.update', $product->id) }}">
+                                                            <input name="quantity" type="number" class="form-control form-control-sm"  value="{{ $product->quantity }}">
+                                                            <button type="submit" class="btn btn-outline-success">Editar</button>
+                                                        </form>
+                                                    </td>
+                                                    <td>$ {{number_format ($product->price)}}</td>
+                                                </tr>
 
-                            <td><img src="images/{{ $product->image }}" style="width:25%"> </td>
-                            <td>{{ $product->name }}</td>
-                            <td><input name="quantity1" id="quantity1" type="text"  value="{{ $product->quantity }} " disabled></td>
-                            <td>
-                                <form action="{{ route('cart.update', $product->id) }}">
-                                    <input name="quantity" type="number"  value="{{ $product->quantity }}">
-                                    <input type="submit" value="Guardar">
-                                </form>
-                            </td>
-                            <td>$ {{number_format ($product->price)}}</td>
-                            <td>$ {{number_format (Cart::session(auth()->id())->get($product->id)->getPriceSum())}}</td>
-                        </tr>
+                                            @empty
+                                                <tr>
+                                                    su carrito esta vacío
+                                                </tr>
+                                            @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                    @empty
-                        <tr>
-                            There are no products in your basket.
-                        </tr>
-                    @endforelse
-                    </tbody>
-                </table>
+                                    <hr>
+                                    <p class="cart-total float-right mr-5">
+                                        <strong>Total</strong>: ${{number_format(Cart::session(auth()->id())->getSubTotal())}}<br>
+                                    <p class="buttons center">
+                                    </p>
+
+                                    <a href="{{ route('orders.create') }}" class="btn-sm">
+                                    <button type="button" class="btn btn-outline-primary">
+                                        Continuar con la compra
+                                    </button>
+                                    </a>
+
+
+                                    <a href="{{ route('products/indexClient') }}" class="btn-sm">
+                                        <button type="button" class="btn btn-outline-danger">
+                                            volver a la tienda
+                                        </button>
+                                    </a>
+
+
+
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
             </div>
-
-            <hr>
-            <p class="cart-total float-right mr-5">
-                <strong>Sub-Total</strong>:	$ {{ number_format(Cart::session(auth()->id())->getSubTotal()) }}<br>
-                <strong>IVA (19%)</strong>: $ {{number_format( Cart::session(auth()->id())->getSubTotal()*0.19) }}<br>
-                <strong>Total</strong>: ${{number_format((Cart::session(auth()->id())->getSubTotal()*0.19)+Cart::session(auth()->id())->getSubTotal())}}<br>
-            <p class="buttons center">
-            </p>
-                <a href="{{ route('orders.create') }}" class="btn-sm">Continue</a>
-
-
-
         </div>
     </div>
-</section>
+    </div>
 @endsection
+

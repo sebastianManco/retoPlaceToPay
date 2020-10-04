@@ -36,17 +36,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Cart/Cart-drop.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Cart/navbar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Payment/HistoryOrders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/placeToPay.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Orders/copia" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CartRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CartRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_06_092555_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_06_092555_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_15_213405_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_15_213405_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_13_020708_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_020708_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_23_033138_create_paymens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cart/IndexCart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cart/IndexCart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Orders/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Payment/HistoryOrders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Payment/HistoryOrders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Payment/ResponsePlaceToPay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Payment/ResponsePlaceToPay.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/__indexProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/__indexProducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Products/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Products/StoreTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Users/CreateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Users/CreateTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,39 +216,38 @@
       <recent name="C:\laragon\www\retoPlaceToPay\tests\Feature\Users" />
     </key>
   </component>
-  <component name="RunManager" selected="Composer Script.phpStan">
-    <configuration name="phpStan" type="ComposerRunConfigurationType" factoryName="Composer Script" temporary="true">
-      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
-      <option name="script" value="phpStan" />
+  <component name="RunManager" selected="PHPUnit.StoreTest.aAuthenticatedCannotStoreAProduct">
+    <configuration name="Products" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests/Feature/Products" />
       <method v="2" />
     </configuration>
-    <configuration name="CreateTest.anAuthenticatedUserCanAccessToCreateViewOfProducts" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Products\CreateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/CreateTest.php" method="anAuthenticatedUserCanAccessToCreateViewOfProducts" scope="Method" />
+    <configuration name="StoreTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Feauture\Users\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="IndexTest.aAuthenticatedUserCanSeeTheIndexOfProducts" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/IndexTest.php" method="aAuthenticatedUserCanSeeTheIndexOfProducts" scope="Method" />
+    <configuration name="StoreTest.aAuthenticatedCanStoreAUser" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Feauture\Users\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" method="aAuthenticatedCanStoreAUser" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="IndexTest.aNotAuthenticatedUserCannotSeeTheIndexOfProducts" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/IndexTest.php" method="aNotAuthenticatedUserCannotSeeTheIndexOfProducts" scope="Method" />
+    <configuration name="StoreTest.aAuthenticatedCannotStoreAProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Products\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Products/StoreTest.php" method="aAuthenticatedCannotStoreAProduct" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Feauture\Users\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" method="aUserCanNotBeRegisteredIfTheFieldsAreInvalid" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Composer Script.phpStan" />
-        <item itemvalue="PHPUnit.IndexTest.aAuthenticatedUserCanSeeTheIndexOfProducts" />
-        <item itemvalue="PHPUnit.IndexTest.aNotAuthenticatedUserCannotSeeTheIndexOfProducts" />
-        <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.CreateTest.anAuthenticatedUserCanAccessToCreateViewOfProducts" />
+        <item itemvalue="PHPUnit.StoreTest.aAuthenticatedCannotStoreAProduct" />
+        <item itemvalue="PHPUnit.Products" />
+        <item itemvalue="PHPUnit.StoreTest" />
+        <item itemvalue="PHPUnit.StoreTest.aAuthenticatedCanStoreAUser" />
+        <item itemvalue="PHPUnit.StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid" />
       </list>
     </recent_temporary>
   </component>
@@ -268,7 +279,8 @@
       <workItem from="1599737484823" duration="7757000" />
       <workItem from="1599850516361" duration="44945000" />
       <workItem from="1600823615463" duration="26335000" />
-      <workItem from="1601160862639" duration="32036000" />
+      <workItem from="1601160862639" duration="96427000" />
+      <workItem from="1601837704834" duration="3199000" />
     </task>
     <servers />
   </component>
@@ -321,11 +333,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1597691613042" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601320330774">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601396745818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601320330774" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601396745818" />
     <state x="367" y="0" width="645" height="728" key="#loginTest.login_displays_the_login_form" timestamp="1597314843654">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -338,55 +350,55 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1599186124433" />
-    <state width="1323" height="9" key="GridCell.Tab.0.bottom" timestamp="1599187557797">
+    <state width="1323" height="260" key="GridCell.Tab.0.bottom" timestamp="1601814646129">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
-    <state width="1323" height="9" key="GridCell.Tab.0.center" timestamp="1599187557797">
+    <state width="1323" height="260" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601814646129" />
+    <state width="1323" height="260" key="GridCell.Tab.0.center" timestamp="1601814646114">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
-    <state width="1323" height="9" key="GridCell.Tab.0.left" timestamp="1599187557797">
+    <state width="1323" height="260" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601814646114" />
+    <state width="1323" height="260" key="GridCell.Tab.0.left" timestamp="1601814646104">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
-    <state width="1323" height="9" key="GridCell.Tab.0.right" timestamp="1599187557797">
+    <state width="1323" height="260" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601814646104" />
+    <state width="1323" height="260" key="GridCell.Tab.0.right" timestamp="1601814646114">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="9" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599187557797" />
-    <state width="1323" height="145" key="GridCell.Tab.1.bottom" timestamp="1598735083669">
+    <state width="1323" height="260" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601814646114" />
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1601814646137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="145" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598735083669" />
-    <state width="1323" height="145" key="GridCell.Tab.1.center" timestamp="1598735083669">
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601814646137" />
+    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1601814646136">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="145" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1598735083669" />
-    <state width="1323" height="145" key="GridCell.Tab.1.left" timestamp="1598735083669">
+    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1601814646136" />
+    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1601814646136">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="145" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1598735083669" />
-    <state width="1323" height="145" key="GridCell.Tab.1.right" timestamp="1598735083669">
+    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1601814646136" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1601814646137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1598735083669" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1601814646137" />
     <state x="444" y="87" key="NewPhpClassDialog" timestamp="1601296918096">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598098563557" />
     <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1601296918096" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1600000623555">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1601391269627">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1600000623555" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1601391269627" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1598641203166">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -399,11 +411,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1598390872612" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1600727773765">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1601766487737">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598610518379" />
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600727773765" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1601766487737" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599962548999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -429,18 +441,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php</url>
-          <line>63</line>
+          <line>76</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php</url>
-          <line>80</line>
+          <line>94</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/Cart/navbar.blade.php</url>
-          <line>6</line>
-          <option name="timeStamp" value="60" />
+          <url>file://$PROJECT_DIR$/resources/views/users/create.blade.php</url>
+          <line>79</line>
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/tests/Feature/Users/StoreTest.php</url>

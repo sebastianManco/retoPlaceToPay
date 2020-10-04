@@ -31,7 +31,8 @@ class CreateTest extends TestCase
         $response = $this->actingAs($user)
             ->get(route('users.create'));
 
-        $response->assertOk()->assertSee('Nombre')
+        $response->assertOk()
+            ->assertSee('Nombre')
             ->assertSee('Apellido')
             ->assertSee('Correo electrónico')
             ->assertSee('Número de teléfono')

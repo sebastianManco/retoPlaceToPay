@@ -24,7 +24,7 @@ class CartRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'quantity' => 'alpha_num',
         ];
     }
 }

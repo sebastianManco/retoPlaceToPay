@@ -110,6 +110,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $images = Image::find($id);
+
         $categories = Cache::remember(
             'categories',
             now()

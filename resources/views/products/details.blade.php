@@ -25,9 +25,10 @@
 
                             <form action="{{ route('cart.add', $product->id) }}">
                                 <div>
-                                    <h3>units:</h3>
-                                        <input name="quantity" type="text" class="input-small" value="1">
-                                        <button type="submit"class="add-to-cart-btn">agregar al carrito</button>
+                                    <h3>unidad:</h3>
+                                        <input name="quantity" type="number" class="input-small" value="1">
+
+                                    <button type="submit"class="btn btn-outline-primary">agregar al carrito</button>
                                 </div>
 
                         @else

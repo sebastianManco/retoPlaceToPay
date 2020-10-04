@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CartRequest;
 use App\Product;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
@@ -16,9 +17,9 @@ class CartController extends Controller
      */
     public function __construct()
     {
-        $this->middleware([
-            'auth',
-        ]);
+        $this->middleware('auth');
+        $this->middleware('usersActive');
+        $this->middleware('verified');
     }
 
     /**
@@ -38,7 +39,7 @@ class CartController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function add(Product $product, Request $request)
+    public function add(Product $product, CartRequest $request)
     {
         if($product->stock - $request->input('quantity') < 0 ) {
             return('cantidad no encontrada');
@@ -48,7 +49,7 @@ class CartController extends Controller
                 'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->price,
-                'quantity' => request('quantity'),
+                'quantity' => $request->input('quantity'),
                 'attributes' => array(),
                 'associatedModel' => Product::class
             ));
@@ -59,19 +60,21 @@ class CartController extends Controller
             return redirect()->route('products/indexClient')
                 ->with('status', 'Tu producto ha sido agregado');
         }
+
     }
 
 
     /**
      * @param int $id
+     * @param CartRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(int $id)
+    public function update(int $id, CartRequest $request)
     {
         \Cart::session(auth()->id())->update($id, array(
             'quantity' => array(
                 'relative' => false,
-                'value' => request('quantity'),
+                'value' => $request->input('quantity'),
             ),
         ));
         return back();
@@ -88,6 +91,12 @@ class CartController extends Controller
         \Cart::session(auth()->id())->remove($productId);
 
         return back()->with('status', 'Tu producto ha sido eliminado');
+    }
+
+    public function clear(){
+
+        \Cart::session(auth()->id())->clear();
+        return redirect()->route('home');
     }
 
 
