@@ -17,7 +17,6 @@ class Product extends Model
         'name', 'description', 'price', 'active', 'stock'
     ];
 
-
     /**
     *
     * @return belongsTo
@@ -40,7 +39,7 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function orders(): BelongsToMany
+    public function orders(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Order::class);
     }

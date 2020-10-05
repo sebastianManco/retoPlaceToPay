@@ -7,6 +7,7 @@ use App\Http\Requests\CartRequest;
 use App\Product;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlockFactoryInterface;
 
 class CartController extends Controller
 {
@@ -85,7 +86,7 @@ class CartController extends Controller
      * @param $productId
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($productId)
+    public function destroy(int $productId)
     {
 
         \Cart::session(auth()->id())->remove($productId);

@@ -14,8 +14,6 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
     protected $fillable = [
@@ -23,7 +21,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-
      * @var array
      */
     protected $hidden = [
@@ -31,7 +28,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-
      * @var array
      */
     protected $casts = [

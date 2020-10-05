@@ -104,7 +104,7 @@ class CheckoutController extends Controller
      * @return void
      */
 
-    public function getRequestInformation(Request $request, $reference)
+    public function getRequestInformation(Request $request, string $reference)
     {
         $order = Order::where('reference', $reference)->get()->first();
         $requestId = Payment::where('order_id', $order->id)->get()->first()->requestId;
@@ -152,12 +152,12 @@ class CheckoutController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param $reference
+     * @param int $id
      * @return void
+     * @throws \Exception
      */
 
-    public function RetryPaiment($id)
+    public function RetryPaiment(int $id)
     {
         $order = Order::find($id);
 
