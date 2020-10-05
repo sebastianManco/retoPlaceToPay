@@ -12,48 +12,40 @@ class ClientController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('usersActive');
+        $this->middleware('verified');
     }
 
     /**
-     * @param string $search
-     * @param string $type
-     * @param string $query
-     * @param Product $products
+
      * @param Request $request
      * @return \Illuminate\View\View
      */
     public function index(Request $request):\Illuminate\View\View
     {
+        $category = $request->get('type');
         $search= $request->get('search');
-        $type = $request->get('type');
-        switch ($type) {
+        $query = Product::with(
+            ['image' => function ($query) {
+                $query->select('id', 'name', 'product_id');
+            },
+                'category' => function ($query) {
+                    $query->select('id', 'name');
+                }
+            ]
+        );
+        switch ($category) {
             case 'name':
-                $products = Product::with(
-                    ['image'=> function ($query) {
-                            $query->select('id', 'name', 'product_id');
-                    },
-                        'category'=>function ($query) {
-                            $query->select('id', 'name');
-                        }
-                    ]
-                )
-                    ->active($search)
-                    ->paginate(3, ['id', 'name']);
+                $query->name($search);
                 break;
             default:
-                $products = Product::with(
-                    ['image'=> function ($query) {
-                        $query->select('id', 'name', 'product_id');
-                    },
-                    'category'=>function ($query) {
-                        $query->select('id', 'name');
-                    }
-                    ]
-                )
-                ->category($search)
-                ->paginate(3, ['id', 'name']);
+                $query->category($search);
                 break;
         }
+        $products = $query
+            ->stock()
+            ->active()
+            ->paginate(3, ['id','name']);
+
         return view('clients.index', compact('products'));
     }
 }

@@ -7,26 +7,26 @@ use Illuminate\Support\Facades\Schema;
 class CreateProductsTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
+     * Run the migrations
      * @return void
      */
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('category_id')->unsigned();
-            $table->string('name', 50);
-            $table->string('description', 100);
-            $table->integer('price', 10);
-            $table->integer('stock', 5);
-            $table->boolean('active')->default(1)->nullable();
-            $table->timestamps();
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories');
+                $table->id();
+                $table->bigInteger('category_id')->unsigned();
+                $table->string('name', 50);
+                $table->string('description', 100);
+                $table->integer('price');
+                $table->integer('stock');
+                $table->boolean('active')->default(1)->nullable();
+                $table->timestamps();
 
-        });
+                $table->foreign('category_id')
+                    ->references('id')
+                    ->on('categories');
+
+            });
     }
 
     /**

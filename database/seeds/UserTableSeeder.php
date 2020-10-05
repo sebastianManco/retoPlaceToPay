@@ -34,5 +34,7 @@ class UserTableSeeder extends Seeder
         $user->password = bcrypt('789456123');
         $user->save();
         $user->roles()->attach($role_user);
+
+
     }
 }

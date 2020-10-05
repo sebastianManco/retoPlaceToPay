@@ -7,20 +7,20 @@
             <div class="card">
                 <div class="card-header"><h2>Crear nuevo Producto</h2></div>
             <div class="card-body">
-                
+
     <form class="form-group" method="POST" action="/products"  enctype="multipart/form-data">
     @csrf
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">Nombre </label>
             <div class="col-md-6">
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" >
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
             </div>
-        </div>  
+        </div>
         <div class="form-group row">
             <label for="description" class="col-md-4 col-form-label text-md-right">Descripción</label>
                 <div class="col-md-6">
@@ -34,7 +34,7 @@
                 @enderror
             </div>
         </div>
-            
+
         <div class="form-group row">
             <label for="category_id" class="col-md-4 col-form-label text-md-right">Categorias </label>
             <div class="col-md-6">
@@ -56,39 +56,39 @@
             <label for="price" class="col-md-4 col-form-label text-md-right" >Precio </label>
             <div class="col-md-6">
             <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{old('price')}}">
-                
+
             @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
             </div>
-        </div> 
-        
+        </div>
+
         <div class="form-group row">
             <label for="image" class="col-md-4 col-form-label text-md-right" > Imagen</label>
             <div class="col-md-6">
             <input type="file" name="image" id="image"  class="form-control-file  @error('image') is-invalid @enderror" value="{{old('image')}}">
-                
+
             @error('image')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
             </div>
-        </div> 
+        </div>
         <div class="form-group row">
             <label for="stock" class="col-md-4 col-form-label text-md-right" >Cantidad </label>
             <div class="col-md-6">
             <input type="text" name="stock" class="form-control @error('stock') is-invalid @enderror" value="{{old('stock')}}">
-                
+
             @error('stock')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
             </div>
-        </div> 
+        </div>
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
         <button type="submit" class="btn btn-outline-primary">guardar</button>

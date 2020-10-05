@@ -24,7 +24,7 @@ class CategoryCreateRequest extends FormRequest
     public function rules()
     {
         return [
-          'name' => 'required|alpha|min:1|max:40'
+          'name' => 'required|alpha|min:3|max:40'
         ];
     }
 
@@ -33,14 +33,14 @@ class CategoryCreateRequest extends FormRequest
         return [
             'name.required' => 'El :attribute es obligatorio.',
             'name.alpha' => 'El :attribute debe ser sólo texto.',
-            'name.max' => 'el :attribute es demaciado largo.'        
+            'name.max' => 'el :attribute es demaciado largo.'
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => 'nombre de la categoría'   
+            'name' => 'nombre de la categoría'
         ];
     }
 }
