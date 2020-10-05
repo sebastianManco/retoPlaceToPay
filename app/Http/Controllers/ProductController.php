@@ -1,37 +1,33 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchRequest;
 use App\Product;
 use App\Category;
 use App\Image;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
 {
-   
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('usersActive');
+        $this->middleware('verified');
     }
 
     /**
-     * @param string $search
-     * @param string $type
-     * @param string $query
-     * @param Product $products
-     * @param Request $request
+     * @param SearchRequest $request
      * @return \Illuminate\View\View
      */
-    public function index(Request $request): \Illuminate\View\View
+    public function index(SearchRequest $request): \Illuminate\View\View
     {
-        $search= $request->get('search');
+
         $category = $request->get('type');
+        $search= $request->get('search');
         $query = Product::with(
             ['image' => function ($query) {
                 $query->select('id', 'name', 'product_id');
@@ -75,8 +71,8 @@ class ProductController extends Controller
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
         $products->stock = $request->input('stock');
-    
         $products->save();
+
         if ($request->hasFile('image')) {
             $images = new Image();
             $image = $request->file('image')->store('Images');
@@ -84,14 +80,12 @@ class ProductController extends Controller
             $images->product_id = $products->id;
             $products->image()->save($images);
         }
-        return redirect('/products')->with('message', 'Guardado con éxito') ;
+        return redirect('/products');
     }
 
     /**
      * Display the specified resource.
      * @param  int  $id
-     * @param Product $product
-     * @param string $query
      * @return \Illuminate\View\View
      */
     public function show(int $id): \Illuminate\View\View
@@ -110,15 +104,13 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
-     * @param Product $product
-     * @param Image $images
-     * @param Cache $categories
      * @return  \Illuminate\View\View
      */
     public function edit(int $id): \Illuminate\View\View
     {
         $product = Product::find($id);
         $images = Image::find($id);
+
         $categories = Cache::remember(
             'categories',
             now()
@@ -133,7 +125,6 @@ class ProductController extends Controller
     /**
      * Undocumented function
      * @param int $id
-     * @param Product $products
      * @param ProductEditRequest $request
      * @return \Illuminate\Routing\Redirector
      */
@@ -157,12 +148,4 @@ class ProductController extends Controller
         return redirect(route('products.index')) ;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param  int  $id
-     */
-    public function destroy(int $id)
-    {
-        //
-    }
 }

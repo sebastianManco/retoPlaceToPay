@@ -176,7 +176,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\ViewServiceProvider::class,
 
+//Custom validation rules
+        \App\Providers\CustomValidationRulesProvider::class,
+
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -188,6 +192,8 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+
+
 
     'aliases' => [
 

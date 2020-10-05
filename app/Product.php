@@ -37,6 +37,15 @@ class Product extends Model
 
     /**
      *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function orders(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Order::class);
+    }
+
+    /**
+     *
      * @param string $query
      * @param string $search
      * @return
@@ -47,13 +56,10 @@ class Product extends Model
             return $query->where('name', 'LIKE', "%$search%");
         }
     }
-    
+
     /**
-     * Undocumented function
-     *
-     * @param string $query
-     * @param string $search
-     * @return
+     * @param $query
+     * @param $search
      */
     public function scopeCategory($query, $search)
     {
@@ -66,14 +72,21 @@ class Product extends Model
     }
 
     /**
-     * Undocumented function
-     *
-     * @param string $query
-     * @param string $search
-     * @return
+     * @param $query
+     * @return mixed
      */
-    public function scopeActive($query, $search)
+    public function scopeActive($query)
     {
-        return $query->where('active', 1)->where('name', 'LIKE', "%$search%");
+        return $query->where('active', 1);
     }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+   public function scopeStock($query)
+    {
+        return $query->where('stock', '>', 0);
+    }
+
 }

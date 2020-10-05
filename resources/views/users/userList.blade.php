@@ -22,16 +22,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($users as $users )
+                  @foreach($users as $user )
                     <tr>
-                      <th scope="row">{{$users->id}}</th>
-                      <td>{{$users->name}}</td>
-                      <td>{{$users->last_name}}</td>
+                      <th scope="row">{{$user->id}}</th>
+                      <td>{{$user->name}}</td>
+                      <td>{{$user->last_name}}</td>
                       <td>
-                          <a href="{{route('users.show',$users->id)}}">
+                          <a href="{{route('users.show',$user->id)}}">
                             <button type="button" class="btn btn-outline-info">Detalles</button>
-                          </a>          
-                          <a href="{{route('users.edit', $users->id)}}">
+                          </a>
+                          <a href="{{route('users.edit', $user->id)}}">
                             <button type="button" class="btn btn-outline-secondary">Editar</button>
                           </a>
                       </td>
@@ -39,13 +39,13 @@
                   @endforeach
                 </tbody>
               </table>
-              <div> {{--$users->links() --}}</div>
+              <div> {{ $users->links() }}</div>
           </div>
-          
+
         </div>
       </div>
     </div>
   </div>
 
-    
+
 @endsection

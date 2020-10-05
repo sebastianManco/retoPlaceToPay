@@ -25,7 +25,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
        view::composer(
-        'products.create', CategoryComposer::class,
+        'products.create', CategoryComposer::class
     );
     }
 }

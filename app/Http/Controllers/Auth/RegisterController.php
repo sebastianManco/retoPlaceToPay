@@ -76,6 +76,8 @@ class RegisterController extends Controller
         ]);
         $user->roles()->sync(Role::where('name', 'user')->first());
         return $user;
+
+
     }
 
 

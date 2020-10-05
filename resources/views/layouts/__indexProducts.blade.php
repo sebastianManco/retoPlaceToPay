@@ -14,13 +14,13 @@
             <div class="card-body">
             @foreach($product->image as $images)
               <img class=""  src="{{ asset($images->name) }}"   width="100" alt="Card image" style="width:100%">
-              @endforeach   
+              @endforeach
                 <div class="card body">
                   <h4 class="card-title">{{$product->name }} </h4>
                   @if(Auth::guest() || Auth::user()->hasRole('user'))
-                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary ">{{__('detalles')}}</a>
-                  @else 
-                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary ">{{__('detalles')}}</a>
+                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">{{__('detalles')}}</a>
+                  @else
+                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">{{__('detalles')}}</a>
                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary ">{{__('Editar')}}</a>
                   @endif
               </div>
@@ -29,12 +29,11 @@
         </div>
       </div>
     </div>
-    @endforeach        
+    @endforeach
     </div>
   </div>
 </section>
 <div class="">
   {{ $products->links() }}
 </div>
-          
-        
+

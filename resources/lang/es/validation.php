@@ -21,6 +21,7 @@ return [
 	'alpha'                 => 'El campo :attribute sólo puede contener letras.',
 	'alpha_dash'            => 'El campo :attribute sólo puede contener letras, números y guiones.',
 	'alpha_num'             => 'El campo :attribute sólo puede contener letras y números.',
+    'alpha_spaces'          => 'El campo :attribute solo puede contener letras y espacios.',
 	'array'                 => 'El campo :attribute debe ser un arreglo.',
 	'before'                => 'El campo :attribute debe ser una fecha antes de :date.',
 	'before_or_equal'       => 'El campo :attribute debe ser una fecha antes o igual a :date.',
@@ -112,10 +113,10 @@ return [
 	'string'                => 'El campo :attribute debe ser una cadena.',
 	'timezone'              => 'El campo :attribute debe ser una zona válida.',
 	'unique'                => 'El campo :attribute ya ha sido tomado.',
-	'uploaded'              => 'El campo :attribute no ha podido ser cargado.',	
+	'uploaded'              => 'El campo :attribute no ha podido ser cargado.',
 	'url'                   => 'El formato de :attribute es inválido.',
 	'uuid'                  => 'El :attribute debe ser un UUID valido.',
-	
+
 	/*
 	|--------------------------------------------------------------------------
 	| Validación del idioma personalizado
@@ -145,5 +146,5 @@ return [
 	*/
 
 	'attributes' => [],
-	
+
 ];
