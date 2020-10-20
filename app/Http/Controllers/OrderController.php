@@ -23,7 +23,7 @@ class OrderController extends Controller
 
      *  @return View
      */
-    public function index():view
+    public function index():View
     {
         $order = Order::where('user_id', '=', auth()->id())->get();
 
@@ -33,7 +33,7 @@ class OrderController extends Controller
     /**
      *  @return View
      */
-    public function create(): view
+    public function create(): View
     {
         $cartProducts = \Cart::session(auth()->id())->getContent();
 

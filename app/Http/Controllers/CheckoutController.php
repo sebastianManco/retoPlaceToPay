@@ -30,17 +30,12 @@ class CheckoutController extends Controller
      */
     public function index(Order $order, Request $request)
     {
-
         $user = User::find(auth()->id());
         $order->total = $request->input('total');
         $order->reference = $user->id . Str::random(10);
         $order->user_id = $user->id;
         $order->save();
         $user->orders()->save($order);
-
-        /*orden del cliente, y la vas a identificar con la referencia del pedido*/
-        //$cartProduct = \Cart::session(auth()->id())->getContent();
-
 
         $seed = date('c');
         if (function_exists('random_bytes')) {

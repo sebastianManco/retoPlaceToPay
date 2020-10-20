@@ -32,7 +32,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            There are no products in your basket.
+                                            Orden vacia.
                                         </tr>
                                     @endforelse
                                 </tbody>

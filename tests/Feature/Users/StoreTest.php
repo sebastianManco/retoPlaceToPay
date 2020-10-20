@@ -79,7 +79,7 @@ class StoreTest extends TestCase
      * @test
      * @param string $field
      * @param null $value
-     * @dataProvider userDataProvider
+     * @dataProvider
      */
     public function aUserCanNotBeRegisteredIfTheFieldsAreInvalid(string $field, $value = null)
     {

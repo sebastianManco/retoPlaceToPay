@@ -38,4 +38,5 @@ Route::get('/reintentarPago/{id}', 'CheckoutController@RetryPaiment')->name('rei
 Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')->name('retry.placeToPay');
 
 Route::resource('orders', 'OrderController');
+Route::get('/export', 'ExportProductController@export');
 
