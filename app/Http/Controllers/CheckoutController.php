@@ -6,8 +6,11 @@ use App\Payment;
 use App\User;
 use App\Order;
 use GuzzleHttp\Client;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class CheckoutController extends Controller
 {
@@ -24,9 +27,9 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @param Request $request
+     * @throws \Exception
      */
     public function index(Order $order, Request $request)
     {
@@ -92,13 +95,11 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param $reference
-     * @return void
+     * @param Request $request
+     * @param string $reference
+     * @return Application|Factory|View
+     * @throws \Exception
      */
-
     public function getRequestInformation(Request $request, string $reference)
     {
         $order = Order::where('reference', $reference)->get()->first();
@@ -145,13 +146,9 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param int $id
-     * @return void
      * @throws \Exception
      */
-
     public function RetryPaiment(int $id)
     {
         $order = Order::find($id);
@@ -210,7 +207,12 @@ class CheckoutController extends Controller
         redirect()->away($processUrl)->send();
     }
 
-
+    /**
+     * @param Request $request
+     * @param $reference
+     * @return Application|Factory|View
+     * @throws \Exception
+     */
     public function updateRetry(Request $request, $reference)
     {
         $order = Order::where('reference', $reference)->get()->first();

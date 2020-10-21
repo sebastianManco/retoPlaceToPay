@@ -5,9 +5,12 @@ use App\Http\Requests\SearchRequest;
 use App\Product;
 use App\Category;
 use App\Image;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -21,9 +24,9 @@ class ProductController extends Controller
 
     /**
      * @param SearchRequest $request
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function index(SearchRequest $request): \Illuminate\View\View
+    public function index(SearchRequest $request): View
     {
 
         $category = $request->get('type');
@@ -52,9 +55,9 @@ class ProductController extends Controller
 
     /**
     * Undocumented function
-    * @return \Illuminate\View\View
+    * @return View
     */
-    public function create() : \Illuminate\View\View
+    public function create() : View
     {
         return view('products.create', ['product' => new Product()]);
     }
@@ -62,9 +65,9 @@ class ProductController extends Controller
     /**
      * @param ProductCreateRequest $request
      * @param Product $products
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(ProductCreateRequest $request, Product $products): \Illuminate\Http\RedirectResponse
+    public function store(ProductCreateRequest $request, Product $products): RedirectResponse
     {
         $products->name = $request->input('name');
         $products->description = $request->input('description');
@@ -86,9 +89,9 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      * @param  int  $id
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function show(int $id): \Illuminate\View\View
+    public function show(int $id): View
     {
         app()->setLocale('en');
         $product = Product::with(
@@ -104,9 +107,9 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
-     * @return  \Illuminate\View\View
+     * @return  View
      */
-    public function edit(int $id): \Illuminate\View\View
+    public function edit(int $id): View
     {
         $product = Product::find($id);
         $images = Image::find($id);
@@ -126,9 +129,9 @@ class ProductController extends Controller
      * Undocumented function
      * @param int $id
      * @param ProductEditRequest $request
-     * @return \Illuminate\Routing\Redirector
+     * @return Redirector
      */
-    public function update(ProductEditRequest $request, int $id)
+    public function update(ProductEditRequest $request, int $id):Redirector
     {
         $products = Product::find($id);
         $products->name = $request->input('name');

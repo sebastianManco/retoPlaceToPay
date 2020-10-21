@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
+use Illuminate\View\View;
 
 class ClientController extends Controller
 {
@@ -18,9 +19,9 @@ class ClientController extends Controller
     /**
 
      * @param Request $request
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function index(Request $request):\Illuminate\View\View
+    public function index(Request $request): View
     {
         $category = $request->get('type');
         $search= $request->get('search');
