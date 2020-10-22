@@ -20,7 +20,6 @@ class OrderController extends Controller
     }
 
     /**
-
      *  @return View
      */
     public function index():View

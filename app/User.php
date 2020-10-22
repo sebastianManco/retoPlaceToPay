@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use phpDocumentor\Reflection\Types\Boolean;
 
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -48,9 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return boolean
+     * @param $roles
+     * @return bool
      */
-    public function authorizeRoles($roles)
+    public function authorizeRoles($roles): bool
     {
         if ($this->hasAnyRole($roles)) {
             return true;
@@ -59,9 +61,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     *@return boolean
+     * @param $roles
+     * @return bool
      */
-    public function hasAnyRole($roles)
+    public function hasAnyRole($roles): bool
     {
         if (is_array($roles)) {
             foreach ($roles as $role) {
@@ -77,10 +80,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return false;
     }
 
-/**
- *@return boolean
- */
-    public function hasRole($role)
+    /**
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role): bool
     {
         if ($this->roles()->where('name', $role)->first()) {
             return true;
