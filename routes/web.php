@@ -33,10 +33,11 @@ Route::get('/cart/destroy/{product}','CartController@destroy')->name('cart.destr
 Route::post('/clear', 'CartController@clear')->name('cart.clear');
 Route::post('/checkout/', 'CheckoutController@index')->name('checkout/index');
 Route::get('response/placeToPay/{reference}', 'CheckoutController@getRequestInformation')->name('response.placeToPay');
-
 Route::get('/reintentarPago/{id}', 'CheckoutController@RetryPaiment')->name('reintentar');
 Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')->name('retry.placeToPay');
-
 Route::resource('orders', 'OrderController');
 Route::get('/export', 'ExportProductController@export');
+Route::get('/businessManagement', 'businessManagementController@index')->name('businessManagement');
+Route::post('/importProduct', 'ImportProductController@import')->name('productImport');
+
 
