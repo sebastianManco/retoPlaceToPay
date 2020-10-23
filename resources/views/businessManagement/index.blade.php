@@ -7,4 +7,10 @@
         <button>Importar</button>
     </form>
 
+    <form action="{{ route('productUpdateImport')  }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="file" id="files" name="files">
+        <button>Importar actualizacion</button>
+    </form>
+
 @endsection

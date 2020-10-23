@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ProductImport;
+use App\Imports\ProductUpdateImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -12,6 +13,14 @@ class ImportProductController extends Controller
     {
         $file = $request->file('file');
         Excel::import(new ProductImport, $file);
-        return back()->with('productos importados correctamente');
+        return redirect()->back()->with('productos importados correctamente');
+    }
+
+    public function importUpdateProduct(Request $request)
+    {
+        dd($request);
+        $file = $request->file('file');
+        Excel::import(new ProductUpdateImport, $file);
+        return redirect()->back()->with('productos importados correctamente');
     }
 }
