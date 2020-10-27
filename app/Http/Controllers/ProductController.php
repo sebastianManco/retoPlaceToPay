@@ -48,7 +48,7 @@ class ProductController extends Controller
                 $query->category($search);
                 break;
         }
-        $products = $query->paginate(3, ['id','name']);
+        $products = $query->paginate(15, ['id','name']);
 
         return view('products.index', ['products' => $products, 'search' => $products]);
     }

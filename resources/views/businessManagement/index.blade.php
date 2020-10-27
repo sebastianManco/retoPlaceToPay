@@ -9,7 +9,7 @@
 
     <form action="{{ route('productUpdateImport')  }}" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="file" id="files" name="files">
+        <input type="file" id="archivo" name="archivo">
         <button>Importar actualizacion</button>
     </form>
 

@@ -13,7 +13,7 @@ class ProductExport implements FromQuery, WithHeadings
     public function headings(): array
     {
         return [
-            '#',
+            'id',
             'category',
             'name',
             'description',

@@ -56,7 +56,7 @@ Route::get('/businessManagement', 'businessManagementController@index')
     ->name('businessManagement');
 Route::post('/importProduct', 'ImportProductController@import')
     ->name('productImport');
-Route::post('/importUpdateProduct', 'ImportProductController@import')
+Route::post('/importUpdateProduct', 'ImportProductController@importUpdateProduct')
     ->name('productUpdateImport');
 
 

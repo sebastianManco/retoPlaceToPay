@@ -18,8 +18,7 @@ class ImportProductController extends Controller
 
     public function importUpdateProduct(Request $request)
     {
-        dd($request);
-        $file = $request->file('file');
+        $file = $request->file('archivo');
         Excel::import(new ProductUpdateImport, $file);
         return redirect()->back()->with('productos importados correctamente');
     }
