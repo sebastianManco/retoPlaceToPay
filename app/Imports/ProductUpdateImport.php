@@ -12,7 +12,6 @@ class ProductUpdateImport implements ToCollection
 
     /**
      * @param Collection $rows
-     * @return
      */
     public function collection(Collection $rows)
     {

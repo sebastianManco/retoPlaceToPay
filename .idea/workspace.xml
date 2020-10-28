@@ -37,13 +37,9 @@
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ProductExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ProductExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Imports/ProductImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductImport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Imports/ProductUpdateImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductUpdateImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/businessManagement/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/businessManagement/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +277,7 @@
       <workItem from="1602508180647" duration="17494000" />
       <workItem from="1603192465199" duration="10145000" />
       <workItem from="1603726317593" duration="625000" />
-      <workItem from="1603729925218" duration="3972000" />
+      <workItem from="1603729925218" duration="8707000" />
     </task>
     <servers />
   </component>
@@ -339,6 +335,10 @@
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603500844435" />
+    <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1603761211893">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1/0.0.1366.728@0.0.1366.728" timestamp="1603761211893" />
     <state x="367" y="0" width="645" height="728" key="#loginTest.login_displays_the_login_form" timestamp="1597314843654">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
