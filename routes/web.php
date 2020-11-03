@@ -59,4 +59,6 @@ Route::post('/importProduct', 'ImportProductController@import')
 Route::post('/importUpdateProduct', 'ImportProductController@importUpdateProduct')
     ->name('productUpdateImport');
 
+Route::get('/job', 'QueueController@pruebaColas')->name('job.product');
+
 

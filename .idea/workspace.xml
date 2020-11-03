@@ -36,10 +36,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Mail/DailyReport.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Reports/dailyreport.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/ProductImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/ProductUpdateImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductUpdateImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ProductExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ProductExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/__search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/__search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +186,11 @@
       <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
     </include_path>
   </component>
   <component name="ProjectId" id="1fHC7mDlxQxdI5FgQAG8dCCOFx6" />
@@ -277,7 +292,9 @@
       <workItem from="1602508180647" duration="17494000" />
       <workItem from="1603192465199" duration="10145000" />
       <workItem from="1603726317593" duration="625000" />
-      <workItem from="1603729925218" duration="8707000" />
+      <workItem from="1603729925218" duration="30646000" />
+      <workItem from="1604123399764" duration="5163000" />
+      <workItem from="1604170449539" duration="17221000" />
     </task>
     <servers />
   </component>
@@ -322,6 +339,10 @@
     </state>
     <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641769138" />
     <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728@0.0.1366.728" timestamp="1597698845597" />
+    <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604175828457">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604175828457" />
     <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1603413456907">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -330,11 +351,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1597691613042" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603500844435">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604344655055">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603500844435" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604344655055" />
     <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1603761211893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -454,6 +475,11 @@
           <url>file://$PROJECT_DIR$/resources/views/users/create.blade.php</url>
           <line>79</line>
           <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Jobs/ReportJob.php</url>
+          <line>37</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/tests/Feature/Users/StoreTest.php</url>

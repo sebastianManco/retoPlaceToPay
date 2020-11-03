@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 class ProductExport implements FromQuery, WithHeadings
 {
     use exportable;
+
     public function headings(): array
     {
         return [

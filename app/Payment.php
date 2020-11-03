@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     protected $fillable = [
-        'order_id', 'requestId','processUrl', 'status'//aqui tambien nombre la referencia
+        'order_id', 'requestId','processUrl', 'status', 'created_ad'
     ];
 
 
