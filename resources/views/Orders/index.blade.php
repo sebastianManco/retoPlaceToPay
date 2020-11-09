@@ -25,7 +25,7 @@
                                         <tr>
                                             <td><img src="images/{{ $product->image }}" style="width:25%"> </td>
                                             <td>
-                                                <input name="name"  type="hidden"  value="{{ $product->id }} ">{{ $product->name }}</td>
+                                                <input name="name" id="name" type="hidden"  value="{{ $product->id }} ">{{ $product->name }}</td>
                                             <td>{{ $product->quantity }}</td>
                                             <td> <input name="unity" id="unity" type="hidden" value="{{number_format (Cart::session(auth()->id())->get($product->id)->getPriceSum())}}">
                                                 {{number_format (Cart::session(auth()->id())->get($product->id)->getPriceSum())}}</td>

@@ -35,11 +35,7 @@ class Product extends Model
         return $this->hasMany('App\Image');
     }
 
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function orders(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function orders()
     {
         return $this->belongsToMany(Order::class);
     }

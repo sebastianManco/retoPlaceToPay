@@ -31,6 +31,7 @@ class ProductController extends Controller
 
         $category = $request->get('type');
         $search= $request->get('search');
+
         $query = Product::with(
             ['image' => function ($query) {
                 $query->select('id', 'name', 'product_id');

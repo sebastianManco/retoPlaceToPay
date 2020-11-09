@@ -18,27 +18,28 @@ class Order extends Model
     ];
 
 
-    /**
-     *
-     *
-     */
     public function products()
     {
         return $this->belongsToMany(Product::class);
     }
 
-    /**
-     *
-     * @return belongsTo
-     */
-    public function user(): belongsTo
+    public function user()
     {
         return $this->belongsTo('App\User');
     }
 
-
     public function payment()
     {
         return $this->hasOne('App\Payment');
+    }
+
+    /**
+     * @param $query
+     * @param $dateFrom
+     * @param $dateTo
+     */
+    public function scopeData($query, $dateFrom, $dateTo) {
+
+        $query->whereBetween('created_at', [$dateFrom, $dateTo]);
     }
 }

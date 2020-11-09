@@ -36,6 +36,7 @@ class ReportJob implements ShouldQueue
      */
     public function handle()
     {
+
         $mail = new DailyReportMail();
         Mail::to($this->userEmail)->send($mail);
 

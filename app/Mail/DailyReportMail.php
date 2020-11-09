@@ -13,16 +13,27 @@ class DailyReportMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $order;
+
+
+    /**
+     *cuando creo el $payment de tipo Paiment, me arroja error
+     * @param Payment $payment
+     *
+     */
+    public function __construct($order)
+    {
+        $this->order = $order;
+    }
+
     /**
      * @return $this
      */
     public function build()
     {
-        $payment = Payment::whereDate('created_at','=', now()
-            ->format('Y-m-d'))
-            ->get();
-
-        $pdf = PDF::loadView('Reports.dailyReport', compact('payment'));
+        $pdf = PDF::loadView('Reports.dailyReport', [
+            'order' => $this->order,
+        ]);
 
         return $this->view('Mail.DailyReport')
             ->attachData($pdf->output(), 'DailyReport.pdf');
