@@ -128,11 +128,10 @@ class ProductController extends Controller
 
     /**
      * Undocumented function
-     * @param int $id
      * @param ProductEditRequest $request
-     * @return Redirector
+     * @param int $id
      */
-    public function update(ProductEditRequest $request, int $id):Redirector
+    public function update(ProductEditRequest $request, int $id)
     {
         $products = Product::find($id);
         $products->name = $request->input('name');

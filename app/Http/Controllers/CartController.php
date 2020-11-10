@@ -59,7 +59,7 @@ class CartController extends Controller
 
                 $product->stock = $product->stock - $request->input('quantity');
                 $product->save();
-                if ($product->stock == 2){
+                if ($product->stock <= 2){
                     event(new soldOutEvent($product));
                 }
 

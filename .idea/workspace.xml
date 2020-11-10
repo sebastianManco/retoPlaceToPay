@@ -36,19 +36,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Reports/customReports.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Reports/soldOutMail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QueueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QueueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/ReportJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ReportJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/DailyReportMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/DailyReportMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Payment/ResponsePlaceToPay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Payment/ResponsePlaceToPay.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/DatabaseStorageModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DatabaseStorageModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/soldOutListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/soldOutListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Reports/soldOutMail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Reports/soldOutMail.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
