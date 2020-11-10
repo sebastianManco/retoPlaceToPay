@@ -18,14 +18,16 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    @if($response->payment == 'null')
+                                        <td> {{ $response->payment[0]->reference }}</td>
+                                        <td> {{ $response->status->status }}</td>
+                                        <td> {{ $response->payment[0]->amount->from->total }}</td>
+                                    @else
 
-                                    <td>
-                                        @if($response->payment == 'null')
-                                            pago pendiente
-                                        @endif
-                                        {{ $response->payment[0]->reference }}</td>
-                                    <td> {{ $response->status->status }}</td>
-                                    <td> {{ $response->payment[0]->amount->from->total }}</td>
+                                    @endif
+                                        <td> {{ $response->request->payment->reference }}</td>
+                                        <td> {{ $response->status->status }}</td>
+                                        <td> {{ $response->request->payment->amount->total }}</td>
 
                                 </tr>
 

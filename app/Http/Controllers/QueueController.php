@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\customReportsEvent;
 use App\Jobs\ReportJob;
-use App\Mail\DailyReportMail;
+
 use App\Order;
-use App\Payment;
 use App\User;
-use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class QueueController extends Controller
 {
@@ -24,15 +23,14 @@ class QueueController extends Controller
     /**
      * @param Request $request
      */
-    public function pruebaColas(Request $request)
+    public function customReport(Request $request)
     {
+
+
         $dateFrom = $request->get('dateFrom');
         $dateTo = $request->get('dateTo');
 
-        $orders = Order::with('user', 'products', 'payment')
-            ->data($dateFrom, $dateTo)
-            ->get();
-        dd($orders);
+        event(new customReportsEvent($dateFrom, $dateTo));
 
     }
 }

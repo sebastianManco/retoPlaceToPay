@@ -51,6 +51,7 @@ Route::get('/reintentarPago/{id}', 'CheckoutController@RetryPaiment')
 Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')
     ->name('retry.placeToPay');
 Route::resource('orders', 'OrderController');
+
 Route::get('/export', 'ExportProductController@export');
 Route::get('/businessManagement', 'businessManagementController@index')
     ->name('businessManagement');
@@ -59,7 +60,7 @@ Route::post('/importProduct', 'ImportProductController@import')
 Route::post('/importUpdateProduct', 'ImportProductController@importUpdateProduct')
     ->name('productUpdateImport');
 
-Route::get('/job', 'QueueController@pruebaColas')->name('job.product');
+Route::get('/job', 'QueueController@customReport')->name('job.product');
 
 
 

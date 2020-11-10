@@ -35,6 +35,7 @@ class DailyReportMail extends Mailable
             'order' => $this->order,
         ]);
 
+
         return $this->view('Mail.DailyReport')
             ->attachData($pdf->output(), 'DailyReport.pdf');
     }

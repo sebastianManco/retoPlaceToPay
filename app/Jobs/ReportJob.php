@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Order;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Mail\DailyReportMail;
 use App\Payment;
@@ -16,18 +17,18 @@ class ReportJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * @var string
-     */
-    private string $userEmail;
+
+    private $dateFrom, $dateTo;
 
     /**
      * Create a new job instance.
-     * @param string $userEmail
+     * @param string $dateForm,
+     * @param $dateTo,
      */
-    public function __construct(string $userEmail)
+    public function __construct($dateFrom, $dateTo)
     {
-        $this->userEmail = $userEmail;
+        $this->dateFrom = $dateFrom;
+        $this->dateTo = $dateTo;
     }
 
     /**
@@ -36,9 +37,16 @@ class ReportJob implements ShouldQueue
      */
     public function handle()
     {
+        $dateFrom = $this->dateFrom;
+        $dateTo = $this->dateTo;
 
-        $mail = new DailyReportMail();
-        Mail::to($this->userEmail)->send($mail);
+        $orders = Order::with('user', 'products', 'payment')
+            ->dateRange($dateFrom, $dateTo)
+            ->get();
+
+        $pdf = PDF::loadView('Reports.customReports');
+         return $pdf->download('prueba.pdf');
+
 
     }
 }
