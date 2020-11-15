@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Payment;
+use App\Product;
 use App\User;
 use App\Order;
 use GuzzleHttp\Client;
@@ -33,12 +34,14 @@ class CheckoutController extends Controller
      */
     public function index(Order $order, Request $request)
     {
+        $ordersProducts = Product::where('id', $request->input(['name']))->first();
         $user = User::find(auth()->id());
         $order->total = $request->input('total');
         $order->reference = $user->id . Str::random(10);
         $order->user_id = $user->id;
         $order->save();
         $user->orders()->save($order);
+        $order->products()->attach($ordersProducts);
 
         $seed = date('c');
         if (function_exists('random_bytes')) {

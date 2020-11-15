@@ -9,7 +9,6 @@ class DatabaseStorageModel extends Model
     protected $table = 'cart_storage';
 
     /**
-     * The attributes that are mass assignable.
      *
      * @var array
      */
@@ -17,11 +16,18 @@ class DatabaseStorageModel extends Model
         'id', 'cart_data',
     ];
 
+    /**
+     * @param $value
+     */
     public function setCartDataAttribute($value)
     {
         $this->attributes['cart_data'] = serialize($value);
     }
 
+    /**
+     * @param $value
+     * @return mixed
+     */
     public function getCartDataAttribute($value)
     {
         return unserialize($value);

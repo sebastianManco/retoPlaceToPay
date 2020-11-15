@@ -6,7 +6,6 @@ use App\Product;
 use App\Category;
 use App\Image;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
@@ -31,6 +30,7 @@ class ProductController extends Controller
 
         $category = $request->get('type');
         $search= $request->get('search');
+
         $query = Product::with(
             ['image' => function ($query) {
                 $query->select('id', 'name', 'product_id');
@@ -122,16 +122,18 @@ class ProductController extends Controller
                 return Category::all();
             }
         );
-        return view('products.edit', compact('product'), compact('categories'));
+        return view('products.edit', [
+            'categories' => $categories,
+            'product' => $product,
+        ]);
     }
 
     /**
      * Undocumented function
-     * @param int $id
      * @param ProductEditRequest $request
-     * @return Redirector
+     * @param int $id
      */
-    public function update(ProductEditRequest $request, int $id):Redirector
+    public function update(ProductEditRequest $request, int $id)
     {
         $products = Product::find($id);
         $products->name = $request->input('name');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\soldOutEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CartRequest;
 use App\Product;
@@ -42,25 +43,30 @@ class CartController extends Controller
      */
     public function add(Product $product, CartRequest $request)
     {
-        if($product->stock - $request->input('quantity') < 0 ) {
-            return('cantidad no encontrada');
-        }
-        else {
-            \Cart::session(auth()->id())->add(array(
-                'id' => $product->id,
-                'name' => $product->name,
-                'price' => $product->price,
-                'quantity' => $request->input('quantity'),
-                'attributes' => array(),
-                'associatedModel' => Product::class
-            ));
 
-            $product->stock = $product->stock - $request->input('quantity');
-            $product->save();
 
-            return redirect()->route('products/indexClient')
-                ->with('status', 'Tu producto ha sido agregado');
-        }
+            if ($product->stock - $request->input('quantity') < 0) {
+                return ('cantidad no encontrada');
+            } else {
+                \Cart::session(auth()->id())->add(array(
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'price' => $product->price,
+                    'quantity' => $request->input('quantity'),
+                    'attributes' => array(),
+                    'associatedModel' => Product::class
+                ));
+
+                $product->stock = $product->stock - $request->input('quantity');
+                $product->save();
+                if ($product->stock <= 2){
+                    event(new soldOutEvent($product));
+                }
+
+                return redirect()->route('products/indexClient')
+                    ->with('status', 'Tu producto a sido agregado');
+
+            }
 
     }
 

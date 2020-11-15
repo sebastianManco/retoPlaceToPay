@@ -13,4 +13,13 @@
         <button>Importar actualizacion</button>
     </form>
 
+    <form action="{{route('customReport')}}" method="get">
+        @csrf
+        desde <input type="datetime-local" name="dateFrom"  id="dateFrom">
+        hasta <input type="datetime-local" name="dateTo"  id="dateTo">
+        <button type="submit">enviar</button>
+    </form>
+
+    <a href="{{route('indexReport')}}"><button> reportes generados</button></a>
+
 @endsection

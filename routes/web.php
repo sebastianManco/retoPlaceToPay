@@ -51,6 +51,7 @@ Route::get('/reintentarPago/{id}', 'CheckoutController@RetryPaiment')
 Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')
     ->name('retry.placeToPay');
 Route::resource('orders', 'OrderController');
+
 Route::get('/export', 'ExportProductController@export');
 Route::get('/businessManagement', 'businessManagementController@index')
     ->name('businessManagement');
@@ -58,5 +59,9 @@ Route::post('/importProduct', 'ImportProductController@import')
     ->name('productImport');
 Route::post('/importUpdateProduct', 'ImportProductController@importUpdateProduct')
     ->name('productUpdateImport');
+
+Route::get('/customReport', 'ReportController@customReport')->name('customReport');
+Route::get('/indexReport', 'ReportController@show')->name('indexReport');
+
 
 

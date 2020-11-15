@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\customReportsEvent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,7 +15,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id','name', 'description', 'price', 'active', 'stock'
+        'category_id','name', 'description', 'price', 'active', 'stock', 'created_at'
     ];
 
     /**
@@ -35,11 +36,7 @@ class Product extends Model
         return $this->hasMany('App\Image');
     }
 
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function orders(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function orders()
     {
         return $this->belongsToMany(Order::class);
     }

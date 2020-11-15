@@ -8,7 +8,10 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class ProductImport implements ToModel,  WithHeadingRow
 {
-
+    /**
+     * @param array $row
+     * @return Product|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Model[]|null
+     */
     public function model(array $row)
     {
         return new Product([

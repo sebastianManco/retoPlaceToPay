@@ -20,6 +20,7 @@ class OrderController extends Controller
     }
 
     /**
+     * esta funcion me dirije a la vista del historial de ordenes
      *  @return View
      */
     public function index():View
