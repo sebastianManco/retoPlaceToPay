@@ -60,7 +60,8 @@ Route::post('/importProduct', 'ImportProductController@import')
 Route::post('/importUpdateProduct', 'ImportProductController@importUpdateProduct')
     ->name('productUpdateImport');
 
-Route::get('/job', 'QueueController@customReport')->name('job.product');
+Route::get('/customReport', 'ReportController@customReport')->name('customReport');
+Route::get('/indexReport', 'ReportController@show')->name('indexReport');
 
 
 

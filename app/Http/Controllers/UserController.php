@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
-class UserController extends Controller
+class
+UserController extends Controller
 {
 
     public function __construct()

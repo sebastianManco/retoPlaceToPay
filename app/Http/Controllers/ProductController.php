@@ -6,7 +6,6 @@ use App\Product;
 use App\Category;
 use App\Image;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
@@ -123,7 +122,10 @@ class ProductController extends Controller
                 return Category::all();
             }
         );
-        return view('products.edit', compact('product'), compact('categories'));
+        return view('products.edit', [
+            'categories' => $categories,
+            'product' => $product,
+        ]);
     }
 
     /**

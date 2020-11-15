@@ -40,6 +40,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Order');
     }
 
+    public function pdfs(): hasMany
+    {
+        return $this->hasMany('App\Pdf');
+    }
+
     /**
      * @return belongsToMany
      */

@@ -3,7 +3,9 @@
 namespace App\Jobs;
 
 use App\Order;
-use Barryvdh\DomPDF\Facade as PDF;
+use App\Pdf as pdfModel;
+use App\User;
+use Barryvdh\DomPDF\Facade as PDFS;
 use App\Mail\DailyReportMail;
 use App\Payment;
 use Illuminate\Bus\Queueable;
@@ -12,41 +14,51 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
-class ReportJob implements ShouldQueue
+class ReportJob implements  ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
 
-    private $dateFrom, $dateTo;
+    private $dateFrom, $dateTo, $user;
 
     /**
-     * Create a new job instance.
-     * @param string $dateForm,
-     * @param $dateTo,
+     * ReportJob constructor.
+     * @param $dateFrom
+     * @param $dateTo
+     * @param User $user
      */
-    public function __construct($dateFrom, $dateTo)
+    public function __construct($dateFrom, $dateTo, User $user)
     {
         $this->dateFrom = $dateFrom;
         $this->dateTo = $dateTo;
+        $this->user = $user;
     }
 
     /**
-     * Execute the job.
      *
      */
     public function handle()
     {
         $dateFrom = $this->dateFrom;
         $dateTo = $this->dateTo;
+        $user = $this->user;
 
         $orders = Order::with('user', 'products', 'payment')
             ->dateRange($dateFrom, $dateTo)
             ->get();
 
-        $pdf = PDF::loadView('Reports.customReports');
-         return $pdf->download('prueba.pdf');
+        $name = 'report-'. time().'s.pdf';
 
+        $pdf = PDFS::loadView('Reports.customReports', [
+            'order' => $orders,
+        ])->save(storage_path('app/public/'). $name);
+
+         $user->pdfs()->create([
+            'name' => $name,
+            'user_id' => $user
+        ]);
 
     }
 }
