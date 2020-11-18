@@ -37,6 +37,7 @@
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/nota" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
@@ -294,7 +295,7 @@
       <workItem from="1604939610859" duration="24246000" />
       <workItem from="1605293534936" duration="66000" />
       <workItem from="1605293652259" duration="38581000" />
-      <workItem from="1605577767522" duration="20263000" />
+      <workItem from="1605577767522" duration="20631000" />
     </task>
     <servers />
   </component>
