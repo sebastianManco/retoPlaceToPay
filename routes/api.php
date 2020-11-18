@@ -24,3 +24,5 @@ Route::get('/products/index', 'Api\ProductApicontroller@index')->name('api.produ
 Route::post('/products/create', 'Api\ProductApicontroller@index')->name('api.products.store');
 
 Route::get('/products/show/{id}', 'Api\ProductApicontroller@show')->name('api.products.show');
+
+Route::put('/products/update/{id}', 'Api\ProductApicontroller@update')->name('api.products.update');

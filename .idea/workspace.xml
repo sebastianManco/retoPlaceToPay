@@ -37,12 +37,8 @@
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +217,7 @@
       <recent name="C:\laragon\www\retoPlaceToPay\public" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ShowTest.show_product">
+  <component name="RunManager" selected="PHPUnit.UpdateTest.update_product">
     <configuration name="IndexTest.returnJsonResponseFormProductsIndex" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" method="returnJsonResponseFormProductsIndex" scope="Method" />
       <method v="2" />
@@ -238,8 +234,8 @@
       <TestRunner class="Tests\Feature\Api\Products\Showtest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/Showtest.php" method="show_product" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="StoreTest.createNewProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Products\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" method="createNewProduct" scope="Method" />
+    <configuration name="UpdateTest.update_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Products\UpdateTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/UpdateTest.php" method="update_product" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -248,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.UpdateTest.update_product" />
         <item itemvalue="PHPUnit.ShowTest.show_product" />
         <item itemvalue="PHPUnit.Showtest.show_product" />
         <item itemvalue="PHPUnit.ShowTest" />
         <item itemvalue="PHPUnit.IndexTest.returnJsonResponseFormProductsIndex" />
-        <item itemvalue="PHPUnit.StoreTest.createNewProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +294,7 @@
       <workItem from="1604939610859" duration="24246000" />
       <workItem from="1605293534936" duration="66000" />
       <workItem from="1605293652259" duration="38581000" />
-      <workItem from="1605577767522" duration="32792000" />
+      <workItem from="1605577767522" duration="35131000" />
     </task>
     <servers />
   </component>
@@ -384,26 +380,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1603212014053" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1605718581395">
+    <state width="1323" height="232" key="GridCell.Tab.0.bottom" timestamp="1605719659770">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605718581395" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1605718581395">
+    <state width="1323" height="232" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605719659770" />
+    <state width="1323" height="232" key="GridCell.Tab.0.center" timestamp="1605719659770">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605718581395" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1605718581395">
+    <state width="1323" height="232" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605719659770" />
+    <state width="1323" height="232" key="GridCell.Tab.0.left" timestamp="1605719659770">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605718581395" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1605718581395">
+    <state width="1323" height="232" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605719659770" />
+    <state width="1323" height="232" key="GridCell.Tab.0.right" timestamp="1605719659770">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605718581395" />
+    <state width="1323" height="232" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605719659770" />
     <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1605715271095">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

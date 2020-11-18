@@ -39,20 +39,22 @@ class ProductApiController extends Controller
      * @param $productId
      * @return ProductResource
      */
-    public function show(int $productId)
+    public function show(int $id)
     {
-        $product = Product::findOrFail($productId);
+        $product = Product::findOrFail($id);
 
         return new ProductResource($product);
     }
 
     /**
      * @param Request $request
-     * @param Product $product
+     * @param int $id
      * @return ProductResource
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, int $id)
     {
+        $product = Product::findOrFail($id);
+
         $product->update($request->all());
 
         return new ProductResource($product);
