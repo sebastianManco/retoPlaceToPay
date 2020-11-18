@@ -16,13 +16,14 @@ class IndexTest extends TestCase
      */
     public function returnJsonResponseFormProductsIndex()
     {
+        $this->withoutExceptionHandling();
         factory(Category::class)->create();
         factory(Product::class, 2)->create();
 
         $response = $this->getJson(route('api.products.index'));
 
-        $response->assertSuccessful();
-        $response->assertHeader('content-type', 'application/json');
-        $response->assertJsonCount(2, 'data');
+        $response->assertSuccessful()
+            ->assertHeader('content-type', 'application/json')
+            ->assertJsonCount(2, 'data');
     }
 }

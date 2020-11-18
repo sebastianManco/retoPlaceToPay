@@ -20,6 +20,7 @@ class StoreTest extends TestCase
      */
     public function createNewProduct()
     {
+        $this->withoutExceptionHandling();
         factory(User::class)->create();
         factory(Category::class)->create();
 
@@ -32,8 +33,9 @@ class StoreTest extends TestCase
         ];
         $response = $this->postJson(route('api.products.store'), $product);
 
-        $response->assertSuccessful();
-        $response->assertHeader('content-type', 'application/json');
+        $response->assertSuccessful()
+            ->assertHeader('content-type', 'application/json');
+
         $this->assertDatabaseHas('products', $product);
     }
 }

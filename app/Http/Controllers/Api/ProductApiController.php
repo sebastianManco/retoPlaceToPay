@@ -3,20 +3,23 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Product;
 use Illuminate\Http\Request;
 
 class ProductApiController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * retorna una coleccion de productos
+     * get /products/index
      *
-     * @return \Illuminate\Http\Response
+     * @return ProductCollection
      */
     public function index()
     {
-        return ProductResource::collection(Product::all());
+        return new ProductCollection(Product::all());
     }
 
     /**
@@ -31,26 +34,28 @@ class ProductApiController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Product $product
-     * @return void
+     *  get /products/show/int
+     * retorna un json con la siguiente información { { product: 'id', 'name', 'description', 'category', 'price', 'stock' } }
+     * @param $productId
+     * @return ProductResource
      */
-    public function show($id)
+    public function show(int $productId)
     {
+        $product = Product::findOrFail($productId);
 
+        return new ProductResource($product);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Product $product
+     * @return ProductResource
      */
-    public function update()
+    public function update(Request $request, Product $product)
     {
+        $product->update($request->all());
 
+        return new ProductResource($product);
     }
 
     /**
