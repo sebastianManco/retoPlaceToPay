@@ -36,8 +36,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/categoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/categoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/ProductImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/businessManagement/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/businessManagement/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Products/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Products/StoreTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,13 +229,9 @@
       <recent name="C:\laragon\www\retoPlaceToPay\public" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Products">
+  <component name="RunManager" selected="PHPUnit.StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid">
     <configuration name="Products" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests/Feature/Api/Products" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ShowTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Products\ShowTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="ShowTest.show_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -231,6 +240,10 @@
     </configuration>
     <configuration name="Showtest.show_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Api\Products\Showtest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/Showtest.php" method="show_product" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Feauture\Users\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" method="aUserCanNotBeRegisteredIfTheFieldsAreInvalid" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="UpdateTest.update_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -243,11 +256,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid" />
         <item itemvalue="PHPUnit.Products" />
         <item itemvalue="PHPUnit.UpdateTest.update_product" />
         <item itemvalue="PHPUnit.ShowTest.show_product" />
         <item itemvalue="PHPUnit.Showtest.show_product" />
-        <item itemvalue="PHPUnit.ShowTest" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +306,9 @@
       <workItem from="1604939610859" duration="24246000" />
       <workItem from="1605293534936" duration="66000" />
       <workItem from="1605293652259" duration="38581000" />
-      <workItem from="1605577767522" duration="37561000" />
+      <workItem from="1605577767522" duration="41430000" />
+      <workItem from="1605873245774" duration="17737000" />
+      <workItem from="1606193980552" duration="3471000" />
     </task>
     <servers />
   </component>
@@ -379,55 +394,55 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1603212014053" />
-    <state width="1323" height="81" key="GridCell.Tab.0.bottom" timestamp="1605725685427">
+    <state width="1323" height="60" key="GridCell.Tab.0.bottom" timestamp="1606021377026">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="81" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605725685427" />
-    <state width="1323" height="81" key="GridCell.Tab.0.center" timestamp="1605725685427">
+    <state width="1323" height="60" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606021377026" />
+    <state width="1323" height="60" key="GridCell.Tab.0.center" timestamp="1606021377024">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="81" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605725685427" />
-    <state width="1323" height="81" key="GridCell.Tab.0.left" timestamp="1605725685427">
+    <state width="1323" height="60" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606021377024" />
+    <state width="1323" height="60" key="GridCell.Tab.0.left" timestamp="1606021377024">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="81" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605725685427" />
-    <state width="1323" height="81" key="GridCell.Tab.0.right" timestamp="1605725685427">
+    <state width="1323" height="60" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606021377024" />
+    <state width="1323" height="60" key="GridCell.Tab.0.right" timestamp="1606021377025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="81" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605725685427" />
-    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1605715271095">
+    <state width="1323" height="60" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606021377025" />
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1605757033056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605715271095" />
-    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1605715271094">
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605757033056" />
+    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1605757033056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1605715271094" />
-    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1605715271094">
+    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1605757033056" />
+    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1605757033056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1605715271094" />
-    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1605715271094">
+    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1605757033056" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1605757033056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605715271094" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605757033056" />
     <state x="217" y="174" key="NewPhpClassDialog" timestamp="1602609967776">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598098563557" />
     <state x="217" y="174" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1602609967776" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1601391269627">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1606016119393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1601391269627" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606016119393" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1598641203166">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
