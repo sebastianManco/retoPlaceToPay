@@ -18,7 +18,7 @@ class ImportProductController extends Controller
     {
 
         $file = $request->file('file');
-        Excel::import(new ProductImport, $file);
+        (new ProductImport)->queue($file);
         return redirect()->back()->with('productos importados correctamente');
     }
 
