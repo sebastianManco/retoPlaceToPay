@@ -22,7 +22,7 @@ class StoreTest extends TestCase
     }
 
     /**
-     * @test
+
      */
     public function aAuthenticatedCannotStoreAProduct()
     {

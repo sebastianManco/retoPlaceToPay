@@ -27,7 +27,7 @@ class ProductCreateRequest extends FormRequest
            'name' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:100',
             'category_id' => 'required',
-            'price' => 'required||numeric|min:1', //|regex:/^\d{1,3}(?:\.\d\d\d)*(?:\.\d\d\d)*(?:,\d{1,2})?$/
+            'price' => 'required||numeric|min:1',
             'image' => 'required|image|mimes:jpeg,png,jpg',
             'stock' => 'required|numeric|min:1'
        ];

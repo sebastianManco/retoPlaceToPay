@@ -68,7 +68,7 @@
         <div class="form-group row">
             <label for="image" class="col-md-4 col-form-label text-md-right" > Imagen</label>
             <div class="col-md-6">
-            <input type="file" name="image" id="image"  class="form-control-file  @error('image') is-invalid @enderror" value="{{old('image')}}">
+            <input type="file" name="image" id="image"  class="form-control-file  @error('image') is-invalid @endError" value="{{old('image')}}">
 
             @error('image')
                 <span class="invalid-feedback" role="alert">

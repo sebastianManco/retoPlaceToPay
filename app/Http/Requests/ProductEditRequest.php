@@ -27,18 +27,21 @@ class ProductEditRequest extends FormRequest
             'name' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:100',
             'category_id' => 'required',
-            'price' => 'required||numeric|min:1', //|regex:/^\d{1,3}(?:\.\d\d\d)*(?:\.\d\d\d)*(?:,\d{1,2})?$/
+            'price' => 'required||numeric|min:1',
             'image' => 'image|mimes:jpeg,png,jpg',
             'stock' => 'numeric|min:1'
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function messages()
     {
         return [
             'name.required' => 'Ell :attribute es obligatorio.',
-            'name.max' => 'el :attribute es demaciado largo.', 
-            
+            'name.max' => 'el :attribute es demaciado largo.',
+
             'description.required' => 'La :attribute es obligatoria.',
             'description.max' => 'La :attribute es demaciado larga',
 
@@ -52,11 +55,14 @@ class ProductEditRequest extends FormRequest
 
             'stock.required' => 'El :attribute es obligatorio.',
             'stock.numeric' => 'La :attribute de ser sólo numeros.'
-            
-            
+
+
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function attributes()
     {
         return [

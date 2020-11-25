@@ -83,6 +83,7 @@ class StoreTest extends TestCase
      */
     public function aUserCanNotBeRegisteredIfTheFieldsAreInvalid(string $field, $value = null)
     {
+        $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
             $data = [
                 'name' => 'Isabel Cristina',
@@ -119,7 +120,7 @@ class StoreTest extends TestCase
             'last name field can not have more than forty characters' => ['last_name', Str::random(41)],
             'email field can not be null' => ['email', null],
             'email field, can not contain an invalid email' => ['email', 'isabelPalacio'],
-            'email field can not have more than forty characters' => ['email', Str::random(101)],  'name field can not be null ' => ['name', null],
+            'email field can not have more than forty characters' => ['email', Str::random(101)],
             'phone field can not be null ' => ['phone', null],
             'phone field can not be less than three characters' => ['phone', 'sd'],
             'phone field can not have more than forty characters' => ['phone', Str::random(41)],
