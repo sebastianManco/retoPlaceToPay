@@ -64,4 +64,7 @@ Route::get('/customReport', 'ReportController@customReport')->name('customReport
 Route::get('/indexReport', 'ReportController@show')->name('indexReport');
 
 
+Route:get('/phpinfo', function () {
+    phpinfo();
+});
 
