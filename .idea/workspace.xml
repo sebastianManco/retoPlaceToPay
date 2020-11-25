@@ -36,13 +36,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.testing" beforeDir="false" afterPath="$PROJECT_DIR$/.env.testing" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImportProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProductCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProductEditRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductEditRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/ProductUpdateImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductUpdateImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/businessManagement/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/businessManagement/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -301,7 +296,7 @@
       <workItem from="1605293652259" duration="38581000" />
       <workItem from="1605577767522" duration="41430000" />
       <workItem from="1605873245774" duration="17737000" />
-      <workItem from="1606193980552" duration="20656000" />
+      <workItem from="1606193980552" duration="22774000" />
     </task>
     <servers />
   </component>
@@ -424,10 +419,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641203166" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605327149389">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606265087332">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1605327149389" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1606265087332" />
     <state x="415" y="108" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1597939688935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,0 +1,29 @@
+language: php
+sudo: required
+php:
+  - '7.4.6'
+services:
+  - mysql
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+    - vendor
+git:
+  depth: 3
+before_install:
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE `placetopay`;'
+before_script:
+  - composer self-update
+  - composer install --prefer-dist --optimize-autoloader --no-interaction
+  - npm install
+script:
+  - php artisan migrate
+  - php artisan test
+notifications:
+  email:
+    recipients:
+      - sebastianpanda4755@gmail.com
+    on_success: always
+    on_failure: always

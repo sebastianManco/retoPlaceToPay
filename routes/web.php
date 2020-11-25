@@ -20,6 +20,7 @@ Route::get(
 );
 
 Auth::routes(['verify' => true]);
+
 Route::get('/home', 'HomeController@index')
     ->name('home')
     ->middleware('verified');
@@ -63,8 +64,4 @@ Route::post('/importUpdateProduct', 'ImportProductController@importUpdateProduct
 Route::get('/customReport', 'ReportController@customReport')->name('customReport');
 Route::get('/indexReport', 'ReportController@show')->name('indexReport');
 
-
-Route:get('/phpinfo', function () {
-    phpinfo();
-});
 
