@@ -57,6 +57,7 @@ class CheckoutController extends Controller
         $secretKey = config('placeToPay.secretKey');
         $tranKey = base64_encode(sha1($nonce . $seed . $secretKey, true));
         $expiration = date('c', strtotime('+2 days'));
+
         $client = new Client();
         $res = $client->post('https://test.placetopay.com/redirection/api/session/',
             [

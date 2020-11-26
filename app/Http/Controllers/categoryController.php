@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\Payment;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Http\Requests\CategoryCreateRequest;
@@ -18,11 +20,18 @@ class categoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response\Illuminate\View\View
+     *
      */
     public function index():\Illuminate\View\View
     {
+        $order = Payment::with( 'order')
+            ->where('status', 'APPROVED')
+            ->get();
+        dd($order);
+
+
          $category = Category::all();
+
         return view('categories.index', ['category'=>$category]);
     }
 
@@ -33,6 +42,7 @@ class categoryController extends Controller
      */
     public function create(): \Illuminate\View\View
     {
+
 
         return view('categories.create');
     }

@@ -25,6 +25,8 @@ class OrderController extends Controller
      */
     public function index():View
     {
+
+
         $order = Order::where('user_id', '=', auth()->id())->get();
 
         return view('Payment.HistoryOrders',  ['orders' => $order]);
