@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->string('requestId', 10);
             $table->string('processUrl', 100);
+            $table->string('internalReference', 100)->nullable();
             $table->string('status', 10)->default('pendiente');
             $table->timestamps();
 

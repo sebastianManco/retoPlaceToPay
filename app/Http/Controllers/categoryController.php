@@ -24,12 +24,6 @@ class categoryController extends Controller
      */
     public function index():\Illuminate\View\View
     {
-        $order = Payment::with( 'order')
-            ->where('status', 'APPROVED')
-            ->get();
-        dd($order);
-
-
          $category = Category::all();
 
         return view('categories.index', ['category'=>$category]);

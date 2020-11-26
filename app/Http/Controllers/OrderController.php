@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Payment;
 use Illuminate\View\View;
 
 
@@ -27,7 +28,9 @@ class OrderController extends Controller
     {
 
 
-        $order = Order::where('user_id', '=', auth()->id())->get();
+        $order = Payment::with([ 'order'=> function($query) {
+            $query->where('user_id', '=', auth()->id())->get();
+    }])->get();
 
         return view('Payment.HistoryOrders',  ['orders' => $order]);
     }
