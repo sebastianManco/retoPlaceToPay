@@ -43,14 +43,16 @@ Route::get('/cart/destroy/{product}','CartController@destroy')
     ->name('cart.destroy');
 Route::post('/clear', 'CartController@clear')
     ->name('cart.clear');
+
 Route::post('/checkout/', 'CheckoutController@index')
     ->name('checkout/index');
 Route::get('response/placeToPay/{reference}', 'CheckoutController@getRequestInformation')
     ->name('response.placeToPay');
-Route::get('/reintentarPago/{id}', 'CheckoutController@RetryPaiment')
+Route::get('/reintentarPago/{id}', 'CheckoutController@RetryPayment')
     ->name('reintentar');
 Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')
     ->name('retry.placeToPay');
+
 Route::resource('orders', 'OrderController');
 
 Route::get('/export', 'ExportProductController@export');

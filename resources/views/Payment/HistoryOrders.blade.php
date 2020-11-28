@@ -21,13 +21,13 @@
                             <tbody>
                             @foreach($orders as $order )
                                 <tr>
-                                    <th scope="row">{{$order->id}}</th>
-                                    <td>{{$order->created_at}}</td>
-                                    <td>{{$order->total}}</td>
-                                    <td>{{$order->payment->status}}</td>
+                                    <th scope="row">{{$order->order->id}}</th>
+                                    <td>{{$order->order->created_at}}</td>
+                                    <td>{{$order->order->total}}</td>
+                                    <td>{{$order->status}}</td>
                                     <td>
-                                        <a href="{{route('reintentar', $order->id)}}">
-                                            @if($order->payment->status =='PENDING' || $order->payment->status =='REJECTED')
+                                        <a href="{{route('reintentar', $order->order->id)}}">
+                                            @if($order->status =='PENDING' || $order->status =='REJECTED'|| $order->status =='iniciado')
                                                 <button type="button" class="btn btn-outline-info">Reintentar pago</button>
                                                 @endif
                                         </a>

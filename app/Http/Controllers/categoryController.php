@@ -22,15 +22,19 @@ class categoryController extends Controller
      *
      *
      */
-    public function index():\Illuminate\View\View
+    public function index()
     {
-        $order = Payment::with( 'order')
-            ->where('status', 'APPROVED')
+$placeToPay = new CheckoutController();
+        $payments = Payment::with('order')
+            ->where('status','PENDING')
             ->get();
-        dd($order);
 
-
-         $category = Category::all();
+        foreach ($payments as $payment) {
+            $order = $payment->order;
+        }
+        $response = $placeToPay->updatePayment( $order);
+            $category = Category::all();
+            dd($response);
 
         return view('categories.index', ['category'=>$category]);
     }

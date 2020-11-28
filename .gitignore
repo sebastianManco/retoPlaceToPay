@@ -5,6 +5,7 @@
 /public/images
 /storage
 /vendor
+/app/classes
 .env
 .idea
 .env.backup

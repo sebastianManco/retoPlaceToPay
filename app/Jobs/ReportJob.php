@@ -3,18 +3,15 @@
 namespace App\Jobs;
 
 use App\Order;
-use App\Pdf as pdfModel;
 use App\User;
 use Barryvdh\DomPDF\Facade as PDFS;
-use App\Mail\DailyReportMail;
-use App\Payment;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
+
 
 class ReportJob implements  ShouldQueue
 {
