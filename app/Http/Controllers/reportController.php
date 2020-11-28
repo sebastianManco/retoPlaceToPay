@@ -27,8 +27,6 @@ class ReportController extends Controller
      */
     public function customReport(Request $request)
     {
-
-
         $user = User::find(auth()->id());
         $dateFrom = $request->get('dateFrom');
         $dateTo = $request->get('dateTo');

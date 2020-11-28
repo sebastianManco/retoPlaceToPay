@@ -37,15 +37,11 @@
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/categoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/categoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_23_033138_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_23_033138_create_payments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Payment/HistoryOrders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Payment/HistoryOrders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/reportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/reportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/ReportJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ReportJob.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +300,7 @@
       <workItem from="1605577767522" duration="41430000" />
       <workItem from="1605873245774" duration="17737000" />
       <workItem from="1606193980552" duration="22774000" />
-      <workItem from="1606315315613" duration="27321000" />
+      <workItem from="1606315315613" duration="61195000" />
     </task>
     <servers />
   </component>
@@ -356,11 +352,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1605221282263" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606410934838">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606500928867">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606410934838" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606500928867" />
     <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1603761211893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -435,11 +431,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1598390872612" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1606412355782">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1606502804018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598610518379" />
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606412355782" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606502804018" />
     <state x="468" y="28" width="672" height="678" key="search.everywhere.popup" timestamp="1606237680698">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

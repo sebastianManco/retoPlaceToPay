@@ -68,24 +68,19 @@ class CheckoutController extends Controller
     {
         $order = Order::where('reference', $reference)->get()->first();
 
-        $response = $this->placeToPay('getRequestInformation', $order);
+        $response = $this->updatePayment($order);
 
-        $updatePayment = Payment::where('order_id', $order->id)->get()->first();
-        if($response->status->status != 'PENDING'){
-            $updatePayment->internalReference = $response->payment[0]->internalReference;
-        }
-        $updatePayment->status = $response->status->status;
-        $updatePayment->save();
+
+
         return view('Payment.ResponsePlaceToPay', ['response' => $response]);
     }
 
     /**
-     * @param int $id
-     * @throws \Exception
+     * @param Order $order
      */
-    public function RetryPayment(int $id)
+    public function retryPayment(Order $order)
     {
-        $order = Order::find($id);
+        //$order = Order::find($id);
 
         $response = $this->placeToPay('create', $order);
         $requestId = $response->requestId;
@@ -126,7 +121,8 @@ class CheckoutController extends Controller
         ];
     }
 
-    public function placeToPay($requestType, $order){
+    public function placeToPay($requestType, $order)
+    {
         $client = new Client();
         $request = [
             'auth' => $this->authenticationPlaceToPay(),
@@ -144,39 +140,51 @@ class CheckoutController extends Controller
             'userAgent' => request()->header('User-Agent'),
 
         ];
+        switch ($requestType) {
+            case  'create':
+                $res = $client->post('https://test.placetopay.com/redirection/api/session/',
+                    ['json' => $request]
+                );
+                return json_decode($res->getBody()->getContents());
+                break;
+            case 'getRequestInformation':
+                $requestId = $order->payment->requestId;
+                $request['auth'];
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/' . $requestId,
+                    ['json' => $request]
+                );
+                return json_decode($res->getBody()->getContents());
+                break;
+            case 'reverse':
+                $requestReverse = ['auth' => $this->authenticationPlaceToPay(),
+                    'internalReference' => $order->payment->internalReference
+                ];
 
-        if ($requestType == 'create') {
-            $res = $client->post('https://test.placetopay.com/redirection/api/session/',
-                ['json' => $request]
-            );
-            return json_decode($res->getBody()->getContents());
-        } elseif ($requestType == 'getRequestInformation') {
-            $requestId = $order->payment->requestId;
-            $request['auth'];
-            $res = $client->post(
-                'https://test.placetopay.com/redirection/api/session/' . $requestId,
-                ['json' => $request]
-            );
-            return json_decode($res->getBody()->getContents());
-        }elseif ($requestType == 'reverse'){
-            $requestReverse = [ 'auth' => $this->authenticationPlaceToPay(),
-                'internalReference' => $order->payment->internalReference
-            ];
+                $res = $client->post('https://test.placetopay.com/redirection/api/session/',
+                    ['json' => $requestReverse]
+                );
+                return json_decode($res->getBody()->getContents());
+                break;
+            default;
 
-            $res = $client->post('https://test.placetopay.com/redirection/api/session/',
-                ['json' => $requestReverse]
-            );
-            return json_decode($res->getBody()->getContents());
-        } elseif ($requestType === 'complete') {
-            $requestId = $order->payment->requestId;
-            $request ['auth'];
-            $res = $client->post(
-                'https://test.placetopay.com/redirection/api/session/' . $requestId,
-                ['json' => $request]
-            );
-            return json_decode($res->getBody()->getContents());
         }
+    }
 
+    /**
+     * @param Order $order
+     * @return mixed
+     */
+    public function updatePayment(Order $order)
+    {
+        $response = $this->placeToPay('getRequestInformation', $order);
+        $updatePayment = Payment::where('order_id', $order->id)->get()->first();
+        if($response->status->status != 'PENDING'){
+            $updatePayment->internalReference = $response->payment[0]->internalReference;
+        }
+        $updatePayment->status = $response->status->status;
+        $updatePayment->save();
 
+        return $response;
     }
 }
