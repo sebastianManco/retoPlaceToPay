@@ -25,7 +25,7 @@ class StoreTest extends TestCase
         factory(Category::class)->create();
 
         $product = [
-            'name' => 'Hola',
+            'name' => 'product',
             'category_id' => 1,
             'description' => 'Esta es la descripcion del producto',
             'price' => 150000,

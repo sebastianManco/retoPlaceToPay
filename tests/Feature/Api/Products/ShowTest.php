@@ -19,12 +19,24 @@ class ShowTest extends TestCase
         factory(Category::class)->create();
         $product = factory(Product::class)->create();
 
-        $response = $this->getJson(route('api.products.show', $product->id));
+        $response = $this->getJson(route('api.products.show', $product->getRouteKey()));
 
-        $response->assertHeader('content-type', 'application/json')
-            ->assertJsonFragment([
-                'id' => $product->id,
-                'name' => $product->name,
+        $response->assertJson([
+            'data' => [
+                    'type' =>  'product',
+                    'id' => $product->getRouteKey(),
+                    'attributes' =>  [
+                        'name' => $product->name,
+                        'description' => $product->description,
+                        'category' => $product->category->name,
+                        'price' => $product->price,
+                        'stock' => $product->stock
+                    ],
+                    'links' => [
+                        'self' => route('api.products.show', $product->getRouteKey())
+                    ]
+
+                ],
             ]);
 
     }

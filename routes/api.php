@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Http\Controllers\Api\ProductApiController;
 use Illuminate\Http\Request;

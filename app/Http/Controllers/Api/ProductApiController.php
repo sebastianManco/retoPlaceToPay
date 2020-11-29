@@ -7,6 +7,7 @@ use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductApiController extends Controller
 {
@@ -15,11 +16,12 @@ class ProductApiController extends Controller
      * retorna una coleccion de productos
      * get /products/index
      *
-     * @return ProductCollection
      */
     public function index()
     {
-        return new ProductCollection(Product::all());
+        $products = Product::applySorts(request('sort'))->get();
+        //$products = DB::table('Products');
+        return ProductCollection::make($products);
     }
 
     /**
@@ -36,14 +38,12 @@ class ProductApiController extends Controller
     /**
      *  get /products/show/int
      * retorna un json con la siguiente información { { product: 'id', 'name', 'description', 'category', 'price', 'stock' } }
-     * @param $productId
+     * @param Product $product
      * @return ProductResource
      */
-    public function show(int $id)
+    public function show(Product $product)
     {
-        $product = Product::findOrFail($id);
-
-        return new ProductResource($product);
+        return ProductResource::make($product);
     }
 
     /**

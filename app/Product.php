@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -17,6 +18,15 @@ class Product extends Model
     protected $fillable = [
         'category_id','name', 'description', 'price', 'active', 'stock', 'created_at'
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'id' => 'string',
+        'stock' => 'string',
+        'price' => 'string'
+        ];
 
     /**
     *
@@ -84,6 +94,22 @@ class Product extends Model
    public function scopeStock($query)
     {
         return $query->where('stock', '>', 0);
+    }
+
+    public function scopeApplySorts(Builder $query, $sort)
+    {
+        $sortFields = Str::of($sort)->explode(',');
+
+        foreach ($sortFields as $sortField)
+        {
+            $direction = 'asc';
+
+            if(Str::of($sortField)->startsWith('-')) {
+                $direction = 'des';
+                $sortField = Str::of($sortField)->substr(1);
+            }
+        $query->orderBy($sortField, $direction)->reorder();
+        }
     }
 
 }
