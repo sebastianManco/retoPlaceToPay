@@ -3,12 +3,12 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\ResourceCollection as ResourceCollections ;
 
-class ProductCollection extends ResourceCollection
+class ResourceCollection extends ResourceCollections
 {
 
-    public $collects = ProductResource::class;
+    public $collects = ObjectModelResource::class;
     /**
      * Transform the resource into an array.
      *
