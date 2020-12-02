@@ -3,36 +3,35 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductsCollection;
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class ProductApiController extends Controller
 {
 
     /**
-     * retorna una coleccion de productos
+     *   * retorna una coleccion de productos
      * get /products/index
-     *
+     * @return ProductsCollection
      */
     public function index()
     {
-        $products = Product::applySorts(request('sort'))->get();
-        //$products = DB::table('Products');
-        return ProductCollection::make($products);
+        $products = Product::applySorts()->jsonPaginate();
+        return ProductsCollection::make($products);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return mixed
      */
     public function store(Request $request)
     {
-        return Product::create($request->all());
+        $product = Product::create($request->all());
+
+        return response()->jsonApiProduct($product);
     }
 
     /**

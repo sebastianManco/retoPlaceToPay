@@ -36,16 +36,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retoPlaceToPay.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductCollection.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/JsonApiBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/JsonApiBuilder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Category.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Category.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/PlaceToPay.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/PlaceToPay.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/PlaceToPayPendingCommand.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/PlaceToPayPendingCommand.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/SendEmailWithDailyReport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/SendEmailWithDailyReport.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/index.html" afterDir="false" />
@@ -133,6 +143,7 @@
       <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/ProductUpdateImport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/ProductUpdateImport.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/PlaceToPayPendingJob.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/PlaceToPayPendingJob.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/ReportJob.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/ReportJob.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/index.html" afterDir="false" />
@@ -197,7 +208,6 @@
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
@@ -289,8 +299,6 @@
       <path value="$PROJECT_DIR$/vendor/laravel/dusk" />
       <path value="$PROJECT_DIR$/vendor/php-webdriver/webdriver" />
       <path value="$PROJECT_DIR$/vendor/darryldecode/cart" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
@@ -343,25 +351,25 @@
       <recent name="C:\laragon\www\retoPlaceToPay\public" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.IndexTest.it_can_sort_articles_by_title_desc">
+  <component name="RunManager" selected="PHPUnit.StoreTest.createNewProduct">
+    <configuration name="IndexTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="IndexTest.catFetchPaginatedProducts" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" method="catFetchPaginatedProducts" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IndexTest.itCanSortProductsByNameAsc" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" method="itCanSortProductsByNameAsc" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IndexTest.it_can_sort_articles_by_title_desc" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" method="it_can_sort_articles_by_title_desc" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="IndexTest.returnJsonResponseFormProductsIndex" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" method="returnJsonResponseFormProductsIndex" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ShowTest.show_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ShowTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" method="show_product" scope="Method" />
+    <configuration name="StoreTest.createNewProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Products\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" method="createNewProduct" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StoreTest.nameFielIsRequired" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Products\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" method="nameFielIsRequired" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -370,11 +378,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.IndexTest.it_can_sort_articles_by_title_desc" />
-        <item itemvalue="PHPUnit.IndexTest.itCanSortProductsByNameAsc" />
+        <item itemvalue="PHPUnit.StoreTest.createNewProduct" />
+        <item itemvalue="PHPUnit.IndexTest" />
         <item itemvalue="PHPUnit.IndexTest.returnJsonResponseFormProductsIndex" />
         <item itemvalue="PHPUnit.IndexTest.catFetchPaginatedProducts" />
-        <item itemvalue="PHPUnit.ShowTest.show_product" />
+        <item itemvalue="PHPUnit.StoreTest.nameFielIsRequired" />
       </list>
     </recent_temporary>
   </component>
@@ -448,10 +456,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1605296130904" />
-    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1606669968387">
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1606854723126">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641769138" />
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606854723126" />
     <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728@0.0.1366.728" timestamp="1606669968387" />
     <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606373640844">
       <screen x="0" y="0" width="1366" height="728" />
@@ -461,14 +469,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603413456907" />
-    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605221282263">
+    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606768187471">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1605221282263" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606574594217">
+    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1606768187471" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606858966725">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606858966725" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606574594217" />
     <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1603761211893">
       <screen x="0" y="0" width="1366" height="728" />
@@ -478,50 +486,49 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1603212014053" />
-    <state width="1323" height="206" key="GridCell.Tab.0.bottom" timestamp="1606691878581">
+    <state width="1323" height="230" key="GridCell.Tab.0.bottom" timestamp="1606881557768">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="206" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606691878581" />
-    <state width="1323" height="206" key="GridCell.Tab.0.center" timestamp="1606691878581">
+    <state width="1323" height="230" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606881557768" />
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
+    <state width="1323" height="230" key="GridCell.Tab.0.center" timestamp="1606881557768">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="206" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606691878581" />
-    <state width="1323" height="206" key="GridCell.Tab.0.left" timestamp="1606691878581">
+    <state width="1323" height="230" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606881557768" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
+    <state width="1323" height="230" key="GridCell.Tab.0.left" timestamp="1606881557768">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="206" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606691878580" />
-    <state width="1323" height="206" key="GridCell.Tab.0.right" timestamp="1606691878581">
+    <state width="1323" height="230" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606881557768" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
+    <state width="1323" height="230" key="GridCell.Tab.0.right" timestamp="1606881557768">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="206" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606691878581" />
-    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1606592977406">
+    <state width="1323" height="230" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606881557768" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1606847738447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606847738447" />
     <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606592977406" />
-    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1606592977405">
+    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1606847738447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
+    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606847738447" />
     <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1606592977405" />
-    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1606592977405">
+    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1606847738447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
+    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606847738447" />
     <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1606592977405" />
-    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1606592977406">
+    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1606847738447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606847738447" />
     <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1606592977406" />
     <state x="217" y="174" key="NewPhpClassDialog" timestamp="1606373773138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598098563557" />
     <state x="217" y="174" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1606373773138" />
     <state x="517" y="287" key="NewPhpFileDialog" timestamp="1606016119393">
       <screen x="0" y="0" width="1366" height="728" />
@@ -532,10 +539,14 @@
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641203166" />
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606276113239" />
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606688038684">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606880810434">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1606688038684" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1606797149328" />
+    <state x="0" y="0" width="1054" height="496" key="dock-window-1" timestamp="1606847521721">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="1054" height="496" key="dock-window-1/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606847521720" />
     <state x="0" y="0" width="585" height="728" key="find.popup" timestamp="1598390872612">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -545,9 +556,10 @@
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598610518379" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606668493791" />
-    <state x="468" y="28" width="672" height="678" key="search.everywhere.popup" timestamp="1606237680698">
+    <state x="468" y="28" width="672" height="678" key="search.everywhere.popup" timestamp="1606853905681">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="468" y="28" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606853905681" />
     <state x="468" y="28" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606237680698" />
   </component>
   <component name="XDebuggerManager">
@@ -567,6 +579,16 @@
           <url>file://$PROJECT_DIR$/resources/views/users/create.blade.php</url>
           <line>79</line>
           <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php</url>
+          <line>133</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php</url>
+          <line>28</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/tests/Feature/Users/StoreTest.php</url>
@@ -606,7 +628,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php</url>
-          <line>71</line>
+          <line>79</line>
           <properties>
             <option name="className" value="\Tests\Feature\Api\Products\IndexTest" />
             <option name="methodName" value="itCanSortProductsByNameAsc" />

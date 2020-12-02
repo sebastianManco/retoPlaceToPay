@@ -23,21 +23,19 @@ class ShowTest extends TestCase
 
         $response->assertJson([
             'data' => [
-                    'type' =>  'product',
-                    'id' => $product->getRouteKey(),
-                    'attributes' =>  [
-                        'name' => $product->name,
-                        'description' => $product->description,
-                        'category' => $product->category->name,
-                        'price' => $product->price,
-                        'stock' => $product->stock
+                'type' =>  'product',
+                'id' => $product->getRouteKey(),
+                'attributes' =>  [
+                    'name' => $product->name,
+                    'description' => $product->description,
+                    'category' => $product->category->name,
+                    'price' => $product->price,
+                    'stock' => $product->stock
                     ],
                     'links' => [
                         'self' => route('api.products.show', $product->getRouteKey())
                     ]
-
                 ],
             ]);
-
     }
 }

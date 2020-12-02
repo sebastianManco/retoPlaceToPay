@@ -179,6 +179,7 @@ return [
 
 //Custom validation rules
         \App\Providers\CustomValidationRulesProvider::class,
+        \App\Providers\JsonApiServiceprovider::class,
 
     ],
 

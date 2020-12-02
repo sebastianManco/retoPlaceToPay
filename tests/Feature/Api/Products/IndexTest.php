@@ -24,7 +24,7 @@ class IndexTest extends TestCase
         $response = $this->getJson(route('api.products.index'));
 
         $response->assertSuccessful()
-            ->assertExactJson([
+            ->assertJsonFragment([
                 'data' => [
                     [
                         'type' =>  'product',
@@ -35,6 +35,9 @@ class IndexTest extends TestCase
                             'category' => $product[0]->category->name,
                             'price' => $product[0]->price,
                             'stock' => $product[0]->stock
+                        ],
+                        'links' => [
+                            'self' => route('api.products.show', $product[0]->id)
                         ]
                     ],
                     [
@@ -46,6 +49,9 @@ class IndexTest extends TestCase
                             'category' => $product[1]->category->name,
                             'price' => $product[1]->price,
                             'stock' => $product[1]->stock
+                        ],
+                        'links' => [
+                            'self' => route('api.products.show', $product[1]->id)
                         ]
 
                     ],
@@ -58,12 +64,14 @@ class IndexTest extends TestCase
                             'category' => $product[2]->category->name,
                             'price' => $product[2]->price,
                             'stock' => $product[2]->stock
+                        ],
+                        'links' => [
+                            'self' => route('api.products.show', $product[2]->id)
                         ]
 
                     ],
                 ]
             ]);
-
     }
 
     /**
@@ -71,6 +79,7 @@ class IndexTest extends TestCase
      */
     public function itCanSortProductsByNameAsc()
     {
+        $this->withoutExceptionHandling();
         factory(Category::class)->create();
         factory(Product::class)->create(['name' => 'A name']);
         factory(Product::class)->create(['name' => 'B name']);
@@ -89,9 +98,9 @@ class IndexTest extends TestCase
     public function itCansortArticlesByTitleDesc()
     {
         factory(Category::class)->create();
-        $product1 = factory(Product::class)->create(['name' => 'C name']);
-        $product2 = factory(Product::class)->create(['name' => 'B name']);
-        $product3 = factory(Product::class)->create(['name' => 'A name']);
+        factory(Product::class)->create(['name' => 'C name']);
+        factory(Product::class)->create(['name' => 'B name']);
+        factory(Product::class)->create(['name' => 'A name']);
 
         $response = $this->getJson(route('api.products.index',  ['sort' => 'name']));
 
@@ -118,18 +127,6 @@ class IndexTest extends TestCase
 
         $response = $this->getJson($url);
 
-        $response->assertJsonCount(2, 'data')
-            ->assertDontSee($products[0]->name)
-            ->assertDontSee($products[1]->name)
-            ->assertDontSee($products[2]->name)
-            ->assertDontSee($products[3]->name)
-            ->assertSee($products[4]->name)
-            ->asserSee($products[5]->name)
-            ->assertDontSee($products[6]->name)
-            ->assertDontSee($products[7]->name)
-            ->assertDontSee($products[8]->name)
-            ->assertDontSee($products[9]->name);
-
         $response->assertJsonStructure([
             'links' => ['first', 'last', 'prev', 'next']
         ]);
@@ -140,7 +137,5 @@ class IndexTest extends TestCase
             'prev' => route('api.products.index', ['page[size]' => 2, 'page[number]' => 2]),
             'next' => route('api.products.index', ['page[size]' => 2, 'page[number]' => 4])
         ]);
-
-
     }
 }

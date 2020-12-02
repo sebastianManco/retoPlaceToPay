@@ -25,6 +25,9 @@ class ProductResource extends JsonResource
                 'price' => (string) $this->resource->price,
                 'stock' => (string) $this->resource->stock
             ],
+            'links' => [
+                'self' => route('api.products.show', $this->getRouteKey())
+            ]
         ];
     }
 }

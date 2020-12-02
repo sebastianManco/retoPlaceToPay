@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class Product extends Model
 {
+    public  $allowedSorts = ['name'];
+    public $type = 'products';
        /**
      *
      * @var array
@@ -27,6 +29,20 @@ class Product extends Model
         'stock' => 'string',
         'price' => 'string'
         ];
+
+    /**
+     * @return array
+     */
+    public function attributes() {
+        return [
+            'name' => $this->name,
+            'description' => $this->description,
+            'category_id' => $this->category_id,
+            'price' =>  $this->price,
+            'stock' => $this->stock
+        ];
+
+    }
 
     /**
     *
@@ -107,6 +123,7 @@ class Product extends Model
             if(Str::of($sortField)->startsWith('-')) {
                 $direction = 'des';
                 $sortField = Str::of($sortField)->substr(1);
+
             }
         $query->orderBy($sortField, $direction)->reorder();
         }

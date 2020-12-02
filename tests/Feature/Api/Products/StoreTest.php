@@ -13,8 +13,6 @@ class StoreTest extends TestCase
 {
     use refreshDatabase;
 
-
-
     /**
      * @test
      */
@@ -25,7 +23,7 @@ class StoreTest extends TestCase
         factory(Category::class)->create();
 
         $product = [
-            'name' => 'product',
+            'name' => 'Hola',
             'category_id' => 1,
             'description' => 'Esta es la descripcion del producto',
             'price' => 150000,
@@ -34,8 +32,29 @@ class StoreTest extends TestCase
         $response = $this->postJson(route('api.products.store'), $product);
 
         $response->assertSuccessful()
-            ->assertHeader('content-type', 'application/json');
+            ;
 
         $this->assertDatabaseHas('products', $product);
+
+
+    }
+
+    /**
+     * @test
+     */
+    public function nameFielIsRequired()
+    {
+        factory(User::class)->create();
+        $product = factory(Category::class)->create(['name' => '']);
+
+        $response = $this->postJson(route('api.products.store', [
+            'data' => [
+                'type' => 'products',
+                'attributes' => $product
+            ]
+        ]));
+
+        $response->dump();
+
     }
 }
