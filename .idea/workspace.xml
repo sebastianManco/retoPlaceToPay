@@ -37,18 +37,9 @@
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ResourceObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductsCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/JsonApiServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/JsonApiServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoryApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoryApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ResourceObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ResourceObject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Category.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Category.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/PlaceToPay.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/PlaceToPay.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/dashboard.html" afterDir="false" />
@@ -72,6 +63,7 @@
       <change beforePath="$PROJECT_DIR$/tests/coverage/Exports/ProductExport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exports/ProductExport.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Exports/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exports/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Exports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/CategoryApiController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/CategoryApiController.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/ProductApiController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/ProductApiController.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/index.html" afterDir="false" />
@@ -114,6 +106,10 @@
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Paiment/Paiment.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Paiment/Paiment.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Paiment/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Paiment/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Paiment/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Paiment/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiCategoriesRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiCategoriesRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiProductRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiProductRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/CartRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/CartRequest.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/CategoryCreateRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/CategoryCreateRequest.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/ImportProductUpdateRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/ImportProductUpdateRequest.php.html" afterDir="false" />
@@ -125,9 +121,8 @@
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/UserEditRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/UserEditRequest.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/ProductResource.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/ProductResource.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/ProductsCollection.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/ProductsCollection.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceCollection.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceCollection.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceObject.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceObject.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/CategoryComposer.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/CategoryComposer.php.html" afterDir="false" />
@@ -354,38 +349,38 @@
       <recent name="C:\laragon\www\retoPlaceToPay\public" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ShowTest.returns404IfItDoesNotFindTheProduct">
+  <component name="RunManager" selected="PHPUnit.IndexTest.returnJsonResponseFormProductsIndex">
+    <configuration name="Feature" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests/Feature" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IndexTest.returnJsonResponseFormProductsIndex" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Products\IndexTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php" method="returnJsonResponseFormProductsIndex" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="ShowTest.returns404IfItDoesNotFindTheProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ShowTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" method="returns404IfItDoesNotFindTheProduct" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ShowTest.show_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ShowTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/ShowTest.php" method="show_product" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Showtest.show_category" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Categories\Showtest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Categories/Showtest.php" method="show_category" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="storeTest.theCategoryNameFieldIsRequired" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Categories\storeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Categories/storeTest.php" method="theCategoryNameFieldIsRequired" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="storeTest.theNameOfCategoryCannotBeMoreThanFortyCharacters" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Categories\storeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Categories/storeTest.php" method="theNameOfCategoryCannotBeMoreThanFortyCharacters" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="storeTest.theNameOfCategoryCannotContainNumbers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Categories\storeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Categories/storeTest.php" method="theNameOfCategoryCannotContainNumbers" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="storeTest.theNameOfCategoryCannotLessThanThreeCharacters" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Api\Categories\storeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Categories/storeTest.php" method="theNameOfCategoryCannotLessThanThreeCharacters" scope="Method" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.IndexTest.returnJsonResponseFormProductsIndex" />
+        <item itemvalue="PHPUnit.ShowTest.show_product" />
+        <item itemvalue="PHPUnit.Feature" />
+        <item itemvalue="PHPUnit.Showtest.show_category" />
         <item itemvalue="PHPUnit.ShowTest.returns404IfItDoesNotFindTheProduct" />
-        <item itemvalue="PHPUnit.storeTest.theNameOfCategoryCannotLessThanThreeCharacters" />
-        <item itemvalue="PHPUnit.storeTest.theNameOfCategoryCannotContainNumbers" />
-        <item itemvalue="PHPUnit.storeTest.theNameOfCategoryCannotBeMoreThanFortyCharacters" />
-        <item itemvalue="PHPUnit.storeTest.theCategoryNameFieldIsRequired" />
       </list>
     </recent_temporary>
   </component>
@@ -477,10 +472,10 @@
     </state>
     <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606893860863" />
     <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1606768187471" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606897913693">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606900074510">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606897913693" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606900074510" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606574594217" />
     <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1603761211893">
       <screen x="0" y="0" width="1366" height="728" />
@@ -490,25 +485,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1603212014053" />
-    <state width="1323" height="267" key="GridCell.Tab.0.bottom" timestamp="1606898732064">
+    <state width="1323" height="255" key="GridCell.Tab.0.bottom" timestamp="1606901029818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="267" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606898732064" />
+    <state width="1323" height="255" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606901029818" />
     <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
-    <state width="1323" height="267" key="GridCell.Tab.0.center" timestamp="1606898732064">
+    <state width="1323" height="255" key="GridCell.Tab.0.center" timestamp="1606901029818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="267" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606898732064" />
+    <state width="1323" height="255" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606901029818" />
     <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
-    <state width="1323" height="267" key="GridCell.Tab.0.left" timestamp="1606898732064">
+    <state width="1323" height="255" key="GridCell.Tab.0.left" timestamp="1606901029818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="267" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606898732064" />
+    <state width="1323" height="255" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606901029818" />
     <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
-    <state width="1323" height="267" key="GridCell.Tab.0.right" timestamp="1606898732064">
+    <state width="1323" height="255" key="GridCell.Tab.0.right" timestamp="1606901029818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="267" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606898732064" />
+    <state width="1323" height="255" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606901029818" />
     <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606797147938" />
     <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1606890032526">
       <screen x="0" y="0" width="1366" height="728" />

@@ -24,7 +24,7 @@ class ShowTest extends TestCase
 
         $response->assertJson([
             'data' => [
-                'type' =>  'product',
+                'type' =>  'products',
                 'id' => $product->getRouteKey(),
                 'attributes' =>  [
                     'name' => $product->name,

@@ -6,12 +6,12 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ApiCategoriesRequest;
 use App\Http\Resources\resourceCollection;
+use App\Http\Resources\ResourceObject;
 use Illuminate\Http\Request;
 
 class CategoryApiController extends Controller
 {
     /**
-     * @param Category $category
      * @return resourceCollection
      */
     public function index()
@@ -34,12 +34,14 @@ class CategoryApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return ResourceObject
      */
     public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return new ResourceObject($category);
     }
 
 
