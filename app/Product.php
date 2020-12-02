@@ -33,11 +33,12 @@ class Product extends Model
     /**
      * @return array
      */
-    public function attributes() {
+    public function fields() {
         return [
+            'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'category_id' => $this->category_id,
+            'category' => $this->category->name,
             'price' =>  $this->price,
             'stock' => $this->stock
         ];
@@ -110,23 +111,6 @@ class Product extends Model
    public function scopeStock($query)
     {
         return $query->where('stock', '>', 0);
-    }
-
-    public function scopeApplySorts(Builder $query, $sort)
-    {
-        $sortFields = Str::of($sort)->explode(',');
-
-        foreach ($sortFields as $sortField)
-        {
-            $direction = 'asc';
-
-            if(Str::of($sortField)->startsWith('-')) {
-                $direction = 'des';
-                $sortField = Str::of($sortField)->substr(1);
-
-            }
-        $query->orderBy($sortField, $direction)->reorder();
-        }
     }
 
 }

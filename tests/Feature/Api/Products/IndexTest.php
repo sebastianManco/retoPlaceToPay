@@ -11,6 +11,8 @@ use Tests\TestCase;
 class IndexTest extends TestCase
 {
     use refreshDatabase;
+
+
     /**
      * @test
      */
@@ -27,7 +29,7 @@ class IndexTest extends TestCase
             ->assertJsonFragment([
                 'data' => [
                     [
-                        'type' =>  'product',
+                        'type' =>  'products',
                         'id' => $product[0]->getRouteKey(),
                         'attributes' =>  [
                             'name' => $product[0]->name,
@@ -41,7 +43,7 @@ class IndexTest extends TestCase
                         ]
                     ],
                     [
-                        'type' =>  'product',
+                        'type' =>  'products',
                         'id' => $product[1]->getRouteKey(),
                         'attributes' =>  [
                             'name' => $product[1]->name,
@@ -56,7 +58,7 @@ class IndexTest extends TestCase
 
                     ],
                     [
-                        'type' =>  'product',
+                        'type' =>  'products',
                         'id' => $product[2]->getRouteKey(),
                         'attributes' =>  [
                             'name' => $product[2]->name,

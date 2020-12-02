@@ -19,15 +19,10 @@ class JsonApiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Response::macro('jsonApiProduct', function ($value) {
+        Response::macro('jsonApiStoreModel', function ($value) {
             return Response::json([
                 'message' => 'product created',
-                'id' => $value->id,
-                'name' => $value->name,
-                'description' => $value->description,
-                'category_' => $value->category->name,
-                'price' => $value->price,
-                'stock' => $value->stock
+                 $value->fields(),
             ]);
         });
 
