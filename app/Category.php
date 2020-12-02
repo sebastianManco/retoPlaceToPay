@@ -9,10 +9,29 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
+    public $type = 'categories';
 
     protected $fillable = [
         'id', 'name'
     ];
+
+
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
+
+    /**
+     * @return array
+     */
+    public function fields()
+    {
+        return [
+            'name' => $this->name
+        ];
+    }
 
     /**
      * Undocumented function

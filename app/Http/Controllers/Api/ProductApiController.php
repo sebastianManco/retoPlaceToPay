@@ -3,60 +3,62 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductCollection;
-use App\Http\Resources\ProductResource;
+use App\Http\Requests\Api\ApiProductRequest;
+use App\Http\Resources\ResourceObject;
+use App\Http\Resources\resourceCollection;
 use App\Product;
 use Illuminate\Http\Request;
+
 
 class ProductApiController extends Controller
 {
 
     /**
-     * retorna una coleccion de productos
+     *   * retorna una coleccion de productos
      * get /products/index
-     *
-     * @return ProductCollection
+     * @return resourceCollection
      */
     public function index()
     {
-        return new ProductCollection(Product::all());
+        $products = Product::applySorts()->jsonPaginate();
+        return resourceCollection::make($products);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param ApiProductRequest $request
+     * @return mixed
      */
-    public function store(Request $request)
+    public function store(ApiProductRequest $request)
     {
-        return Product::create($request->all());
+        $product = Product::create($request->all());
+
+        return response()->jsonApiStoreModel($product);
     }
 
     /**
      *  get /products/show/int
      * retorna un json con la siguiente información { { product: 'id', 'name', 'description', 'category', 'price', 'stock' } }
-     * @param $productId
-     * @return ProductResource
+     * @param Product $product
+     * @return ResourceObject
      */
     public function show(int $id)
     {
-        $product = Product::findOrFail($id);
-
-        return new ProductResource($product);
+        $product = Product::findOrfail($id);
+        return ResourceObject::make($product);
     }
 
+
     /**
-     * @param Request $request
+     * @param ApiProductRequest $request
      * @param int $id
-     * @return ProductResource
+     * @return ResourceObject
      */
-    public function update(Request $request, int $id)
+    public function update(ApiProductRequest $request, int $id)
     {
         $product = Product::findOrFail($id);
 
         $product->update($request->all());
 
-        return new ProductResource($product);
+        return new ResourceObject($product);
     }
 }

@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
+    public  $allowedSorts = ['name'];
+    public $type = 'products';
        /**
      *
      * @var array
@@ -17,6 +20,30 @@ class Product extends Model
     protected $fillable = [
         'category_id','name', 'description', 'price', 'active', 'stock', 'created_at'
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'id' => 'string',
+        'stock' => 'string',
+        'price' => 'string'
+        ];
+
+    /**
+     * @return array
+     */
+    public function fields() {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'category' => $this->category->name,
+            'price' =>  $this->price,
+            'stock' => $this->stock
+        ];
+
+    }
 
     /**
     *
