@@ -6,6 +6,7 @@
 /storage
 /vendor
 /app/classes
+/tests/coverage
 .env
 .idea
 .env.backup

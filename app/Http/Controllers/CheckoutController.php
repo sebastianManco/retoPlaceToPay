@@ -46,6 +46,7 @@ class CheckoutController extends Controller
         $order->products()->attach($ordersProducts);
 
         $response = $this->placeToPay('create', $order);
+
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
 
@@ -59,18 +60,15 @@ class CheckoutController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param string $reference
+     * @param Order $order
      * @return Application|Factory|View
-     * @throws \Exception
      */
     public function getRequestInformation( string $reference)
     {
         $order = Order::where('reference', $reference)->get()->first();
 
         $response = $this->updatePayment($order);
-
-
 
         return view('Payment.ResponsePlaceToPay', ['response' => $response]);
     }

@@ -24,31 +24,18 @@ class categoryController extends Controller
      */
     public function index()
     {
-$placeToPay = new CheckoutController();
-        $payments = Payment::with('order')
-            ->where('status','PENDING')
-            ->get();
-
-        foreach ($payments as $payment) {
-            $order = $payment->order;
-        }
-        $response = $placeToPay->updatePayment( $order);
-            $category = Category::all();
-            dd($response);
-
+        $category = Category::all();
         return view('categories.index', ['category'=>$category]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     *
      */
-    public function create(): \Illuminate\View\View
+    public function create()
     {
-
-
-        return view('categories.create');
+        return view('categories.create', ['category' => new Category()]);
     }
 
     /**
@@ -60,6 +47,8 @@ $placeToPay = new CheckoutController();
         $category = new Category;
         $category->name = $request->input('name');
         $category->save();
+        $category->flushCache();
+
         return redirect('/categories')->with('message', 'Guardado con éxito') ;
 
 

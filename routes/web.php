@@ -55,7 +55,7 @@ Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')
 
 Route::resource('orders', 'OrderController');
 
-Route::get('/export', 'ExportProductController@export');
+Route::get('/export', 'ExportProductController@export')->name('export.product');
 Route::get('/businessManagement', 'businessManagementController@index')
     ->name('businessManagement');
 Route::post('/importProduct', 'ImportProductController@import')

@@ -13,10 +13,10 @@ use Maatwebsite\Excel\Facades\Excel;
 class ImportProductController extends Controller
 {
     /**
-     * @param ImportRequest $request
+     * @param Request $request
      * @return RedirectResponse
      */
-    public function import(ImportRequest $request): RedirectResponse
+    public function import(Request $request): RedirectResponse
     {
         $file = $request->file('file');
         (new ProductImport)->queue($file);

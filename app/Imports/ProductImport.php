@@ -6,6 +6,8 @@ use App\Product;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -14,6 +16,8 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 class ProductImport implements ToModel,  WithHeadingRow, WithValidation, WithChunkReading, ShouldQueue
 {
     use importable;
+    use SkipsErrors;
+    use SkipsFailures;
     /**
      * @param array $row
      * @return Product
@@ -50,5 +54,12 @@ class ProductImport implements ToModel,  WithHeadingRow, WithValidation, WithChu
     public function chunkSize(): int
     {
         return 500;
+    }
+    /**
+     * @return int
+     */
+    public function startRow(): int
+    {
+        return 2;
     }
 }

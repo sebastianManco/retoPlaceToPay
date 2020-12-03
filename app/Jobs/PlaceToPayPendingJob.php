@@ -35,28 +35,45 @@ class PlaceToPayPendingJob implements ShouldQueue
      */
     public function handle()
     {
-
         $placeToPay = new CheckoutController();
-
         $order = $this->order;
 
-            $response = $response = $placeToPay->updatePayment( $order);
+            $response = $placeToPay->placeToPay('create', $order);
 
-            foreach ($response->payment as $payments) {
-                $payment = $payments;
-            }
-            $status = $response->status->status;
-            $internalReference = $payment->internalReference;
+            if ($response->payment === null) {
+                $status = $response->status->status;
 
-            $paymentUpdate = Payment::update([
-                'internalReference' => $internalReference,
-                'status' => $status
+                $order->payment->update([
+                    'status' => $status
                 ]);
+                return logger()->channel('stack')
+                    ->info('ta por aqui-' . $order->id);
 
-            logger()->channel('stack')->info('pruebas desde chekout', ['status' =>$payment->status]);
+            }elseif ($response->payment[0]->status->status  !== "APPROVED") {
+                $status = $response->payment[0]->status->status;
 
+                $order->payment->update([
+                    'status' => $status
+                ]);
+                return logger()->channel('stack')
+                    ->info('o por aqui-' . $order->id);
+            } elseif ($response->payment[0]->status->status  === "APPROVED") {
+                foreach ($response->payment as $payments) {
+                    $pay = $payments;
+                }
 
+                $status = $response->status->status;
+                $internalReference = $pay->internalReference;
 
+                $order->payment->update([
+                    'internalReference' => $internalReference,
+                    'status'            => $status,
+                ]);
+            }
+        return logger()->channel('stack')
+            ->info('pago actualizado -' . $status);
     }
+
+
 
 }

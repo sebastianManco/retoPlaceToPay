@@ -58,4 +58,11 @@ class Category extends Model
             }
         );
     }
+
+
+    public static function flushCache(): void
+    {
+        Cache::forget('categories');
+    }
+
 }

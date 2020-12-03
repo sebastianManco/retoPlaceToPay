@@ -29,7 +29,7 @@ class StoreTest extends TestCase
             'price' => 150000,
             'stock' => 12
         ];
-        $response = $this->postJson(route('api.products.store'), $product);
+        $response = $this->postJson(route('api.products.store'), $product)->dump();
 
         $response->assertSuccessful();
 

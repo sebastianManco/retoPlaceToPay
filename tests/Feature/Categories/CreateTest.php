@@ -30,9 +30,11 @@ class CreateTest extends TestCase
         $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)
-            ->get('/categories');
+            ->get(route('categories.create'));
 
-        $response->assertOk()->assertSee('Nombre');
+        $response->assertOk()
+            ;
+
 
     }
 
