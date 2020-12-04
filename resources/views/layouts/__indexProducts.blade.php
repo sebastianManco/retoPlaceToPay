@@ -19,6 +19,7 @@
                   <h4 class="card-title">{{$product->name }} </h4>
 
                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">{{__('detalles')}}</a>
+
                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary ">{{__('Editar')}}</a>
 
               </div>

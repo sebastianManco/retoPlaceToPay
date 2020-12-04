@@ -27,8 +27,8 @@ class ProductEditRequest extends FormRequest
             'name' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:100',
             'category_id' => 'required',
-            'price' => 'required||numeric|min:1',
-            'image' => 'image|mimes:jpeg,png,jpg',
+            'price' => 'required|numeric|min:1',
+            'image' => 'required|mimes:jpeg,png,jpg',
             'stock' => 'numeric|min:1'
         ];
     }

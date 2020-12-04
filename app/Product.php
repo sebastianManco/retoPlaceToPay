@@ -3,10 +3,12 @@
 namespace App;
 
 use App\Events\customReportsEvent;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+
 use Illuminate\Support\Str;
 
 class Product extends Model
@@ -111,6 +113,33 @@ class Product extends Model
    public function scopeStock($query)
     {
         return $query->where('stock', '>', 0);
+    }
+
+    /**
+     * @param $category
+     * @param $search
+     * @return LengthAwarePaginator
+     */
+    public function searchProducts($category, $search): LengthAwarePaginator
+    {
+        $query = Product::with(
+            ['image' => function ($query) {
+                $query->select('id', 'name', 'product_id');
+            },
+                'category' => function ($query) {
+                    $query->select('id', 'name');
+                }
+            ]
+        );
+        switch ($category) {
+            case 'name':
+                $query->name($search);
+                break;
+            default:
+                $query->category($search);
+                break;
+        }
+        return $query->paginate(15, ['id','name']);
     }
 
 }

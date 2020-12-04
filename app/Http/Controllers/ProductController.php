@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProductController extends Controller
 {
@@ -27,28 +28,11 @@ class ProductController extends Controller
      */
     public function index(SearchRequest $request): View
     {
+        $request->user()->authorizeRoles('admin');
 
         $category = $request->get('type');
         $search= $request->get('search');
-
-        $query = Product::with(
-            ['image' => function ($query) {
-                $query->select('id', 'name', 'product_id');
-            },
-            'category' => function ($query) {
-                $query->select('id', 'name');
-            }
-            ]
-        );
-        switch ($category) {
-            case 'name':
-                $query->name($search);
-                break;
-            default:
-                $query->category($search);
-                break;
-        }
-        $products = $query->paginate(15, ['id','name']);
+        $products = (new Product)->searchProducts($category, $search );
 
         return view('products.index', ['products' => $products, 'search' => $products]);
     }
@@ -114,14 +98,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $images = Image::find($id);
 
-        $categories = Cache::remember(
-            'categories',
-            now()
-            ->addDay(),
-            function () {
-                return Category::all();
-            }
-        );
+        $categories = (new Category)->getCachedCategories();
         return view('products.edit', [
             'categories' => $categories,
             'product' => $product,
@@ -133,7 +110,7 @@ class ProductController extends Controller
      * @param ProductEditRequest $request
      * @param int $id
      */
-    public function update(ProductEditRequest $request, int $id)
+    public function update(productEditRequest $request, int $id)
     {
         $products = Product::find($id);
         $products->name = $request->input('name');
@@ -143,12 +120,12 @@ class ProductController extends Controller
         $products->stock = $request->input('stock');
         $products->active = (!request()->has('active') == '1' ? '0' : '1');
         $products->save();
-        foreach ($products->image as $images) {
-            if ($request->hasFile('image')) {
-                $image = $request->file('image')->store('public');
-                $images->name = $image;
-                $images->save();
-            }
+        if ($request->hasFile('image')) {
+            $images = new Image();
+            $image = $request->file('image')->store('Images');
+            $images->name = $image;
+            $images->product_id = $products->id;
+            $products->image()->save($images);
         }
         return redirect(route('products.index')) ;
     }

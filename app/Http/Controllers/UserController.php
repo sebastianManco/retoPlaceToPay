@@ -48,8 +48,6 @@ UserController extends Controller
      * @param UserCreateRequest $request
      * @return Redirector
      */
-    //UserCreateRequest $request
-
     public function store(UserCreateRequest $request)
     {
         $user = User::create([
@@ -78,10 +76,11 @@ UserController extends Controller
     }
 
     /**
+     * @param Request $request
      * @param User $user
-     *@return  View
+     * @return  View
      */
-    public function edit(User $user): View
+    public function edit(Request $request, User $user): View
     {
         return view('users.edit', compact('user'));
     }

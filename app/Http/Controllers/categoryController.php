@@ -2,56 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
-use App\Payment;
-use Illuminate\Http\Request;
 use App\Category;
 use App\Http\Requests\CategoryCreateRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Request;
 
 class categoryController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('usersActive');
         $this->middleware('verified');
     }
+
     /**
-     * Display a listing of the resource.
-     *
-     *
+     * @return View
      */
-    public function index()
+    public function index(Request $request): View
     {
-        $category = Category::all();
+        $request->user()->authorizeRoles('admin');
+        $category = (new Category)->getCachedCategories();
         return view('categories.index', ['category'=>$category]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     *
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('categories.create', ['category' => new Category()]);
     }
 
     /**
      * @param CategoryCreateRequest $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse
      */
-    public function store(CategoryCreateRequest $request)
+    public function store(CategoryCreateRequest $request): RedirectResponse
     {
         $category = new Category;
         $category->name = $request->input('name');
         $category->save();
         $category->flushCache();
-
         return redirect('/categories')->with('message', 'Guardado con éxito') ;
-
-
     }
 
 
