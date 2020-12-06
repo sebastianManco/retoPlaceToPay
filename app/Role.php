@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
-       /**
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'slug','description', 'full-access',
+        'name',
+        'slug',
+        'description',
+        'full-access',
     ];
 
     /**
@@ -21,6 +24,6 @@ class Role extends Model
      */
     public function users(): belongsToMany
     {
-        return $this->belongsToMany('App\User')->withTimesTamps();
+        return $this->belongsToMany(User::class)->withTimesTamps();
     }
 }

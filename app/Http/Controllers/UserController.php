@@ -46,32 +46,23 @@ UserController extends Controller
 
     /**
      * @param UserCreateRequest $request
+     * @param User $user
      * @return Redirector
      */
     public function store(UserCreateRequest $request)
     {
-        $user = User::create([
-            'name' => $request->input('name'),
-            'last_name' => $request->input('last_name'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'password' => bcrypt($request->input('password')),
-        ]);
-        Cache::put('user.' . $user->id, $user, 6000);
-        UserCreated::dispatch($user, auth()->user());
-        $user->roles()->sync(Role::where('name', 'user')->first());
+        $this->storeUpdateUser($request, new User);
+
         return redirect('home/userList');
-
-
     }
 
     /**
      * @param int $id
      * @return View
      */
-    public function show(int $id): View
+    public function show(int$id): View
     {
-        $user=User::find($id);
+        $user = User::findOrFail($id);
         return view('users.details', compact('user'));
     }
 
@@ -93,6 +84,18 @@ UserController extends Controller
      */
     public function update(User $user,  Request $request)
     {
+        $this->storeUpdateUser($request, $user);
+
+        return redirect('home/userList') ;
+    }
+
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return User
+     */
+    private function storeUpdateUser (Request $request, User $user): User
+    {
         $user->name =$request->name;
         $user->last_name =$request->last_name;
         $user->email =$request->email;
@@ -101,6 +104,9 @@ UserController extends Controller
         $user->password = Hash::make($request['password']);
         $user->save();
 
-        return redirect('home/userList') ;
+        Cache::put('user.' . $user->id, $user, 6000);
+        $user->roles()->sync(Role::where('name', 'user')->first());
+
+        return $user;
     }
 }

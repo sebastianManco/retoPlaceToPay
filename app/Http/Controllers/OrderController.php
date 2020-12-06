@@ -24,15 +24,14 @@ class OrderController extends Controller
      * esta funcion me dirije a la vista del historial de ordenes
      *  @return View
      */
-    public function index():View
+    public function index()
     {
+       $payments = Payment::with([ 'order'=>
+            function($query) {
+                $query->where('user_id', '=', auth()->id());
+            }])->get();
 
-
-        $order = Payment::with([ 'order'=> function($query) {
-            $query->where('user_id', '=', auth()->id())->get();
-    }])->get();
-
-        return view('Payment.HistoryOrders',  ['orders' => $order]);
+        return view('Payment.HistoryOrders',  ['payments' => $payments]);
     }
 
     /**

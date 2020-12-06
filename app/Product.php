@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Events\customReportsEvent;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -20,7 +19,13 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id','name', 'description', 'price', 'active', 'stock', 'created_at'
+        'category_id',
+        'name',
+        'description',
+        'price',
+        'active',
+        'stock',
+        'created_at'
     ];
 
     /**
@@ -35,7 +40,8 @@ class Product extends Model
     /**
      * @return array
      */
-    public function fields() {
+    public function fields(): array
+    {
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -53,7 +59,7 @@ class Product extends Model
     */
     public function category(): belongsTo
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -62,7 +68,7 @@ class Product extends Model
      */
     public function image(): hasMany
     {
-        return $this->hasMany('App\Image');
+        return $this->hasMany(Image::class);
     }
 
     public function orders()
@@ -71,10 +77,9 @@ class Product extends Model
     }
 
     /**
-     *
-     * @param string $query
+     * @param $query
      * @param string $search
-     * @return
+     * @return mixed
      */
     public function scopeName($query, $search)
     {
@@ -85,7 +90,7 @@ class Product extends Model
 
     /**
      * @param $query
-     * @param $search
+     * @param string $search
      */
     public function scopeCategory($query, $search)
     {
@@ -116,8 +121,8 @@ class Product extends Model
     }
 
     /**
-     * @param $category
-     * @param $search
+     * @param string $category
+     * @param string $search
      * @return LengthAwarePaginator
      */
     public function searchProducts($category, $search): LengthAwarePaginator
@@ -139,7 +144,7 @@ class Product extends Model
                 $query->category($search);
                 break;
         }
-        return $query->paginate(15, ['id','name']);
+        return $query->paginate(10, ['id','name']);
     }
 
 }

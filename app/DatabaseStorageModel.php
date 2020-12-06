@@ -9,11 +9,11 @@ class DatabaseStorageModel extends Model
     protected $table = 'cart_storage';
 
     /**
-     *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
-        'id', 'cart_data',
+        'id',
+        'cart_data',
     ];
 
     /**
