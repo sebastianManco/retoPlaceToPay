@@ -18,16 +18,14 @@ class DatabaseStorageModel extends Model
 
     /**
      * @param $value
+     * @return void
      */
-    public function setCartDataAttribute($value)
+    public function setCartDataAttribute($value): void
     {
         $this->attributes['cart_data'] = serialize($value);
     }
 
-    /**
-     * @param $value
-     * @return mixed
-     */
+
     public function getCartDataAttribute($value)
     {
         return unserialize($value);

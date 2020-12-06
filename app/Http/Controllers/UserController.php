@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Events\UserCreated;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserCreateRequest;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Role;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use App\Http\Controllers\flash;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cache;
@@ -45,10 +43,9 @@ class UserController extends Controller
 
     /**
      * @param UserCreateRequest $request
-     * @param User $user
-     * @return Redirector
+     * @return RedirectResponse
      */
-    public function store(UserCreateRequest $request)
+    public function store(UserCreateRequest $request): RedirectResponse
     {
         $this->storeUpdateUser($request, new User());
 
@@ -59,9 +56,10 @@ class UserController extends Controller
      * @param int $id
      * @return View
      */
-    public function show(int$id): View
+    public function show(int $id): View
     {
         $user = User::findOrFail($id);
+
         return view('users.details', compact('user'));
     }
 
@@ -70,18 +68,17 @@ class UserController extends Controller
      * @param User $user
      * @return  View
      */
-    public function edit(Request $request, User $user): View
+    public function edit(User $user): View
     {
         return view('users.edit', compact('user'));
     }
 
     /**
-     * Request $request
      * @param User $user
-     * @param int $id
      * @param Request $request
+     * @return RedirectResponse
      */
-    public function update(User $user, Request $request)
+    public function update(User $user, Request $request): RedirectResponse
     {
         $this->storeUpdateUser($request, $user);
 

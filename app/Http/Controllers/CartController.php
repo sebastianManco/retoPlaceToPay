@@ -7,16 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CartRequest;
 use App\Product;
 use Darryldecode\Cart\Cart;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use phpDocumentor\Reflection\DocBlockFactoryInterface;
 
 class CartController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,21 +22,20 @@ class CartController extends Controller
     }
 
     /**
-     * Show the cart products
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $cartProducts = \Cart::session(auth()->id())->getContent();
         return view('Cart.indexCart', compact('cartProducts'));
     }
 
     /**
-     * Add a product to the Customer Cart
      * @param Product $product
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function add(Product $product, CartRequest $request)
+    public function add(Product $product, CartRequest $request): RedirectResponse
     {
         $products = Product::with([
             'image' => function ($query) {
@@ -77,9 +73,9 @@ class CartController extends Controller
     /**
      * @param int $id
      * @param CartRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function update(int $id, CartRequest $request)
+    public function update(int $id, CartRequest $request): RedirectResponse
     {
         \Cart::session(auth()->id())->update($id, array(
             'quantity' => array(
@@ -91,19 +87,20 @@ class CartController extends Controller
     }
 
     /**
-     * Delete the specific cart product
      * @param $productId
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function destroy(int $productId)
+    public function destroy(int $productId): RedirectResponse
     {
-
         \Cart::session(auth()->id())->remove($productId);
 
         return back()->with('status', 'Tu producto ha sido eliminado');
     }
 
-    public function clear()
+    /**
+     * @return RedirectResponse
+     */
+    public function clear(): RedirectResponse
     {
 
         \Cart::session(auth()->id())->clear();

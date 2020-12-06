@@ -16,7 +16,10 @@ class ExportProductController extends Controller
         $this->middleware('verified');
     }
 
-    public function export()
+    /**
+     * @return BinaryFileResponse
+     */
+    public function export(): BinaryFileResponse
     {
         return Excel::download(new ProductExport(), 'Product.xlsx');
     }

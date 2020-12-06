@@ -38,9 +38,9 @@ class ReportJob implements ShouldQueue
     }
 
     /**
-     *
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $dateFrom = $this->dateFrom;
         $dateTo = $this->dateTo;

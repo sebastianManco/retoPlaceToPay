@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BusinessManagementController extends Controller
 {
@@ -13,7 +14,11 @@ class BusinessManagementController extends Controller
         $this->middleware('verified');
     }
 
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return View
+     */
+    public function index(Request $request): View
     {
         $request->user()->authorizeRoles('admin');
         return view('businessManagement.index');

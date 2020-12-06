@@ -27,7 +27,7 @@ class SoldOutListener implements ShouldQueue
      * @param  soldOutEvent  $event
      * @return void
      */
-    public function handle(soldOutEvent $event)
+    public function handle(soldOutEvent $event): void
     {
         $product = $event->product;
 

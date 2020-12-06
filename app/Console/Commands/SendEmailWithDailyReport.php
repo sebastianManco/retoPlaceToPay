@@ -31,7 +31,7 @@ class SendEmailWithDailyReport extends Command
      * @param Request $request
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $order = Order::with('user', 'products', 'payment')
             ->whereDate('created_at', '=', now()
