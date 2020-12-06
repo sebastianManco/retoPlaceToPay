@@ -29,9 +29,7 @@ class CartController extends Controller
      */
     public function index()
     {
-
         $cartProducts = \Cart::session(auth()->id())->getContent();
-
         return view('Cart.indexCart', compact('cartProducts'));
     }
 
@@ -43,30 +41,37 @@ class CartController extends Controller
      */
     public function add(Product $product, CartRequest $request)
     {
-
-
+        $products = Product::with([
+            'image' => function($query) {
+                $query->select('id', 'name');
+            }
+        ])->get();
+        foreach ($products as $product) {
             if ($product->stock - $request->input('quantity') < 0) {
-                return ('cantidad no encontrada');
+                return redirect()->route('products.show')
+                    ->with('status', 'cantidad de producto no encontrada');
             } else {
                 \Cart::session(auth()->id())->add(array(
                     'id' => $product->id,
                     'name' => $product->name,
                     'price' => $product->price,
                     'quantity' => $request->input('quantity'),
-                    'attributes' => array(),
+                    'attributes' => array(
+                        'relations'=> array()
+                    ),
                     'associatedModel' => Product::class
                 ));
 
                 $product->stock = $product->stock - $request->input('quantity');
                 $product->save();
-                if ($product->stock <= 2){
+                if ($product->stock <= 2) {
                     event(new soldOutEvent($product));
                 }
-
-                return redirect()->route('products/indexClient')
-                    ->with('status', 'Tu producto a sido agregado');
-
             }
+
+        }
+        return redirect()->route('products/indexClient')
+            ->with('status', 'Tu producto a sido agregado');
 
     }
 

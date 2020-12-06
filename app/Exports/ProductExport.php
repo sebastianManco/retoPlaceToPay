@@ -3,11 +3,12 @@
 namespace App\Exports;
 
 use App\Product;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ProductExport implements FromQuery, WithHeadings
+class ProductExport implements FromQuery, WithHeadings, ShouldQueue
 {
     use exportable;
 

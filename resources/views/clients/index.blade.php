@@ -7,7 +7,7 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h2>{{__('Lista de productos cliente')}}</h2>
+          <h2>@lang('product.titles.listProducts')</h2>
         </div>
           <div class="card-body">
                 @include('layouts.__search')
@@ -31,7 +31,7 @@
                                               @endforeach
                                               <div class="card body">
                                                   <h4 class="card-title">{{$product->name }} </h4>
-                                                  <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">{{__('detalles')}}</a>
+                                                  <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">@lang('buttons.button.details')</a>
                                               </div>
                                           </div>
                                       </div>

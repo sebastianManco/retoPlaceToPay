@@ -9,10 +9,14 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ExportProductController extends Controller
 {
-    /**
-     * @return BinaryFileResponse
-     */
-    public function export(): BinaryFileResponse
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('usersActive');
+        $this->middleware('verified');
+    }
+
+    public function export()
     {
         return Excel::download(new ProductExport(),'Product.xlsx');
     }

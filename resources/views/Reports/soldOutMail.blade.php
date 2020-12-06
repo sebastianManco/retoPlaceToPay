@@ -1,11 +1,15 @@
-<h4>Alerta!</h4>
 
-el producto: <strong> {{$product->name}} </strong> está que se agota.
 
-solo quedan <strong>{{ $product->stock }}</strong>
+<h2><strong>@lang('reports.soldOutMail.alert')</strong></h2>
 
-¿ya tienes mas unidades disponibles?
+<p>@lang('reports.soldOutMail.name')<strong> {{$product->name}} </strong> @lang('reports.soldOutMail.exhaust')</p>
 
-da clink en actualizar para no parar de vender
+<p>@lang('reports.soldOutMail.quantity')<strong>{{ $product->stock }}</strong></p>
 
-<button><a href="{{route('products.edit', $product->id)}}">actualizar</a></button>
+<p>@lang('reports.soldOutMail.question')</p>
+
+<p>@lang('reports.soldOutMail.click')</p>
+
+<button>
+    <a href="{{ route('products.edit', $product->id) }}">@lang('buttons.button.update')</a>
+</button>

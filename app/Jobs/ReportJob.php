@@ -11,6 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 
 class ReportJob implements  ShouldQueue
@@ -50,12 +51,13 @@ class ReportJob implements  ShouldQueue
 
         $pdf = PDFS::loadView('Reports.customReports', [
             'order' => $orders,
-        ])->save(storage_path('app/public/'). $name);
+        ])->save(storage_path('app/pdf/'). $name);
 
          $user->pdfs()->create([
             'name' => $name,
             'user_id' => $user
         ]);
 
+         Log::info('documento generado ');
     }
 }

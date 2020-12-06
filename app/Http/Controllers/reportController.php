@@ -33,7 +33,7 @@ class ReportController extends Controller
 
         dispatch(new reportJob($dateFrom, $dateTo, $user));
 
-        return redirect(url('/home'));
+        return redirect(url('/businessManagement'));
     }
 
     public function show()
