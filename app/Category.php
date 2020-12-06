@@ -26,7 +26,7 @@ class Category extends Model
     /**
      * @return array
      */
-    public function fields()
+    public function fields(): array
     {
         return [
             'name' => $this->name
@@ -40,12 +40,11 @@ class Category extends Model
      */
     public function product(): hasMany
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 
     /**
-     * Undocumented function
-     * @return
+     * @return mixed
      */
     public function getCachedCategories()
     {
@@ -59,10 +58,11 @@ class Category extends Model
         );
     }
 
-
+    /**
+     * @return void
+     */
     public static function flushCache(): void
     {
         Cache::forget('categories');
     }
-
 }

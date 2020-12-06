@@ -20,7 +20,9 @@ before_script:
   - npm install
 script:
   - php artisan migrate
+  - composer phpcs-auto-check-project
   - php artisan test
+
 notifications:
   email:
     recipients:

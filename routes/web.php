@@ -32,7 +32,7 @@ Route::get('products/indexClient/', 'ClientController@index')
     ->name('products/indexClient')
     ->middleware('verified');
 Route::resource('products', 'ProductController');
-Route::resource('categories', 'categoryController');
+Route::resource('categories', 'CategoryController');
 Route::get('/cart','CartController@index')
     ->name('cart.index');
 Route::get('add-to-cart/{product}', 'CartController@add')
@@ -56,7 +56,7 @@ Route::get('reintento/placeToPay/{reference}', 'CheckoutController@updateRetry')
 Route::resource('orders', 'OrderController');
 
 Route::get('/export', 'ExportProductController@export')->name('export.product');
-Route::get('/businessManagement', 'businessManagementController@index')
+Route::get('/businessManagement', 'BusinessManagementController@index')
     ->name('businessManagement');
 Route::post('/importProduct', 'ImportProductController@import')
     ->name('productImport');

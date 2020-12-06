@@ -10,23 +10,28 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Sanctum\HasApiTokens;
 use phpDocumentor\Reflection\Types\Boolean;
 
-
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use  Notifiable;
+    use Notifiable;
 
     /**
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name','email', 'estado','phone', 'password'
+        'name',
+        'last_name',
+        'email',
+        'estado',
+        'phone',
+        'password'
     ];
 
     /**
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -36,14 +41,20 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return HasMany
+     */
     public function orders(): hasMany
     {
-        return $this->hasMany('App\Order');
+        return $this->hasMany(Order::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function pdfs(): hasMany
     {
-        return $this->hasMany('App\Pdf');
+        return $this->hasMany(Pdf::class);
     }
 
     /**
@@ -51,7 +62,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function roles(): belongsToMany
     {
-        return $this->belongsToMany('App\Role')->withTimesTamps();
+        return $this->belongsToMany(Role::class)->withTimesTamps();
     }
 
     /**
@@ -60,23 +71,22 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function authorizeRoles($roles): bool
     {
-        if ($this->hasAnyRole($roles)) {
-            return true;
-        }
-        abort(401, 'Esta acción no está autorizada.');
+        return $this->hasAnyRole($roles);
     }
 
     /**
-     * @param $roles
+     * @param array| string $roles
      * @return bool
      */
     public function hasAnyRole($roles): bool
     {
         if (is_array($roles)) {
-            foreach ($roles as $role) {
-                if ($this->hasRole($role)) {
-                    return true;
-                }
+            $hasRoles = collect($roles)->filter(function ($item) {
+                return $this->hasRole($item);
+            })->count();
+
+            if ($hasRoles) {
+                return true;
             }
         } else {
             if ($this->hasRole($roles)) {
@@ -87,7 +97,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @param $role
+     * @param string $role
      * @return bool
      */
     public function hasRole($role): bool

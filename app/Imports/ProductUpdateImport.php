@@ -8,24 +8,22 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-
-class ProductUpdateImport implements ToCollection,  WithValidation
+class ProductUpdateImport implements ToCollection, WithValidation
 {
-
     /**
      * @param Collection $rows
      */
     public function collection(Collection $rows)
     {
-        foreach ($rows as $row)
-        {
-           Product::where('id', $row[0])->update([
-                    'name' => $row[2],
-                    'category_id' => $row[1],
-                    'description' => $row[3],
-                    'price' => $row[4],
+        foreach ($rows as $row) {
+            Product::where('id', $row[0])
+               ->update([
+                   'name' => $row[2],
+                   'category_id' => $row[1],
+                   'description' => $row[3],
+                   'price' => $row[4],
                    'stock' => $row[5]
-                ]);
+               ]);
         }
     }
 

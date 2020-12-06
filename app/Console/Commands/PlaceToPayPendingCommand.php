@@ -35,20 +35,17 @@ class PlaceToPayPendingCommand extends Command
     }
 
     /**
-     * Execute the console command.
-     *
-     * @return int
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $payments = Payment::with('order')
-            ->where('status','PENDING')
+            ->where('status', 'PENDING')
             ->get();
 
         foreach ($payments as $payment) {
             $order = $payment->order;
             dispatch(new PlaceToPayPendingJob($order));
         }
-
     }
 }

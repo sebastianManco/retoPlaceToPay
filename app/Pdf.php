@@ -3,18 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pdf extends Model
 {
     /**
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
-        'name', 'user_id'
+        'name',
+        'user_id'
     ];
 
-    public function user()
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 }

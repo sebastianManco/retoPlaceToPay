@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
-class soldOutListener implements ShouldQueue
+class SoldOutListener implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -27,11 +27,11 @@ class soldOutListener implements ShouldQueue
      * @param  soldOutEvent  $event
      * @return void
      */
-    public function handle(soldOutEvent $event)
+    public function handle(soldOutEvent $event): void
     {
         $product = $event->product;
 
         Mail::to('sebastian.manco1997@gmailcom')
-            ->send(new soldOutEmailNotification($product));
+            ->send(new SoldOutEmailNotification($product));
     }
 }

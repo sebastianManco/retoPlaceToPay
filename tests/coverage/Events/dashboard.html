@@ -228,7 +228,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[0,1,"<a href=\"UserCreated.php.html#10\">App\\Events\\UserCreated<\/a>"],[0,2,"<a href=\"soldOutEvent.php.html#13\">App\\Events\\soldOutEvent<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[0,1,"<a href=\"UserCreated.php.html#10\">App\\Events\\UserCreated<\/a>"],[0,2,"<a href=\"SoldOutEvent.php.html#13\">App\\Events\\soldOutEvent<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -252,7 +252,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[0,1,"<a href=\"UserCreated.php.html#23\">App\\Events\\UserCreated::__construct<\/a>"],[0,1,"<a href=\"soldOutEvent.php.html#23\">App\\Events\\soldOutEvent::__construct<\/a>"],[0,1,"<a href=\"soldOutEvent.php.html#33\">App\\Events\\soldOutEvent::broadcastOn<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[0,1,"<a href=\"UserCreated.php.html#23\">App\\Events\\UserCreated::__construct<\/a>"],[0,1,"<a href=\"SoldOutEvent.php.html#23\">App\\Events\\soldOutEvent::__construct<\/a>"],[0,1,"<a href=\"SoldOutEvent.php.html#33\">App\\Events\\soldOutEvent::broadcastOn<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);

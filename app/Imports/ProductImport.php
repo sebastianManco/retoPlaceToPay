@@ -13,11 +13,12 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-class ProductImport implements ToModel,  WithHeadingRow, WithValidation, WithChunkReading, ShouldQueue
+class ProductImport implements ToModel, WithHeadingRow, WithValidation, WithChunkReading, ShouldQueue
 {
     use importable;
     use SkipsErrors;
     use SkipsFailures;
+
     /**
      * @param array $row
      * @return Product
@@ -30,7 +31,6 @@ class ProductImport implements ToModel,  WithHeadingRow, WithValidation, WithChu
             'description' => $row['description'],
             'price' => $row['price'],
             'stock' => $row['stock'],
-
         ]);
     }
 
@@ -55,6 +55,7 @@ class ProductImport implements ToModel,  WithHeadingRow, WithValidation, WithChu
     {
         return 500;
     }
+
     /**
      * @return int
      */

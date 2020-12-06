@@ -8,22 +8,20 @@ use App\Http\Requests\Api\ApiCategoriesRequest;
 use App\Http\Resources\resourceCollection;
 use App\Http\Resources\ResourceObject;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CategoryApiController extends Controller
 {
     /**
      * @return resourceCollection
      */
-    public function index()
+    public function index(): resourceCollection
     {
         return ResourceCollection::make(Category::all());
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param ApiCategoriesRequest $request
-     * @return \Illuminate\Http\Response
      */
     public function store(ApiCategoriesRequest $request)
     {
@@ -43,8 +41,4 @@ class CategoryApiController extends Controller
 
         return new ResourceObject($category);
     }
-
-
-    }
-
-
+}

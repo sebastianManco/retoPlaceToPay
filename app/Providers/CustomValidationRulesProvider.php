@@ -24,8 +24,7 @@ class CustomValidationRulesProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('alpha_spaces', function($attribute, $value)
-        {
+        Validator::extend('alpha_spaces', function ($attribute, $value) {
             return preg_match('/^[\pL\s]+$/u', $value);
         });
     }

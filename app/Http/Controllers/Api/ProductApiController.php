@@ -9,7 +9,6 @@ use App\Http\Resources\resourceCollection;
 use App\Product;
 use Illuminate\Http\Request;
 
-
 class ProductApiController extends Controller
 {
 
@@ -37,7 +36,8 @@ class ProductApiController extends Controller
 
     /**
      *  get /products/show/int
-     * retorna un json con la siguiente información { { product: 'id', 'name', 'description', 'category', 'price', 'stock' } }
+     * retorna un json con la siguiente información { { product: 'id', 'name', 'description', 'category',
+     * 'price', 'stock' } }
      * @param Product $product
      * @return ResourceObject
      */

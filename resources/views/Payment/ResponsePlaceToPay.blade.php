@@ -5,15 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header"><h2>resultado de la transaccion</h2></div>
+                    <div class="card-header"><h2>@lang('payment.title.result')</h2></div>
                     <div class="card-body">
                         <table class="table table-striped">
                             <thead>
                             <tr>
 
-                                <th> referencia</th>
-                                <th>Estado de la orden</th>
-                                <th>Total pagado</th>
+                                <th>@lang('payment.response.reference')</th>
+                                <th>@lang('payment.response.status')</th>
+                                <th>@lang('payment.response.total')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -36,7 +36,7 @@
                         </table>
                         <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="btn btn-outline-info">Ir a la tienda</button>
+                            <button class="btn btn-outline-info">@lang('buttons.button.goTo')</button>
                         </form>
                     </div>
                 </div>

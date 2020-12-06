@@ -7,17 +7,17 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h2>{{__('Lista de productos admin')}} </h2>
+          <h2>@lang('product.titles.listProducts') </h2>
         </div>
         <div class="card-body">
           <nav class="navbar navbar-light bg-light ">
             <a href=" {{route('products.create')}} ">
-              <button type="button" class="btn btn-outline-success">{{__('Nuevo producto')}}</button>
+              <button type="button" class="btn btn-outline-success">@lang('buttons.button.newProduct')</button>
             </a>
             @include('layouts.__search')
           </nav>
         </div>
-          @include('layouts.__indexProducts')         
+          @include('layouts.__indexProducts')
       </div>
     </div>
   </div>

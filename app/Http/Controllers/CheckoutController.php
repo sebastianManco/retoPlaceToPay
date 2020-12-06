@@ -9,6 +9,7 @@ use App\Order;
 use GuzzleHttp\Client;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -62,9 +63,9 @@ class CheckoutController extends Controller
     /**
      * @param string $reference
      * @param Order $order
-     * @return Application|Factory|View
+     * @return View
      */
-    public function getRequestInformation( string $reference)
+    public function getRequestInformation(string $reference): View
     {
         $order = Order::where('reference', $reference)->get()->first();
 
@@ -78,8 +79,6 @@ class CheckoutController extends Controller
      */
     public function retryPayment(Order $order)
     {
-        //$order = Order::find($id);
-
         $response = $this->placeToPay('create', $order);
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
@@ -96,8 +95,12 @@ class CheckoutController extends Controller
         redirect()->away($processUrl)->send();
     }
 
-
-    public function authenticationPlaceToPay(){
+    /**
+     * @return array
+     * @throws \Exception
+     */
+    public function authenticationPlaceToPay(): array
+    {
         $seed = date('c');
         if (function_exists('random_bytes')) {
             $nonce = bin2hex(random_bytes(16));
@@ -139,8 +142,9 @@ class CheckoutController extends Controller
 
         ];
         switch ($requestType) {
-            case  'create':
-                $res = $client->post('https://test.placetopay.com/redirection/api/session/',
+            case 'create':
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/',
                     ['json' => $request]
                 );
                 return json_decode($res->getBody()->getContents());
@@ -159,13 +163,13 @@ class CheckoutController extends Controller
                     'internalReference' => $order->payment->internalReference
                 ];
 
-                $res = $client->post('https://test.placetopay.com/redirection/api/session/',
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/',
                     ['json' => $requestReverse]
                 );
                 return json_decode($res->getBody()->getContents());
                 break;
-            default;
-
+            default:
         }
     }
 
@@ -177,7 +181,7 @@ class CheckoutController extends Controller
     {
         $response = $this->placeToPay('getRequestInformation', $order);
         $updatePayment = Payment::where('order_id', $order->id)->get()->first();
-        if($response->status->status != 'PENDING'){
+        if ($response->status->status != 'PENDING') {
             $updatePayment->internalReference = $response->payment[0]->internalReference;
         }
         $updatePayment->status = $response->status->status;
