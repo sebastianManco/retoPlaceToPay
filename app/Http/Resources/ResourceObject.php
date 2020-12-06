@@ -21,7 +21,7 @@ class ResourceObject extends JsonResource
             'id' => (string) $this->resource->getRouteKey(),
             'attributes' =>  $this->resource->fields(),
             'links' => [
-                'self' => route('api.'. $this->resource->type.'.show', $this->getRouteKey())
+                'self' => route('api.' . $this->resource->type . '.show', $this->getRouteKey())
             ]
         ];
     }

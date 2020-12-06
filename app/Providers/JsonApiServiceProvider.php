@@ -26,6 +26,6 @@ class JsonApiServiceProvider extends ServiceProvider
             ]);
         });
 
-        Builder::mixin(new JsonApiBuilder);
+        Builder::mixin(new JsonApiBuilder());
     }
 }

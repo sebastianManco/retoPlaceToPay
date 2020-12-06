@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\Request;
 
-class categoryController extends Controller
+class CategoryController extends Controller
 {
     public function __construct()
     {
@@ -23,8 +23,8 @@ class categoryController extends Controller
     public function index(Request $request): View
     {
         $request->user()->authorizeRoles('admin');
-        $category = (new Category)->getCachedCategories();
-        return view('categories.index', ['category'=>$category]);
+        $category = (new Category())->getCachedCategories();
+        return view('categories.index', ['category' => $category]);
     }
 
     /**
@@ -41,13 +41,10 @@ class categoryController extends Controller
      */
     public function store(CategoryCreateRequest $request): RedirectResponse
     {
-        $category = new Category;
+        $category = new Category();
         $category->name = $request->input('name');
         $category->save();
         $category->flushCache();
         return redirect('/categories')->with('message', 'Guardado con éxito') ;
     }
-
-
-
 }

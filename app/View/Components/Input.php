@@ -9,19 +9,19 @@ class Input extends Component
     /**
      * @var string
      */
-   public $name;
+    public $name;
    /**
     * @var string
     */
-   public $type;
+    public $type;
    /**
     * @var string
     */
-   public $label;
+    public $label;
    /**
     * @var string
     */
-   public $value;
+    public $value;
 
     /**
      * Create a new component instance.
@@ -31,7 +31,7 @@ class Input extends Component
      * @param string $value
      * @return void
      */
-    public function __construct(string $name, string $type = 'text', string $label, string $value)
+    public function __construct(string $name, string $label, string $value, string $type = 'text')
     {
         $this->name = $name;
         $this->type = $type;

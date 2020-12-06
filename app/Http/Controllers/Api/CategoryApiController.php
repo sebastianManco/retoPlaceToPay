@@ -43,8 +43,4 @@ class CategoryApiController extends Controller
 
         return new ResourceObject($category);
     }
-
-
-    }
-
-
+}

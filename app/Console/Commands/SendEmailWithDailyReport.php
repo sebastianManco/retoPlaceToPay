@@ -10,7 +10,6 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
-
 class SendEmailWithDailyReport extends Command
 {
     /**
@@ -35,7 +34,7 @@ class SendEmailWithDailyReport extends Command
     public function handle()
     {
         $order = Order::with('user', 'products', 'payment')
-            ->whereDate('created_at','=', now()
+            ->whereDate('created_at', '=', now()
                 ->format('Y-m-d'))
             ->get();
 

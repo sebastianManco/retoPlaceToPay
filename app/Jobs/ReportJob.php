@@ -5,7 +5,6 @@ namespace App\Jobs;
 use App\Order;
 use App\User;
 use Barryvdh\DomPDF\Facade as PDFS;
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,13 +12,17 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-
-class ReportJob implements  ShouldQueue
+class ReportJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
 
-    private $dateFrom, $dateTo, $user;
+    private $dateFrom;
+    private $dateTo;
+    private $user;
 
     /**
      * ReportJob constructor.
@@ -47,16 +50,16 @@ class ReportJob implements  ShouldQueue
             ->dateRange($dateFrom, $dateTo)
             ->get();
 
-        $name = 'report-'. time().'s.pdf';
+        $name = 'report-' . time() . 's.pdf';
 
         $pdf = PDFS::loadView('Reports.customReports', [
             'order' => $orders,
-        ])->save(storage_path('app/pdf/'). $name);
+        ])->save(storage_path('app/pdf/') . $name);
 
          $user->pdfs()->create([
             'name' => $name,
             'user_id' => $user
-        ]);
+         ]);
 
          Log::info('documento generado ');
     }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -25,9 +26,9 @@ class ClientController extends Controller
     {
         $request->user()->authorizeRoles('user');
         $category = $request->get('type');
-        $search= $request->get('search');
+        $search = $request->get('search');
 
-        $products = (new Product)->searchProducts($category, $search );
+        $products = (new Product())->searchProducts($category, $search);
 
         return view('clients.index', compact('products'));
     }

@@ -10,10 +10,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Sanctum\HasApiTokens;
 use phpDocumentor\Reflection\Types\Boolean;
 
-
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use  Notifiable;
+    use Notifiable;
 
     /**
      * @var array
@@ -72,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function authorizeRoles($roles): bool
     {
-       return $this->hasAnyRole($roles);
+        return $this->hasAnyRole($roles);
     }
 
     /**
@@ -82,8 +81,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function hasAnyRole($roles): bool
     {
         if (is_array($roles)) {
-
-            $hasRoles = collect($roles)->filter(function($item) {
+            $hasRoles = collect($roles)->filter(function ($item) {
                 return $this->hasRole($item);
             })->count();
 

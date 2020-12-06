@@ -65,5 +65,4 @@ class Category extends Model
     {
         Cache::forget('categories');
     }
-
 }

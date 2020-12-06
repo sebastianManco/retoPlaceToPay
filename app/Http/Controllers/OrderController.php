@@ -6,7 +6,6 @@ use App\Order;
 use App\Payment;
 use Illuminate\View\View;
 
-
 class OrderController extends Controller
 {
 
@@ -26,12 +25,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-       $payments = Payment::with([ 'order'=>
-            function($query) {
+        $payments = Payment::with([ 'order' =>
+            function ($query) {
                 $query->where('user_id', '=', auth()->id());
             }])->get();
 
-        return view('Payment.HistoryOrders',  ['payments' => $payments]);
+        return view('Payment.HistoryOrders', ['payments' => $payments]);
     }
 
     /**
@@ -43,5 +42,4 @@ class OrderController extends Controller
 
         return view('Orders.index', compact('cartProducts'));
     }
-
 }

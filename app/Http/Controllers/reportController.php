@@ -11,14 +11,12 @@ use Barryvdh\DomPDF\Facade as PDFS;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-
 class ReportController extends Controller
 {
     private $user;
 
     public function __construct()
     {
-
     }
 
     /**
@@ -47,5 +45,4 @@ class ReportController extends Controller
             'pdf' => $pdf
         ]);
     }
-
 }

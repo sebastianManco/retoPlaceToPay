@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
-class
-UserController extends Controller
+class UserController extends Controller
 {
 
     public function __construct()
@@ -32,8 +31,8 @@ UserController extends Controller
      */
     public function index(): View
     {
-        $users=DB::table('users')->paginate(10);
-        return view('users.userList', ['users'=>$users]);
+        $users = DB::table('users')->paginate(10);
+        return view('users.userList', ['users' => $users]);
     }
 
     /**
@@ -51,7 +50,7 @@ UserController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
-        $this->storeUpdateUser($request, new User);
+        $this->storeUpdateUser($request, new User());
 
         return redirect('home/userList');
     }
@@ -82,7 +81,7 @@ UserController extends Controller
      * @param int $id
      * @param Request $request
      */
-    public function update(User $user,  Request $request)
+    public function update(User $user, Request $request)
     {
         $this->storeUpdateUser($request, $user);
 
@@ -94,12 +93,12 @@ UserController extends Controller
      * @param User $user
      * @return User
      */
-    private function storeUpdateUser (Request $request, User $user): User
+    private function storeUpdateUser(Request $request, User $user): User
     {
-        $user->name =$request->name;
-        $user->last_name =$request->last_name;
-        $user->email =$request->email;
-        $user->phone =$request->phone;
+        $user->name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->estado = (!request()->has('estado') == '1' ? '0' : '1');
         $user->password = Hash::make($request['password']);
         $user->save();

@@ -42,7 +42,7 @@ class CartController extends Controller
     public function add(Product $product, CartRequest $request)
     {
         $products = Product::with([
-            'image' => function($query) {
+            'image' => function ($query) {
                 $query->select('id', 'name');
             }
         ])->get();
@@ -57,7 +57,7 @@ class CartController extends Controller
                     'price' => $product->price,
                     'quantity' => $request->input('quantity'),
                     'attributes' => array(
-                        'relations'=> array()
+                        'relations' => array()
                     ),
                     'associatedModel' => Product::class
                 ));
@@ -68,11 +68,9 @@ class CartController extends Controller
                     event(new soldOutEvent($product));
                 }
             }
-
         }
         return redirect()->route('products/indexClient')
             ->with('status', 'Tu producto a sido agregado');
-
     }
 
 
@@ -105,11 +103,10 @@ class CartController extends Controller
         return back()->with('status', 'Tu producto ha sido eliminado');
     }
 
-    public function clear(){
+    public function clear()
+    {
 
         \Cart::session(auth()->id())->clear();
         return redirect()->route('home');
     }
-
-
 }

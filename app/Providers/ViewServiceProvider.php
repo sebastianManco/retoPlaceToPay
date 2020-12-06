@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use App\Http\View\Composers\CategoryComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -24,8 +25,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       view::composer(
-        'products.create', CategoryComposer::class
-    );
+        view::composer(
+            'products.create',
+            CategoryComposer::class
+        );
     }
 }

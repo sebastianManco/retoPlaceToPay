@@ -49,7 +49,8 @@ class Order extends Model
      * @param string $dateFrom
      * @param string $dateTo
      */
-    public function scopeDateRange($query, $dateFrom, $dateTo) {
+    public function scopeDateRange($query, $dateFrom, $dateTo)
+    {
 
         $query->whereBetween('created_at', [$dateFrom, $dateTo]);
     }

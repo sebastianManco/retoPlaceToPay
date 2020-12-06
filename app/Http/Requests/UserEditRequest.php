@@ -25,9 +25,9 @@ class UserEditRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:40',
-            'last_name'=> 'required|string|max:40',
+            'last_name' => 'required|string|max:40',
             'email' => 'required|string|email|max:100|unique:users',
-            'phone'=>'required|alpha_num|max:20',
+            'phone' => 'required|alpha_num|max:20',
             'password' => 'required|string|min:8|confirmed',
         ];
     }

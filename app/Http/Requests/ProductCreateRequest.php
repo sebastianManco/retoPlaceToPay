@@ -23,14 +23,14 @@ class ProductCreateRequest extends FormRequest
      */
     public function rules()
     {
-       return [
+        return [
            'name' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:100',
             'category_id' => 'required',
             'price' => 'required||numeric|min:1',
             'image' => 'required|mimes:jpeg,png,jpg',
             'stock' => 'required|numeric|min:1'
-       ];
+        ];
     }
 
     public function messages()

@@ -26,7 +26,7 @@ class ImportProductController extends Controller
     public function import(ImportProduct $request): RedirectResponse
     {
         $file = $request->file('file');
-        (new ProductImport)->queue($file);
+        (new ProductImport())->queue($file);
         return redirect()->back()->with('productos importados correctamente');
     }
 
@@ -37,10 +37,7 @@ class ImportProductController extends Controller
     public function importUpdateProduct(ImportProductUpdateRequest  $request): RedirectResponse
     {
         $file = $request->file('updateFile');
-        Excel::import(new ProductUpdateImport, $file);
+        Excel::import(new ProductUpdateImport(), $file);
         return redirect()->back()->with('productos importados correctamente');
-
     }
-
-
 }

@@ -64,7 +64,7 @@ class CheckoutController extends Controller
      * @param Order $order
      * @return Application|Factory|View
      */
-    public function getRequestInformation( string $reference)
+    public function getRequestInformation(string $reference)
     {
         $order = Order::where('reference', $reference)->get()->first();
 
@@ -97,7 +97,8 @@ class CheckoutController extends Controller
     }
 
 
-    public function authenticationPlaceToPay(){
+    public function authenticationPlaceToPay()
+    {
         $seed = date('c');
         if (function_exists('random_bytes')) {
             $nonce = bin2hex(random_bytes(16));
@@ -139,8 +140,9 @@ class CheckoutController extends Controller
 
         ];
         switch ($requestType) {
-            case  'create':
-                $res = $client->post('https://test.placetopay.com/redirection/api/session/',
+            case 'create':
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/',
                     ['json' => $request]
                 );
                 return json_decode($res->getBody()->getContents());
@@ -159,13 +161,13 @@ class CheckoutController extends Controller
                     'internalReference' => $order->payment->internalReference
                 ];
 
-                $res = $client->post('https://test.placetopay.com/redirection/api/session/',
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/',
                     ['json' => $requestReverse]
                 );
                 return json_decode($res->getBody()->getContents());
                 break;
-            default;
-
+            default:
         }
     }
 
@@ -177,7 +179,7 @@ class CheckoutController extends Controller
     {
         $response = $this->placeToPay('getRequestInformation', $order);
         $updatePayment = Payment::where('order_id', $order->id)->get()->first();
-        if($response->status->status != 'PENDING'){
+        if ($response->status->status != 'PENDING') {
             $updatePayment->internalReference = $response->payment[0]->internalReference;
         }
         $updatePayment->status = $response->status->status;

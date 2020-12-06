@@ -1,28 +1,24 @@
 <?php
 
-
 namespace App\JsonApi;
-
 
 use Illuminate\Support\Str;
 
 class JsonApiBuilder
 {
-    public function jsonPaginate ()
+    public function jsonPaginate()
     {
-        return function (){
+        return function () {
             return $this->paginate(
                 $perPage = request('page.size'),
                 $columns = ['*'],
                 $pageName = 'page[number]',
                 $page = request('page.number')
             )->appends(request()->except('page.number'));
-
         };
-
     }
 
-    public function applySorts ()
+    public function applySorts()
     {
         return function () {
             if (!property_exists($this->model, 'allowedSorts')) {
@@ -43,14 +39,12 @@ class JsonApiBuilder
                     $sortField = Str::of($sortField)->substr(1);
                 }
 
-                if ( ! collect($this->model->allowedSorts)->contains($sortField)) {
+                if (! collect($this->model->allowedSorts)->contains($sortField)) {
                     abort(400, "invalid query parameter, {$sortField} is not allowed");
                 }
                 $this->orderBy($sortField, $direction)->reorder();
             }
             return $this;
         };
-
-
     }
 }

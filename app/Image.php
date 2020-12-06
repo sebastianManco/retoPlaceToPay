@@ -21,5 +21,5 @@ class Image extends Model
     public function product(): belongsTo
     {
         return $this->belongsTo(Product::class);
-   }
+    }
 }

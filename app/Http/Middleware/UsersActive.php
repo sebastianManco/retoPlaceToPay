@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
 class UsersActive
@@ -16,7 +16,7 @@ class UsersActive
      */
     public function handle($request, Closure $next)
     {
-        If ($request->user()->estado == 1) {
+        if ($request->user()->estado == 1) {
             return $next($request);
         } else {
             Auth::logout() ;

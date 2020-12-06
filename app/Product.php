@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
 use Illuminate\Support\Str;
 
 class Product extends Model
 {
-    public  $allowedSorts = ['name'];
+    public $allowedSorts = ['name'];
     public $type = 'products';
        /**
      *
@@ -50,7 +49,6 @@ class Product extends Model
             'price' =>  $this->price,
             'stock' => $this->stock
         ];
-
     }
 
     /**
@@ -115,7 +113,7 @@ class Product extends Model
      * @param $query
      * @return mixed
      */
-   public function scopeStock($query)
+    public function scopeStock($query)
     {
         return $query->where('stock', '>', 0);
     }
@@ -146,5 +144,4 @@ class Product extends Model
         }
         return $query->paginate(10, ['id','name']);
     }
-
 }

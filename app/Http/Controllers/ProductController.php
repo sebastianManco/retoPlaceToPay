@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchRequest;
@@ -31,9 +32,9 @@ class ProductController extends Controller
         $request->user()->authorizeRoles('admin');
 
         $category = $request->get('type');
-        $search= $request->get('search');
+        $search = $request->get('search');
 
-        $products = (new Product)->searchProducts($category, $search );
+        $products = (new Product())->searchProducts($category, $search);
 
         return view('products.index', ['products' => $products, 'search' => $products]);
     }
@@ -42,7 +43,7 @@ class ProductController extends Controller
     * Undocumented function
     * @return View
     */
-    public function create() : View
+    public function create(): View
     {
         return view('products.create', ['product' => new Product()]);
     }
@@ -54,7 +55,7 @@ class ProductController extends Controller
      */
     public function store(ProductCreateRequest $request): RedirectResponse
     {
-        $this->storeUpdate($request, new product);
+        $this->storeUpdate($request, new product());
 
         return redirect('/products');
     }
@@ -70,7 +71,7 @@ class ProductController extends Controller
 
         $product = Product::with(
             [
-                'image'=> function ($query) {
+                'image' => function ($query) {
                     $query->select('id', 'name', 'product_id');
                 },
                 'category' =>  function ($query) {
@@ -92,7 +93,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        $categories = (new Category)->getCachedCategories();
+        $categories = (new Category())->getCachedCategories();
         return view('products.edit', [
             'categories' => $categories,
             'product' => $product,

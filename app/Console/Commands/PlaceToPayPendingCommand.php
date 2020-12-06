@@ -42,13 +42,12 @@ class PlaceToPayPendingCommand extends Command
     public function handle()
     {
         $payments = Payment::with('order')
-            ->where('status','PENDING')
+            ->where('status', 'PENDING')
             ->get();
 
         foreach ($payments as $payment) {
             $order = $payment->order;
             dispatch(new PlaceToPayPendingJob($order));
         }
-
     }
 }
