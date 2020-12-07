@@ -12,19 +12,18 @@
         <div class="col-sm-6">
           <div class="card disabled"  aria-disabled="true"  style="width:200px">
             <div class="card-body">
-            @foreach($product->image as $images)
-              <img class=""  src="{{ asset($images->name) }}"   width="100" alt="Card image" style="width:100%">
-              @endforeach
+                @foreach($product->image as $images)
+                    <img class=""  src="{{ asset($images->name) }}"   width="100" alt="Card image" style="width:100%">
+                @endforeach
                 <div class="card body">
-                  <h4 class="card-title">{{$product->name }} </h4>
-                  @if(Auth::guest() || Auth::user()->hasRole('user'))
-                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">{{__('detalles')}}</a>
-                  @else
-                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">{{__('detalles')}}</a>
-                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary ">{{__('Editar')}}</a>
-                  @endif
-              </div>
+                    <h4 class="card-title">{{$product->name }} </h4>
+
+                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary ">@lang('buttons.button.details')</a>
+
+                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary ">@lang('buttons.button.edit')</a>
             </div>
+            </div>
+
           </div>
         </div>
       </div>

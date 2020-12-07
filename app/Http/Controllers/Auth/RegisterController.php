@@ -22,7 +22,6 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
 
     /**
@@ -52,9 +51,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:40'],
-            'last_name'=> ['required', 'string', 'max:40'],
+            'last_name' => ['required', 'string', 'max:40'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'phone'=>['required','string', 'max:20'],
+            'phone' => ['required','string', 'max:20'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -69,16 +68,12 @@ class RegisterController extends Controller
     {
         $user = User::create([
             'name' => $data['name'],
-            'last_name'=>$data['last_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
-            'phone'=>$data['phone'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
         $user->roles()->sync(Role::where('name', 'user')->first());
         return $user;
-
-
     }
-
-
 }

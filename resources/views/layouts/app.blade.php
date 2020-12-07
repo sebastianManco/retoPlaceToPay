@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -72,7 +73,18 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        @foreach($errors->all() as $message)
+                            <li>{{$message}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
+        </div>
         <main class="py-4">
             @yield('content')
         </main>

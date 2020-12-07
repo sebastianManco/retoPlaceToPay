@@ -36,15 +36,143 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026b9ac7-6a19-4298-b23a-c657487c9619" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Orders/copia" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Payment/ResponsePlaceToPay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Payment/ResponsePlaceToPay.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/UsersActive.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/UsersActive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Api/ApiProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Api/ApiProductRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Category.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Category.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/PlaceToPay.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/PlaceToPay.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Classes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Classes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/PlaceToPayPendingCommand.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/PlaceToPayPendingCommand.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/SendEmailWithDailyReport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/SendEmailWithDailyReport.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Commands/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Commands/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/Kernel.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/Kernel.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Console/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Console/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/DBStorage.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/DBStorage.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/DatabaseStorageModel.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/DatabaseStorageModel.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Events/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Events/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Events/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Events/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Events/soldOutEvent.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Events/soldOutEvent.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Exceptions/Handler.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exceptions/Handler.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Exceptions/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exceptions/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Exceptions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exceptions/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Exports/ProductExport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exports/ProductExport.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Exports/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exports/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Exports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Exports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/CategoryApiController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/CategoryApiController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/ProductApiController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/ProductApiController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Api/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/ConfirmPasswordController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/ConfirmPasswordController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/ForgotPasswordController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/ForgotPasswordController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/LoginController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/LoginController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/RegisterController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/RegisterController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/ResetPasswordController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/ResetPasswordController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/VerificationController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/VerificationController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Auth/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/CartController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/CartController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/CheckoutController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/CheckoutController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ClientController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ClientController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Controller.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/Controller.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ExportProductController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ExportProductController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/HomeController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/HomeController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ImportProductController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ImportProductController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/OrderController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/OrderController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ProductController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/ProductController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/UserController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/UserController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/businessManagementController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/businessManagementController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/categoryController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/categoryController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Controllers/reportController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Controllers/reportController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Kernel.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Kernel.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/AuthAdminMiddleware.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/AuthAdminMiddleware.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/Authenticate.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/Authenticate.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/CheckForMaintenanceMode.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/CheckForMaintenanceMode.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/EncryptCookies.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/EncryptCookies.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/RedirectIfAuthenticated.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/RedirectIfAuthenticated.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/TrimStrings.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/TrimStrings.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/TrustHosts.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/TrustHosts.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/TrustProxies.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/TrustProxies.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/UsersActive.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/UsersActive.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/VerifyCsrfToken.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/VerifyCsrfToken.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Middleware/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Middleware/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiCategoriesRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiCategoriesRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiProductRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/ApiProductRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/Api/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/CartRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/CartRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/CategoryCreateRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/CategoryCreateRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/ImportProductUpdateRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/ImportProductUpdateRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/ImportRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/ImportRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/ProductCreateRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/ProductCreateRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/ProductEditRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/ProductEditRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/SearchRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/SearchRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/UserCreateRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/UserCreateRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/UserEditRequest.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/UserEditRequest.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Requests/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Requests/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceCollection.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceCollection.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceObject.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/ResourceObject.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/Resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/Resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/CategoryComposer.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/CategoryComposer.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/View/Composers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/View/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/View/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/View/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/View/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Http/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Http/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Image.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Image.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/ProductImport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/ProductImport.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/ProductUpdateImport.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/ProductUpdateImport.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Imports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Imports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/PlaceToPayPendingJob.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/PlaceToPayPendingJob.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/ReportJob.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/ReportJob.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Jobs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Jobs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/JsonApi/JsonApiBuilder.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/JsonApi/JsonApiBuilder.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/JsonApi/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/JsonApi/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/JsonApi/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/JsonApi/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Listeners/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Listeners/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Listeners/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Listeners/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Listeners/soldOutListener.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Listeners/soldOutListener.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Mail/DailyReportMail.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Mail/DailyReportMail.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Mail/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Mail/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Mail/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Mail/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Mail/soldOutEmailNotification.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Mail/soldOutEmailNotification.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Order.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Order.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Payment.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Payment.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Pdf.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Pdf.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Product.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Product.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/AppServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/AppServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/AuthServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/AuthServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/BroadcastServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/BroadcastServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/CustomValidationRulesProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/CustomValidationRulesProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/EventServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/EventServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/JsonApiServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/JsonApiServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/RouteServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/RouteServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/ViewServiceProvider.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/ViewServiceProvider.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Providers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Providers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/Role.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/Role.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/User.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/User.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/View/Components/Input.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/View/Components/Input.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/View/Components/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/View/Components/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/View/Components/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/View/Components/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/View/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/View/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/View/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/View/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/coverage/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +181,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +205,6 @@
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
@@ -167,9 +296,22 @@
       <path value="$PROJECT_DIR$/vendor/laravel/dusk" />
       <path value="$PROJECT_DIR$/vendor/php-webdriver/webdriver" />
       <path value="$PROJECT_DIR$/vendor/darryldecode/cart" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1fHC7mDlxQxdI5FgQAG8dCCOFx6" />
@@ -187,7 +329,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Feature/Users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/es" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -195,24 +337,30 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\retoPlaceToPay\tests\Feature\Api\Products" />
+      <recent name="C:\laragon\www\retoPlaceToPay\public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\retoPlaceToPay\resources\lang\es" />
       <recent name="C:\laragon\www\retoPlaceToPay\tests\Feature\Users" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.StoreTest.aAuthenticatedCannotStoreAProduct">
-    <configuration name="Products" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests/Feature/Products" />
+  <component name="RunManager" selected="PHPUnit.StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid">
+    <configuration name="ImportTest.userCanQueueTheProductImport" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Import\ImportTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Import/ImportTest.php" method="userCanQueueTheProductImport" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="StoreTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+    <configuration name="StoreTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Feauture\Users\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="StoreTest.aAuthenticatedCanStoreAUser" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Feauture\Users\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Users/StoreTest.php" method="aAuthenticatedCanStoreAUser" scope="Method" />
+    <configuration name="StoreTest.aAuthenticatedCannotStoreAProduct (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Api\Products\StoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php" method="aAuthenticatedCannotStoreAProduct" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="StoreTest.aAuthenticatedCannotStoreAProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -229,11 +377,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.StoreTest.aAuthenticatedCannotStoreAProduct" />
-        <item itemvalue="PHPUnit.Products" />
-        <item itemvalue="PHPUnit.StoreTest" />
-        <item itemvalue="PHPUnit.StoreTest.aAuthenticatedCanStoreAUser" />
         <item itemvalue="PHPUnit.StoreTest.aUserCanNotBeRegisteredIfTheFieldsAreInvalid" />
+        <item itemvalue="PHPUnit.StoreTest (1)" />
+        <item itemvalue="PHPUnit.ImportTest.userCanQueueTheProductImport" />
+        <item itemvalue="PHPUnit.StoreTest.aAuthenticatedCannotStoreAProduct (1)" />
+        <item itemvalue="PHPUnit.StoreTest.aAuthenticatedCannotStoreAProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +414,26 @@
       <workItem from="1599850516361" duration="44945000" />
       <workItem from="1600823615463" duration="26335000" />
       <workItem from="1601160862639" duration="96427000" />
-      <workItem from="1601837704834" duration="7158000" />
+      <workItem from="1601837704834" duration="7748000" />
+      <workItem from="1602508180647" duration="17494000" />
+      <workItem from="1603192465199" duration="10145000" />
+      <workItem from="1603726317593" duration="625000" />
+      <workItem from="1603729925218" duration="30646000" />
+      <workItem from="1604123399764" duration="5163000" />
+      <workItem from="1604170449539" duration="17221000" />
+      <workItem from="1604414584867" duration="15775000" />
+      <workItem from="1604507473766" duration="38338000" />
+      <workItem from="1604892592071" duration="584000" />
+      <workItem from="1604939610859" duration="24246000" />
+      <workItem from="1605293534936" duration="66000" />
+      <workItem from="1605293652259" duration="38581000" />
+      <workItem from="1605577767522" duration="41430000" />
+      <workItem from="1605873245774" duration="17737000" />
+      <workItem from="1606193980552" duration="22774000" />
+      <workItem from="1606315315613" duration="61195000" />
+      <workItem from="1606661839697" duration="17305000" />
+      <workItem from="1607052994018" duration="31296000" />
+      <workItem from="1607203846955" duration="71176000" />
     </task>
     <servers />
   </component>
@@ -286,159 +453,164 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="270" y="19" key="#CLI_Interpreters" timestamp="1597314923290">
+    <state x="309" y="42" key="#Inspections" timestamp="1607276592893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="19" key="#CLI_Interpreters/0.0.1366.728@0.0.1366.728" timestamp="1597314923290" />
-    <state x="521" y="0" width="645" height="728" key="#IndexTest" timestamp="1597939656353">
+    <state x="309" y="42" key="#Inspections/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607276592893" />
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605296130904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="521" y="0" width="645" height="728" key="#IndexTest/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1597939656353" />
-    <state x="397" y="7" key="#PHP" timestamp="1597314926249">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1605296130904" />
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1606854723126">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="397" y="7" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1597314926249" />
-    <state x="555" y="269" key="#PHP_CodeSniffer_Ignored_Files" timestamp="1597939617360">
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606854723126" />
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728@0.0.1366.728" timestamp="1606669968387" />
+    <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606373640844">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="555" y="269" key="#PHP_CodeSniffer_Ignored_Files/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1597939617360" />
-    <state x="367" y="0" width="645" height="728" key="#UserTest" timestamp="1597939590283">
+    <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606373640844" />
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1603413456907">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="367" y="0" width="645" height="728" key="#UserTest/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1597939590283" />
-    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1598641769138">
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603413456907" />
+    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606893860863">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641769138" />
-    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728@0.0.1366.728" timestamp="1597698845597" />
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1600263723788">
+    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606893860863" />
+    <state x="404" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1606768187471" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607286871497">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1600263723788" />
-    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1597691613042">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607286871497" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607146197285" />
+    <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1603761211893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1597691613042" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601866301348">
+    <state x="484" y="238" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1/0.0.1366.728@0.0.1366.728" timestamp="1603761211893" />
+    <state x="459" y="276" key="ComposerInitDialogKey" timestamp="1603212014053">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598655397818" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601866301348" />
-    <state x="367" y="0" width="645" height="728" key="#loginTest.login_displays_the_login_form" timestamp="1597314843654">
+    <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1603212014053" />
+    <state width="1323" height="126" key="GridCell.Tab.0.bottom" timestamp="1607315862530">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="367" y="0" width="645" height="728" key="#loginTest.login_displays_the_login_form/0.0.1366.728@0.0.1366.728" timestamp="1597314843654" />
-    <state x="367" y="0" width="645" height="728" key="#phpunit.xml_(1)" timestamp="1597314927268">
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607052923457" />
+    <state width="1323" height="126" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607315862530" />
+    <state width="1323" height="126" key="GridCell.Tab.0.center" timestamp="1607315862530">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="367" y="0" width="645" height="728" key="#phpunit.xml_(1)/0.0.1366.728@0.0.1366.728" timestamp="1597314927268" />
-    <state x="459" y="276" key="ComposerInitDialogKey" timestamp="1599186124433">
+    <state width="1323" height="244" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607052923457" />
+    <state width="1323" height="126" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607315862530" />
+    <state width="1323" height="126" key="GridCell.Tab.0.left" timestamp="1607315862530">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="459" y="276" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1599186124433" />
-    <state width="1323" height="260" key="GridCell.Tab.0.bottom" timestamp="1601814646129">
+    <state width="1323" height="244" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607052923456" />
+    <state width="1323" height="126" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607315862530" />
+    <state width="1323" height="126" key="GridCell.Tab.0.right" timestamp="1607315862530">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="260" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601814646129" />
-    <state width="1323" height="260" key="GridCell.Tab.0.center" timestamp="1601814646114">
+    <state width="1323" height="244" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607052923457" />
+    <state width="1323" height="126" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607315862530" />
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1606890032526">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="260" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601814646114" />
-    <state width="1323" height="260" key="GridCell.Tab.0.left" timestamp="1601814646104">
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606890032526" />
+    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606592977406" />
+    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1606890032525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="260" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601814646104" />
-    <state width="1323" height="260" key="GridCell.Tab.0.right" timestamp="1601814646114">
+    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606890032525" />
+    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1606592977405" />
+    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1606890032525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="102" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598656334482" />
-    <state width="1323" height="260" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601814646114" />
-    <state width="1323" height="260" key="GridCell.Tab.1.bottom" timestamp="1601814646137">
+    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606890032525" />
+    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1606592977405" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1606890032526">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601814646137" />
-    <state width="1323" height="260" key="GridCell.Tab.1.center" timestamp="1601814646136">
+    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606890032526" />
+    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1606592977406" />
+    <state x="217" y="174" key="NewPhpClassDialog" timestamp="1607066444546">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1601814646136" />
-    <state width="1323" height="260" key="GridCell.Tab.1.left" timestamp="1601814646136">
+    <state x="217" y="174" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607066444546" />
+    <state x="217" y="174" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1606373773138" />
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1607294083267">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1601814646136" />
-    <state width="1323" height="260" key="GridCell.Tab.1.right" timestamp="1601814646137">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="145" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598157434859" />
-    <state width="1323" height="260" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1601814646137" />
-    <state x="444" y="87" key="NewPhpClassDialog" timestamp="1601296918096">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598098563557" />
-    <state x="444" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1601296918096" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1601391269627">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1601391269627" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1598641203166">
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607294083267" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606016119393" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1606276113239">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598641203166" />
-    <state x="415" y="108" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1597939688935">
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606276113239" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607308038050">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="415" y="108" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1597939688935" />
-    <state x="0" y="0" width="585" height="728" key="find.popup" timestamp="1598390872612">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1607176496857" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1607016369114">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1598390872612" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1601766487737">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607016369114" />
+    <state x="0" y="0" width="1054" height="496" key="dock-window-1" timestamp="1606847521721">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1598610518379" />
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1601766487737" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599962548999">
+    <state x="0" y="0" width="1054" height="496" key="dock-window-1/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606847521720" />
+    <state x="390" y="68" width="585" height="592" key="find.popup" timestamp="1607214411008">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599962548999" />
+    <state x="390" y="68" width="585" height="592" key="find.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607214411008" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1607309425694">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1607309425694" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606668493791" />
+    <state x="468" y="28" width="672" height="678" key="search.everywhere.popup" timestamp="1606964876770">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="468" y="28" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1606964876770" />
+    <state x="468" y="28" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606237680698" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/TestCase.php</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/UserController.php</url>
-          <line>96</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/tests/Feature/Users/StoreTest.php</url>
           <line>12</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php</url>
-          <line>76</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php</url>
-          <line>94</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/users/create.blade.php</url>
           <line>79</line>
           <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php</url>
+          <line>135</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Product.php</url>
+          <line>11</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/businessManagement/index.blade.php</url>
+          <line>9</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Imports/ProductUpdateImport.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/tests/Feature/Users/StoreTest.php</url>
@@ -466,6 +638,69 @@
             <option name="methodName" value="aAuthenticatedUserCanSeeTheIndexOfCategories" />
           </properties>
           <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/PaginateTest.php</url>
+          <line>14</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Api\Products\PaginateTest" />
+            <option name="methodName" value="catFetchPaginatedProducts" />
+          </properties>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/IndexTest.php</url>
+          <line>81</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Api\Products\IndexTest" />
+            <option name="methodName" value="itCanSortProductsByNameAsc" />
+          </properties>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php</url>
+          <line>43</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Api\Products\StoreTest" />
+            <option name="methodName" value="nameFieldIsRequired" />
+          </properties>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Api/Products/StoreTest.php</url>
+          <line>118</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Api\Products\StoreTest" />
+            <option name="methodName" value="stockFieldIsRequired" />
+          </properties>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Products/EditTest.php</url>
+          <line>16</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Products\EditTest" />
+            <option name="methodName" value="anNotAuthenticatedUserCannotAccessTheEditPath" />
+          </properties>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Users/UpdateTest.php</url>
+          <line>30</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Users\UpdateTest" />
+            <option name="methodName" value="anAuthenticatedUserCanAccessToUpdateView" />
+          </properties>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/tests/Feature/Import/ImportTest.php</url>
+          <line>18</line>
+          <properties>
+            <option name="className" value="\Tests\Feature\Import\ImportTest" />
+            <option name="methodName" value="userCanQueueTheProductImport" />
+          </properties>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

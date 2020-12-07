@@ -9,18 +9,22 @@ class DatabaseStorageModel extends Model
     protected $table = 'cart_storage';
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
-        'id', 'cart_data',
+        'id',
+        'cart_data',
     ];
 
-    public function setCartDataAttribute($value)
+    /**
+     * @param $value
+     * @return void
+     */
+    public function setCartDataAttribute($value): void
     {
         $this->attributes['cart_data'] = serialize($value);
     }
+
 
     public function getCartDataAttribute($value)
     {

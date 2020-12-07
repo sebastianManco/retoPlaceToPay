@@ -4,42 +4,53 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Order extends Model
 {
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
-        'user_id','status', 'total', 'reference'
+        'user_id',
+        'status',
+        'total',
+        'reference'
     ];
 
-
     /**
-     *
-     *
+     * @return BelongsToMany
      */
-    public function products()
+    public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
     }
 
     /**
-     *
-     * @return belongsTo
+     * @return BelongsTo
      */
-    public function user(): belongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
-
-    public function payment()
+    /**
+     * @return HasOne
+     */
+    public function payment(): HasOne
     {
         return $this->hasOne('App\Payment');
     }
 
+    /**
+     * @param  $query
+     * @param string $dateFrom
+     * @param string $dateTo
+     */
+    public function scopeDateRange($query, $dateFrom, $dateTo)
+    {
+        $query->whereBetween('created_at', [$dateFrom, $dateTo]);
+    }
 }

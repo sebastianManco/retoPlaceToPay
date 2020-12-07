@@ -14,12 +14,13 @@
                         </div>
                     @endif
                     @if(Auth::guest() || Auth::user()->hasRole('user'))
-                        <a href="{{route('products/indexClient')}}"><button type="button" class="btn btn-outline-primary">lista de productos </button></a>
-                            <a href="{{route('orders.index')}}"><button type="button" class="btn btn-outline-primary">Mis compras </button></a>
+                        <a href="{{route('products/indexClient')}}"><button type="button" class="btn btn-outline-primary">@lang('buttons.button.product')</button></a>
+                            <a href="{{route('orders.index')}}"><button type="button" class="btn btn-outline-primary">@lang('buttons.button.shopping')</button></a>
                     @else
-                        <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">lista de usuarios</button></a>
-                        <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-primary">lista de productos</button></a>
-                        <a href="{{route('categories.index')}}"><button type="button" class="btn btn-outline-primary">lista de categorias</button></a>
+                        <a href="{{route('users.index')}}"><button type="button" class="btn btn-outline-primary">@lang('buttons.button.user')</button></a>
+                        <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-primary">@lang('buttons.button.product')</button></a>
+                        <a href="{{route('categories.index')}}"><button type="button" class="btn btn-outline-primary">@lang('buttons.button.categories')</button></a>
+                            <a href="{{route('businessManagement')}}"><button type="button" class="btn btn-outline-primary">@lang('buttons.button.management')</button></a>
                     @endif
                 </div>
             </div>

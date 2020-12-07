@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header"><h2>Mi carrito</h2></div>
+                    <div class="card-header"><h2>@lang('cart.title.cart')</h2></div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -20,12 +20,11 @@
                                         <table class="table table-striped">
                                             <thead>
                                             <tr>
-                                                <th> quitar del carrito</th>
-                                                <th>Imagen</th>
-                                                <th>Nambre del producto</th>
-                                                <th>cantidad</th>
-                                                <th>Modificar cantidad</th>
-                                                <th>precio unitario </th>
+                                                <th>@lang('cart.details.remove')</th>
+                                                <th>@lang('cart.details.name')</th>
+                                                <th>@lang('cart.details.quantity')</th>
+                                                <th>@lang('cart.details.modify')</th>
+                                                <th>@lang('cart.details.unitPrice')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -33,17 +32,15 @@
                                                 <tr>
                                                     <td>
                                                         <a href="{{ route('cart.destroy', $product->id) }}">
-                                                            <button type="button" class="btn btn-outline-danger">Borrar</button>
+                                                            <button type="button" class="btn btn-outline-danger">@lang('buttons.button.destroy')</button>
                                                         </a>
                                                     </td>
-
-                                                    <td><img src="images/{{ $product->image }}" style="width:25%"> </td>
                                                     <td>{{ $product->name }}</td>
                                                     <td> {{ $product->quantity }}</td>
                                                     <td>
                                                         <form class="form-inline" action="{{ route('cart.update', $product->id) }}">
                                                             <input name="quantity" type="number" class="form-control form-control-sm"  value="{{ $product->quantity }}">
-                                                            <button type="submit" class="btn btn-outline-success">Editar</button>
+                                                            <button type="submit" class="btn btn-outline-success">@lang('buttons.button.edit')</button>
                                                         </form>
                                                     </td>
                                                     <td>$ {{number_format ($product->price)}}</td>
@@ -63,23 +60,16 @@
                                         <strong>Total</strong>: ${{number_format(Cart::session(auth()->id())->getSubTotal())}}<br>
                                     <p class="buttons center">
                                     </p>
-
                                     <a href="{{ route('orders.create') }}" class="btn-sm">
                                     <button type="button" class="btn btn-outline-primary">
-                                        Continuar con la compra
+                                        @lang('buttons.button.continue')
                                     </button>
                                     </a>
-
-
                                     <a href="{{ route('products/indexClient') }}" class="btn-sm">
                                         <button type="button" class="btn btn-outline-danger">
-                                            volver a la tienda
+                                            @lang('buttons.button.goTo')
                                         </button>
                                     </a>
-
-
-
-
                                 </div>
                             </div>
                         </section>

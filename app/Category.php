@@ -9,10 +9,29 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
+    public $type = 'categories';
 
     protected $fillable = [
         'id', 'name'
     ];
+
+
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
+
+    /**
+     * @return array
+     */
+    public function fields(): array
+    {
+        return [
+            'name' => $this->name
+        ];
+    }
 
     /**
      * Undocumented function
@@ -21,12 +40,11 @@ class Category extends Model
      */
     public function product(): hasMany
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 
     /**
-     * Undocumented function
-     * @return
+     * @return mixed
      */
     public function getCachedCategories()
     {
@@ -38,5 +56,13 @@ class Category extends Model
                 return $this->all();
             }
         );
+    }
+
+    /**
+     * @return void
+     */
+    public static function flushCache(): void
+    {
+        Cache::forget('categories');
     }
 }

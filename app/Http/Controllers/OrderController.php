@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Payment;
 use Illuminate\View\View;
-
 
 class OrderController extends Controller
 {
@@ -20,24 +20,26 @@ class OrderController extends Controller
     }
 
     /**
-
+     * esta funcion me dirije a la vista del historial de ordenes
      *  @return View
      */
-    public function index():view
+    public function index(): View
     {
-        $order = Order::where('user_id', '=', auth()->id())->get();
+        $payments = Payment::with([ 'order' =>
+            function ($query) {
+                $query->where('user_id', '=', auth()->id());
+            }])->get();
 
-        return view('Payment.HistoryOrders',  ['orders' => $order]);
+        return view('Payment.HistoryOrders', ['payments' => $payments]);
     }
 
     /**
      *  @return View
      */
-    public function create(): view
+    public function create(): View
     {
         $cartProducts = \Cart::session(auth()->id())->getContent();
 
         return view('Orders.index', compact('cartProducts'));
     }
-
 }

@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Products;
 
+use App\Category;
+use App\Product;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -27,17 +29,13 @@ class StoreTest extends TestCase
     public function aAuthenticatedCannotStoreAProduct()
     {
         $this->withoutExceptionHandling();
+
         $user = factory(User::class)->create();
+        factory(Category::class)->create();
+        $product = factory(Product::class)->make()->toArray();
 
         $response = $this->actingAs($user)
-            ->get(route('products.store'), [
-                'name' => 'Redmi note 8',
-                'description' => 'Esta es la descripcion del celular',
-                'price' => '850000',
-                'stock' => '10'
-                ]);
-
-            $response->assertRedirect('/products');
+            ->post(route('products.store'), $product)->dump();
 
             $this->assertCredentials([
                 'name' => 'Redmi note 8',

@@ -1,13 +1,17 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchRequest;
 use App\Product;
 use App\Category;
 use App\Image;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\ProductCreateRequest;
 use App\Http\Requests\ProductEditRequest;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProductController extends Controller
 {
@@ -21,131 +25,119 @@ class ProductController extends Controller
 
     /**
      * @param SearchRequest $request
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function index(SearchRequest $request): \Illuminate\View\View
+    public function index(SearchRequest $request): View
     {
+        $request->user()->authorizeRoles('admin');
 
         $category = $request->get('type');
-        $search= $request->get('search');
-        $query = Product::with(
-            ['image' => function ($query) {
-                $query->select('id', 'name', 'product_id');
-            },
-            'category' => function ($query) {
-                $query->select('id', 'name');
-            }
-            ]
-        );
-        switch ($category) {
-            case 'name':
-                $query->name($search);
-                break;
-            default:
-                $query->category($search);
-                break;
-        }
-        $products = $query->paginate(3, ['id','name']);
+        $search = $request->get('search');
+
+        $products = (new Product())->searchProducts($category, $search);
 
         return view('products.index', ['products' => $products, 'search' => $products]);
     }
 
     /**
     * Undocumented function
-    * @return \Illuminate\View\View
+    * @return View
     */
-    public function create() : \Illuminate\View\View
+    public function create(): View
     {
         return view('products.create', ['product' => new Product()]);
     }
 
     /**
      * @param ProductCreateRequest $request
-     * @param Product $products
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Product $product
+     * @return RedirectResponse
      */
-    public function store(ProductCreateRequest $request, Product $products): \Illuminate\Http\RedirectResponse
+    public function store(ProductCreateRequest $request): RedirectResponse
     {
-        $products->name = $request->input('name');
-        $products->description = $request->input('description');
-        $products->price = $request->input('price');
-        $products->category_id = $request->input('category_id');
-        $products->stock = $request->input('stock');
-        $products->save();
+        $this->storeUpdate($request, new product());
 
-        if ($request->hasFile('image')) {
-            $images = new Image();
-            $image = $request->file('image')->store('Images');
-            $images->name = $image;
-            $images->product_id = $products->id;
-            $products->image()->save($images);
-        }
         return redirect('/products');
     }
 
     /**
      * Display the specified resource.
      * @param  int  $id
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function show(int $id): \Illuminate\View\View
+    public function show(int $id): View
     {
         app()->setLocale('en');
+
         $product = Product::with(
-            ['image'=> function ($query) {
-                $query->select('id', 'name', 'product_id');
-            }
+            [
+                'image' => function ($query) {
+                    $query->select('id', 'name', 'product_id');
+                },
+                'category' =>  function ($query) {
+                    $query->select('id', 'name');
+                }
             ]
-        )
-            ->find($id);
-        return view('products.details', compact('product'));
+        )->findOrFail($id);
+
+
+        return view('products.details', ['product' => $product]);
     }
 
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
-     * @return  \Illuminate\View\View
+     * @return  View
      */
-    public function edit(int $id): \Illuminate\View\View
+    public function edit(int $id): View
     {
-        $product = Product::find($id);
-        $images = Image::find($id);
+        $product = Product::findOrFail($id);
 
-        $categories = Cache::remember(
-            'categories',
-            now()
-            ->addDay(),
-            function () {
-                return Category::all();
-            }
-        );
-        return view('products.edit', compact('product'), compact('categories'));
+        $categories = (new Category())->getCachedCategories();
+        return view('products.edit', [
+            'categories' => $categories,
+            'product' => $product,
+
+        ]);
     }
 
     /**
-     * Undocumented function
-     * @param int $id
      * @param ProductEditRequest $request
-     * @return \Illuminate\Routing\Redirector
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function update(ProductEditRequest $request, int $id)
+    public function update(productEditRequest $request, int $id): RedirectResponse
     {
-        $products = Product::find($id);
-        $products->name = $request->input('name');
-        $products->description = $request->input('description');
-        $products->price = $request->input('price');
-        $products->category_id = $request->input('category_id');
-        $products->stock = $request->input('stock');
-        $products->active = (!request()->has('active') == '1' ? '0' : '1');
-        $products->save();
-        foreach ($products->image as $images) {
-            if ($request->hasFile('image')) {
-                $image = $request->file('image')->store('public');
-                $images->name = $image;
-                $images->save();
-            }
-        }
+        $product = Product::findOrFail($id);
+
+        $this->storeUpdate($request, $product);
+
         return redirect(route('products.index')) ;
     }
 
+
+    /**
+     * @param Request $request
+     * @param Product $product
+     * @return Product
+     */
+    private function storeUpdate(Request $request, Product $product): Product
+    {
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->category_id = $request->input('category_id');
+        $product->stock = $request->input('stock');
+        $product->active = (!request()->has('active') == '1' ? '0' : '1');
+        $product->save();
+
+        if ($request->hasFile('image')) {
+            $images = new Image();
+            $image = $request->file('image')->store('Images');
+            $images->name = $image;
+            $images->product_id = $product->id;
+            $product->image()->save($images);
+        }
+        return $product;
+    }
 }

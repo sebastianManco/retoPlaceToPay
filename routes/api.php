@@ -1,5 +1,6 @@
-<?php
+    <?php
 
+use App\Http\Controllers\Api\ProductApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::as('api.')->group(function(){
+    Route::apiResource('products', 'Api\ProductApiController')->only('index', 'show', 'store', 'update');
+    Route::apiResource('categories', 'Api\CategoryApiController')->only('index', 'show', 'store');
 });
+
+

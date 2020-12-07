@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Payment;
+use App\Product;
 use App\User;
 use App\Order;
 use GuzzleHttp\Client;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
+use App\Classes\PlaceTopay;
 
 class CheckoutController extends Controller
 {
@@ -24,13 +30,13 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @param Request $request
+     * @throws \Exception
      */
     public function index(Order $order, Request $request)
     {
-
+        $ordersProducts = Product::where('id', $request->input(['name']))->first();
         $user = User::find(auth()->id());
         $order->total = $request->input('total');
         $order->reference = $user->id . Str::random(10);
@@ -38,52 +44,12 @@ class CheckoutController extends Controller
         $order->save();
         $user->orders()->save($order);
 
-        /*orden del cliente, y la vas a identificar con la referencia del pedido*/
-        //$cartProduct = \Cart::session(auth()->id())->getContent();
+        $order->products()->attach($ordersProducts);
 
+        $response = $this->placeToPay('create', $order);
 
-        $seed = date('c');
-        if (function_exists('random_bytes')) {
-            $nonce = bin2hex(random_bytes(16));
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $nonce = bin2hex(openssl_random_pseudo_bytes(16));
-        } else {
-            $nonce = mt_rand();
-        }
-
-        $nonceBase64 = base64_encode($nonce);
-        $login = config('placeToPay.login');
-        $secretKey = config('placeToPay.secretKey');
-        $tranKey = base64_encode(sha1($nonce . $seed . $secretKey, true));
-        $expiration = date('c', strtotime('+2 days'));
-        $client = new Client();
-        $res = $client->post('https://test.placetopay.com/redirection/api/session/',
-            [
-                'json' => [
-                    'auth' => [
-                        'login' => $login,
-                        'seed' => $seed,
-                        'nonce' => $nonceBase64,
-                        'tranKey' => $tranKey
-                    ],
-                    'payment' => [
-                        'reference' => $order->reference,
-
-                        'description' => 'prueba pago',
-                        'amount' => [
-                            'currency' => 'COP',
-                            'total' => $order->total,
-                        ]
-                    ],
-                    'expiration' => $expiration,
-                    'returnUrl' => route('response.placeToPay', $order->reference),
-                    'ipAddress' => request()->getClientIp(),
-                    'userAgent' => request()->header('User-Agent')]
-            ]);
-        $response = json_decode($res->getBody()->getContents());
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
-
 
         Payment::Create([
             'order_id' => $order->id,
@@ -91,115 +57,31 @@ class CheckoutController extends Controller
             'processUrl' => $processUrl,
             'status' => 'iniciado',
         ]);
-
         redirect()->away($processUrl)->send();
-
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param $reference
-     * @return void
+     * @param string $reference
+     * @param Order $order
+     * @return View
      */
-
-    public function getRequestInformation(Request $request, string $reference)
+    public function getRequestInformation(string $reference): View
     {
         $order = Order::where('reference', $reference)->get()->first();
-        $requestId = Payment::where('order_id', $order->id)->get()->first()->requestId;
 
-        $seed = date('c');
-        if (function_exists('random_bytes')) {
-            $nonce = bin2hex(random_bytes(16));
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $nonce = bin2hex(openssl_random_pseudo_bytes(16));
-        } else {
-            $nonce = mt_rand();
-        }
-
-        $nonceBase64 = base64_encode($nonce);
-        $login = config('placeToPay.login');
-        $secretKey = config('placeToPay.secretKey');
-        $tranKey = base64_encode(sha1($nonce . $seed . $secretKey, true));
-        $client = new Client();
-        $res = $client->post('https://test.placetopay.com/redirection/api/session/' . $requestId,
-            [
-                'json' => [
-                    'auth' => [
-                        'login' => $login,
-                        'seed' => $seed,
-                        'nonce' => $nonceBase64,
-                        'tranKey' => $tranKey
-                    ],
-
-                ],
-            ]);
-
-        $response = json_decode($res->getBody()->getContents());
-        //dd($response);
-
-        $updatePayment = Payment::where('order_id', $order->id)->get()->first();
-        $updatePayment->status = $response->status->status;
-        $updatePayment->save();
-
+        $response = $this->updatePayment($order);
 
         return view('Payment.ResponsePlaceToPay', ['response' => $response]);
-
-
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param int $id
-     * @return void
-     * @throws \Exception
+     * @param Order $order
      */
-
-    public function RetryPaiment(int $id)
+    public function retryPayment(int $id )
     {
-        $order = Order::find($id);
+        $order = Order::findOrFail($id);
 
-        $seed = date('c');
-        if (function_exists('random_bytes')) {
-            $nonce = bin2hex(random_bytes(16));
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $nonce = bin2hex(openssl_random_pseudo_bytes(16));
-        } else {
-            $nonce = mt_rand();
-        }
-
-        $nonceBase64 = base64_encode($nonce);
-        $login = config('placeToPay.login');
-        $secretKey = config('placeToPay.secretKey');
-        $tranKey = base64_encode(sha1($nonce . $seed . $secretKey, true));
-        $expiration = date('c', strtotime('+2 days'));
-        $client = new Client();
-        $res = $client->post('https://test.placetopay.com/redirection/api/session/',
-            [
-                'json' => [
-                    'auth' => [
-                        'login' => $login,
-                        'seed' => $seed,
-                        'nonce' => $nonceBase64,
-                        'tranKey' => $tranKey
-                    ],
-                    'payment' => [
-                        'reference' => $order->reference,
-
-                        'description' => 'prueba pago',
-                        'amount' => [
-                            'currency' => 'COP',
-                            'total' => $order->total,
-                        ]
-                    ],
-                    'expiration' => $expiration,
-                    'returnUrl' => route('retry.placeToPay', $order->reference),
-                    'ipAddress' => request()->getClientIp(),
-                    'userAgent' => request()->header('User-Agent')]
-            ]);
-        $response = json_decode($res->getBody()->getContents());
+        $response = $this->placeToPay('create', $order);
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
 
@@ -215,12 +97,12 @@ class CheckoutController extends Controller
         redirect()->away($processUrl)->send();
     }
 
-
-    public function updateRetry(Request $request, $reference)
+    /**
+     * @return array
+     * @throws \Exception
+     */
+    public function authenticationPlaceToPay(): array
     {
-        $order = Order::where('reference', $reference)->get()->first();
-        $requestId = Payment::where('order_id', $order->id)->get()->first()->requestId;
-
         $seed = date('c');
         if (function_exists('random_bytes')) {
             $nonce = bin2hex(random_bytes(16));
@@ -234,31 +116,80 @@ class CheckoutController extends Controller
         $login = config('placeToPay.login');
         $secretKey = config('placeToPay.secretKey');
         $tranKey = base64_encode(sha1($nonce . $seed . $secretKey, true));
+        return [
+            'login'   => $login,
+            'seed'    => $seed,
+            'nonce'   => $nonceBase64,
+            'tranKey' => $tranKey
+        ];
+    }
+
+    public function placeToPay($requestType, $order)
+    {
         $client = new Client();
-        $res = $client->post('https://test.placetopay.com/redirection/api/session/' . $requestId,
-            [
-                'json' => [
-                    'auth' => [
-                        'login' => $login,
-                        'seed' => $seed,
-                        'nonce' => $nonceBase64,
-                        'tranKey' => $tranKey
-                    ],
+        $request = [
+            'auth' => $this->authenticationPlaceToPay(),
+            'payment' => [
+                'reference' => $order->reference,
+                'description' => 'prueba pago',
+                'amount' => [
+                    'currency' => 'COP',
+                    'total' => $order->total,
+                ]
+            ],
+            'expiration' => date('c', strtotime('+2 days')),
+            'returnUrl' => route('response.placeToPay', $order->reference),
+            'ipAddress' => request()->getClientIp(),
+            'userAgent' => request()->header('User-Agent'),
 
-                ],
-            ]);
+        ];
+        switch ($requestType) {
+            case 'create':
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/',
+                    ['json' => $request]
+                );
+                return json_decode($res->getBody()->getContents());
+                break;
+            case 'getRequestInformation':
+                $requestId = $order->payment->requestId;
+                $request['auth'];
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/' . $requestId,
+                    ['json' => $request]
+                );
+                return json_decode($res->getBody()->getContents());
+                break;
+            case 'reverse':
+                $requestReverse = ['auth' => $this->authenticationPlaceToPay(),
+                    'internalReference' => $order->payment->internalReference
+                ];
 
-        $response = json_decode($res->getBody()->getContents());
+                $res = $client->post(
+                    'https://test.placetopay.com/redirection/api/session/',
+                    ['json' => $requestReverse]
+                );
+                return json_decode($res->getBody()->getContents());
+                break;
+            default:
+        }
+    }
 
+    /**
+     * @param Order $order
+     * @return mixed
+     */
+    public function updatePayment(Order $order)
+    {
+        $response = $this->placeToPay('getRequestInformation', $order);
         $updatePayment = Payment::where('order_id', $order->id)->get()->first();
+        if ($response->status->status != 'PENDING') {
+            dd($response);
+            $updatePayment->internalReference = $response->payment[0]->internalReference;
+        }
         $updatePayment->status = $response->status->status;
         $updatePayment->save();
 
-
-        return view('Payment.ResponsePlaceToPay', ['response' => $response]);
-
-
+        return $response;
     }
 }
-
-

@@ -23,12 +23,12 @@ class ProductCreateRequest extends FormRequest
      */
     public function rules()
     {
-       return [
+        return [
            'name' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:100',
             'category_id' => 'required',
-            'price' => 'required||numeric|min:1', //|regex:/^\d{1,3}(?:\.\d\d\d)*(?:\.\d\d\d)*(?:,\d{1,2})?$/
-            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'price' => 'required||numeric|min:1',
+            'image' => 'required|mimes:jpeg,png,jpg',
             'stock' => 'required|numeric|min:1'
         ];
     }
@@ -37,8 +37,8 @@ class ProductCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'Ell :attribute es obligatorio.',
-            'name.max' => 'el :attribute es demaciado largo.', 
-            
+            'name.max' => 'el :attribute es demaciado largo.',
+
             'description.required' => 'La :attribute es obligatoria.',
             'description.max' => 'La :attribute es demaciado larga',
 
@@ -52,8 +52,8 @@ class ProductCreateRequest extends FormRequest
 
             'stock.required' => 'El :attribute es obligatorio.',
             'stock.numeric' => 'La :attribute de ser sólo numeros.'
-            
-            
+
+
         ];
     }
 

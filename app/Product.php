@@ -2,20 +2,54 @@
 
 namespace App;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
+    public $allowedSorts = ['name'];
+    public $type = 'products';
        /**
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'price', 'active', 'stock'
+        'category_id',
+        'name',
+        'description',
+        'price',
+        'active',
+        'stock',
+        'created_at'
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'id' => 'string',
+        'stock' => 'string',
+        'price' => 'string'
+        ];
+
+    /**
+     * @return array
+     */
+    public function fields(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'category' => $this->category->name,
+            'price' =>  $this->price,
+            'stock' => $this->stock
+        ];
+    }
 
     /**
     *
@@ -23,7 +57,7 @@ class Product extends Model
     */
     public function category(): belongsTo
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -32,23 +66,18 @@ class Product extends Model
      */
     public function image(): hasMany
     {
-        return $this->hasMany('App\Image');
+        return $this->hasMany(Image::class);
     }
 
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function orders(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function orders()
     {
         return $this->belongsToMany(Order::class);
     }
 
     /**
-     *
-     * @param string $query
+     * @param $query
      * @param string $search
-     * @return
+     * @return mixed
      */
     public function scopeName($query, $search)
     {
@@ -59,7 +88,7 @@ class Product extends Model
 
     /**
      * @param $query
-     * @param $search
+     * @param string $search
      */
     public function scopeCategory($query, $search)
     {
@@ -84,9 +113,35 @@ class Product extends Model
      * @param $query
      * @return mixed
      */
-   public function scopeStock($query)
+    public function scopeStock($query)
     {
         return $query->where('stock', '>', 0);
     }
 
+    /**
+     * @param string $category
+     * @param string $search
+     * @return LengthAwarePaginator
+     */
+    public function searchProducts($category, $search): LengthAwarePaginator
+    {
+        $query = Product::with(
+            ['image' => function ($query) {
+                $query->select('id', 'name', 'product_id');
+            },
+                'category' => function ($query) {
+                    $query->select('id', 'name');
+                }
+            ]
+        );
+        switch ($category) {
+            case 'name':
+                $query->name($search);
+                break;
+            default:
+                $query->category($search);
+                break;
+        }
+        return $query->paginate(10, ['id','name']);
+    }
 }
