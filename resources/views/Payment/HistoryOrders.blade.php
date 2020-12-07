@@ -29,7 +29,7 @@
                                     <td>{{ $payment->order['total'] }}</td>
                                     <td>{{ $payment->status }}</td>
                                     <td>
-                                        <a href="{{route('reintentar', $payment->order['id'])}}">
+                                        <a href="{{route('reintentar', $payment->order->id)}}">
                                             @if($payment->status =='PENDING' || $payment->status =='REJECTED'|| $payment->status =='iniciado')
                                                 <button type="button" class="btn btn-outline-info">@lang('buttons.button.retry')</button>
                                                 @endif

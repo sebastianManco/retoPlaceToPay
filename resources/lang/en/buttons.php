@@ -17,9 +17,13 @@ return [
         'back' => 'Back to cart',
         'pay' => ' Pay with PlaceToPay',
         'continue' => 'continue with the purchase',
-        'destroy' => 'destroy'
-
-
+        'destroy' => 'destroy',
+        'user' => 'Users list',
+        'product' => 'List of products',
+        'categories' => 'List of categories',
+        'management'=> 'Management of my business',
+        'shopping' => 'my shopping',
+        'logIn' => 'Log in'
     ],
 
 

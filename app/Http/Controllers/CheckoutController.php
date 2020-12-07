@@ -77,8 +77,10 @@ class CheckoutController extends Controller
     /**
      * @param Order $order
      */
-    public function retryPayment(Order $order)
+    public function retryPayment(int $id )
     {
+        $order = Order::findOrFail($id);
+
         $response = $this->placeToPay('create', $order);
         $requestId = $response->requestId;
         $processUrl = $response->processUrl;
@@ -182,6 +184,7 @@ class CheckoutController extends Controller
         $response = $this->placeToPay('getRequestInformation', $order);
         $updatePayment = Payment::where('order_id', $order->id)->get()->first();
         if ($response->status->status != 'PENDING') {
+            dd($response);
             $updatePayment->internalReference = $response->payment[0]->internalReference;
         }
         $updatePayment->status = $response->status->status;

@@ -17,9 +17,13 @@ return [
         'back' => 'Salir del carrito',
         'pay' => ' Pagar con PlaceToPay',
         'continue' => 'continuar con la compra',
-        'destroy' => 'borrar'
-
-
+        'destroy' => 'borrar',
+        'user' => 'lista de usuarios',
+        'product' => 'Lista de productos',
+        'categories' => 'Lista de categorias',
+        'management'=> 'Gestion de mi negocio',
+        'shopping' => 'Mis compras',
+        'logIn' => 'Iniciar sesion'
     ],
 
 
