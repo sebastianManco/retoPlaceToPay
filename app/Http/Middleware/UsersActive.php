@@ -2,19 +2,18 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
 class UsersActive
 {
     /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
+     * @param $request
+     * @param Closure $next
+     * @return RedirectResponse
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next): RedirectResponse
     {
         if ($request->user()->estado == 1) {
             return $next($request);

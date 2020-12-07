@@ -26,7 +26,7 @@ class ApiProductRequest extends FormRequest
         return [
             'name' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:100',
-            'category_id' => 'required',
+            'category_id' => 'required|exist',
             'price' => 'required||numeric|min:1',
             'stock' => 'required|numeric|min:1'
         ];

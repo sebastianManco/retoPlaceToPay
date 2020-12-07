@@ -13,7 +13,7 @@ use Tests\TestCase;
 class StoreTest extends TestCase
 {
     use RefreshDatabase;
-    //use WithoutMiddleware;
+    use WithoutMiddleware;
 
     /** @test */
     public function aNotAuthenticatedCannotStoreAUser()
@@ -79,9 +79,9 @@ class StoreTest extends TestCase
      * @test
      * @param string $field
      * @param null $value
-     * @dataProvider
+     * @dataProvider userDataProvider
      */
-    public function aUserCanNotBeRegisteredIfTheFieldsAreInvalid(string $field, $value = null)
+    public function aUserCanNotBeRegisteredIfTheFieldsAreInvalid($field, $value = null)
     {
         $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
